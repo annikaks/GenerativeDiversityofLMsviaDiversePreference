@@ -42,8 +42,8 @@ DEFAULT_MAX_TOKENS = 1100
 MODEL_SPECS = [
     {"display_name": "gemini-3-flash-preview", "provider": "gemini", "api_model": "gemini-3-flash-preview", "thinking": "non_reasoning"},
     {"display_name": "gemini-3-pro-preview", "provider": "gemini", "api_model": "gemini-3-pro-preview", "thinking": "reasoning"},
-    {"display_name": "GPT-5.2 pro (reasoning low)", "provider": "openai", "api_model": "GPT-5.2 pro", "thinking": "non_reasoning"},
-    {"display_name": "GPT-5.2 pro (reasoning high)", "provider": "openai", "api_model": "GPT-5.2 pro", "thinking": "reasoning"},
+    {"display_name": "GPT-5.2 pro (reasoning low)", "provider": "openai", "api_model": "gpt-5.2", "thinking": "non_reasoning"},
+    {"display_name": "GPT-5.2 pro (reasoning high)", "provider": "openai", "api_model": "gpt-5.2", "thinking": "reasoning"},
     {"display_name": "claude-opus-4-6 (thinking disabled)", "provider": "anthropic", "api_model": "claude-opus-4-6", "thinking": "non_reasoning"},
     {"display_name": "claude-opus-4-6 (thinking enabled)", "provider": "anthropic", "api_model": "claude-opus-4-6", "thinking": "reasoning"},
     {"display_name": "grok-4-1-fast-non-reasoning", "provider": "xai", "api_model": "grok-4-1-fast-non-reasoning", "thinking": "non_reasoning"},
@@ -209,14 +209,31 @@ class ModelClient:
         # For GPT-5.2 pro variants, switch reasoning effort high vs low.
         body["reasoning"] = {"effort": "high" if is_reasoning else "low"}
 
-        result = self.http.post_json(
-            url="https://api.openai.com/v1/responses",
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-            },
-            body=body,
-        )
+        # Some OpenAI models (e.g., GPT-5 family) reject sampling params such as top_p.
+        # Retry once by removing the specific unsupported parameter reported by the API.
+        for _ in range(2):
+            try:
+                result = self.http.post_json(
+                    url="https://api.openai.com/v1/responses",
+                    headers={
+                        "Authorization": f"Bearer {api_key}",
+                        "Content-Type": "application/json",
+                    },
+                    body=body,
+                )
+                break
+            except RuntimeError as e:
+                msg = str(e)
+                match = re.search(r"Unsupported parameter: '([^']+)'", msg)
+                if not match:
+                    raise
+                unsupported = match.group(1)
+                if unsupported not in body:
+                    raise
+                del body[unsupported]
+        else:
+            raise RuntimeError("OpenAI request failed after removing unsupported parameters")
+
         text = parse_openai_response_text(result.data)
         return text, result.data
 
