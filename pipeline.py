@@ -9,6 +9,7 @@ This script supports:
 
 import argparse
 import concurrent.futures
+import hashlib
 import json
 import math
 import os
@@ -31,6 +32,7 @@ OUTPUT_DIR = Path("outputs")
 GEN_DIR = OUTPUT_DIR / "generations"
 ANALYSIS_DIR = OUTPUT_DIR / "analysis"
 JUDGE_DIR = OUTPUT_DIR / "judge"
+EMBED_DIR = OUTPUT_DIR / "embeddings"
 
 PROMPT_IDS_REQUESTED = list(range(27, 34))  # inclusive range 27..33
 NUM_SAMPLES_PER_PROMPT = 8
@@ -543,20 +545,54 @@ def fetch_openai_embeddings(texts: List[str], model: str) -> List[List[float]]:
     return vectors
 
 
+def text_hash(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def load_embedding_cache(cache_path: Path, embedding_model: str) -> Dict[str, Any]:
+    if not cache_path.exists():
+        return {"embedding_model": embedding_model, "entries": {}}
+    with cache_path.open("r", encoding="utf-8") as f:
+        doc = json.load(f)
+    if doc.get("embedding_model") != embedding_model:
+        # Model changed, so start a fresh cache for correctness.
+        return {"embedding_model": embedding_model, "entries": {}}
+    if "entries" not in doc:
+        doc["entries"] = {}
+    return doc
+
+
+def save_embedding_cache(cache_path: Path, cache_doc: Dict[str, Any]) -> None:
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    with cache_path.open("w", encoding="utf-8") as f:
+        json.dump(cache_doc, f, ensure_ascii=False, indent=2)
+
+
+def save_json(path: Path, doc: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(doc, f, ensure_ascii=False, indent=2)
+
+
+def cosine_distance_to_centroid(vectors: List[np.ndarray]) -> List[float]:
+    centroid = np.mean(np.stack(vectors, axis=0), axis=0)
+    return [cosine_distance(v, centroid) for v in vectors]
+
+
 def analyze_embeddings(args: argparse.Namespace) -> None:
     load_dotenv()
     ANALYSIS_DIR.mkdir(parents=True, exist_ok=True)
+    EMBED_DIR.mkdir(parents=True, exist_ok=True)
 
     model_files = sorted(GEN_DIR.glob("*.json"))
     if not model_files:
         raise RuntimeError("No generation files found under outputs/generations")
 
-    report: Dict[str, Any] = {
+    index_summary: Dict[str, Any] = {
         "created_at_utc": utc_now(),
         "embedding_model": args.embedding_model,
-        "grouping": "model + prompt_id + seed_modifier_index",
-        "groups": [],
-        "by_model": {},
+        "grouping": "prompt_id + seed_modifier_index",
+        "per_model_files": [],
     }
 
     for model_file in model_files:
@@ -564,6 +600,11 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
             doc = json.load(f)
 
         model_name = doc["model"]["display_name"]
+        model_slug = model_file.stem
+        cache_path = EMBED_DIR / f"{model_slug}_embeddings.json"
+        metrics_path = ANALYSIS_DIR / f"{model_slug}_embedding_metrics.json"
+        cache_doc = load_embedding_cache(cache_path, args.embedding_model)
+
         # Group records that are valid generations.
         grouped: Dict[str, List[Dict[str, Any]]] = {}
         for rec in doc.get("records", []):
@@ -575,14 +616,52 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
             key = f"{rec['prompt_id']}::{rec['seed_modifier_index']}"
             grouped.setdefault(key, []).append(rec)
 
-        model_group_means: List[float] = []
+        model_report: Dict[str, Any] = {
+            "created_at_utc": utc_now(),
+            "source_generation_file": str(model_file),
+            "embedding_cache_file": str(cache_path),
+            "embedding_model": args.embedding_model,
+            "model": doc.get("model", {}),
+            "grouping": "prompt_id + seed_modifier_index",
+            "groups": [],
+            "summary": {},
+        }
+        avg_to_center_values: List[float] = []
+        max_pair_values: List[float] = []
+
         for key, records in grouped.items():
             if len(records) < 2:
                 continue
 
-            texts = [r["response_text"] for r in records]
-            embeds = fetch_openai_embeddings(texts, args.embedding_model)
-            arrs = [np.array(v, dtype=np.float64) for v in embeds]
+            # Stable ordering for reproducible pair ids and metrics.
+            records = sorted(records, key=lambda r: r["sample_index"])
+
+            # Fetch cached embeddings when possible; only call API for misses.
+            pending_texts: List[str] = []
+            pending_record_ids: List[str] = []
+            vectors_by_record: Dict[str, List[float]] = {}
+            for rec in records:
+                rid = rec["record_id"]
+                txt = rec["response_text"]
+                th = text_hash(txt)
+                cached = cache_doc["entries"].get(rid)
+                if cached and cached.get("text_hash") == th:
+                    vectors_by_record[rid] = cached["embedding"]
+                else:
+                    pending_record_ids.append(rid)
+                    pending_texts.append(txt)
+
+            if pending_texts:
+                new_vectors = fetch_openai_embeddings(pending_texts, args.embedding_model)
+                for rid, txt, vec in zip(pending_record_ids, pending_texts, new_vectors):
+                    vectors_by_record[rid] = vec
+                    cache_doc["entries"][rid] = {
+                        "text_hash": text_hash(txt),
+                        "embedding": vec,
+                    }
+                save_embedding_cache(cache_path, cache_doc)
+
+            arrs = [np.array(vectors_by_record[r["record_id"]], dtype=np.float64) for r in records]
 
             pairs: List[Tuple[int, int, float]] = []
             for i in range(len(arrs)):
@@ -594,59 +673,268 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
             if not dists:
                 continue
 
-            mean_dist = float(np.mean(dists))
-            std_dist = float(np.std(dists))
-            min_pair = min(pairs, key=lambda x: x[2])
             max_pair = max(pairs, key=lambda x: x[2])
-            model_group_means.append(mean_dist)
+            center_dists = cosine_distance_to_centroid(arrs)
+            avg_dist_to_center = float(np.mean(center_dists))
+            max_pair_distance = float(max_pair[2])
+            avg_to_center_values.append(avg_dist_to_center)
+            max_pair_values.append(max_pair_distance)
 
             prompt_id, modifier_idx = key.split("::")
-            report["groups"].append(
+            model_report["groups"].append(
                 {
-                    "model": model_name,
                     "prompt_id": int(prompt_id),
                     "seed_modifier_index": int(modifier_idx),
                     "num_samples": len(records),
-                    "pairwise_count": len(dists),
-                    "mean_cosine_distance": mean_dist,
-                    "std_cosine_distance": std_dist,
-                    "min_cosine_distance": float(min(dists)),
-                    "max_cosine_distance": float(max(dists)),
-                    "least_diverse_pair": {
-                        "sample_index_a": records[min_pair[0]]["sample_index"],
-                        "sample_index_b": records[min_pair[1]]["sample_index"],
-                        "distance": min_pair[2],
-                    },
-                    "most_diverse_pair": {
+                    "distance_metric": "cosine_distance",
+                    "max_pairwise_cosine_distance": max_pair_distance,
+                    "average_cosine_distance_to_centroid": avg_dist_to_center,
+                    "furthest_pair": {
                         "sample_index_a": records[max_pair[0]]["sample_index"],
                         "sample_index_b": records[max_pair[1]]["sample_index"],
-                        "distance": max_pair[2],
+                        "record_id_a": records[max_pair[0]]["record_id"],
+                        "record_id_b": records[max_pair[1]]["record_id"],
+                        "distance": max_pair_distance,
                     },
+                    "sample_record_ids": [r["record_id"] for r in records],
                 }
             )
 
-        report["by_model"][model_name] = {
-            "num_groups": len(model_group_means),
-            "mean_group_distance": float(np.mean(model_group_means)) if model_group_means else None,
-            "std_group_distance": float(np.std(model_group_means)) if model_group_means else None,
-            "max_group_distance": float(np.max(model_group_means)) if model_group_means else None,
-            "min_group_distance": float(np.min(model_group_means)) if model_group_means else None,
+        model_report["summary"] = {
+            "model_name": model_name,
+            "num_groups": len(model_report["groups"]),
+            "mean_of_max_pairwise_distance": float(np.mean(max_pair_values)) if max_pair_values else None,
+            "mean_of_avg_distance_to_centroid": float(np.mean(avg_to_center_values)) if avg_to_center_values else None,
+        }
+        with metrics_path.open("w", encoding="utf-8") as f:
+            json.dump(model_report, f, ensure_ascii=False, indent=2)
+        print(f"[saved] {metrics_path}")
+        print(f"[saved] {cache_path}")
+
+        index_summary["per_model_files"].append(
+            {
+                "model_name": model_name,
+                "source_generation_file": str(model_file),
+                "metrics_file": str(metrics_path),
+                "embedding_cache_file": str(cache_path),
+            }
+        )
+
+    out_path = ANALYSIS_DIR / "embedding_metrics_index.json"
+    with out_path.open("w", encoding="utf-8") as f:
+        json.dump(index_summary, f, ensure_ascii=False, indent=2)
+    print(f"[saved] {out_path}")
+
+
+def analyze_baseline_deviation(args: argparse.Namespace) -> None:
+    """Compute baseline deviation metrics using cosine distance to centroid.
+
+    Outputs (per model):
+    - *_baseline_deviation_metrics.json
+    - *_baseline_deviation_details.json
+    """
+    load_dotenv()
+    ANALYSIS_DIR.mkdir(parents=True, exist_ok=True)
+    EMBED_DIR.mkdir(parents=True, exist_ok=True)
+
+    model_files = sorted(GEN_DIR.glob("*.json"))
+    if not model_files:
+        raise RuntimeError("No generation files found under outputs/generations")
+
+    index_doc: Dict[str, Any] = {
+        "created_at_utc": utc_now(),
+        "embedding_model": args.embedding_model,
+        "metric_definition": {
+            "average_deviation": "mean cosine distance from each sample embedding to group centroid",
+            "max_deviation": "max cosine distance from any sample embedding to group centroid",
+        },
+        "per_model_files": [],
+    }
+
+    for model_file in model_files:
+        print(f"[baseline] loading model file: {model_file}")
+        try:
+            with model_file.open("r", encoding="utf-8") as f:
+                gen_doc = json.load(f)
+        except Exception as e:
+            print(f"[baseline][error] failed to load {model_file}: {e}")
+            index_doc["per_model_files"].append(
+                {
+                    "source_generation_file": str(model_file),
+                    "status": "error_loading_generation_file",
+                    "error": str(e),
+                }
+            )
+            save_json(ANALYSIS_DIR / "baseline_deviation_index.json", index_doc)
+            continue
+
+        model_name = gen_doc["model"]["display_name"]
+        model_slug = model_file.stem
+        cache_path = EMBED_DIR / f"{model_slug}_embeddings.json"
+        metrics_path = ANALYSIS_DIR / f"{model_slug}_baseline_deviation_metrics.json"
+        details_path = ANALYSIS_DIR / f"{model_slug}_baseline_deviation_details.json"
+
+        cache_doc = load_embedding_cache(cache_path, args.embedding_model)
+        grouped: Dict[str, List[Dict[str, Any]]] = {}
+        for rec in gen_doc.get("records", []):
+            if rec.get("error") is not None:
+                continue
+            if not rec.get("response_text"):
+                continue
+            key = f"{rec['prompt_id']}::{rec['seed_modifier_index']}"
+            grouped.setdefault(key, []).append(rec)
+
+        metrics_doc: Dict[str, Any] = {
+            "created_at_utc": utc_now(),
+            "source_generation_file": str(model_file),
+            "embedding_cache_file": str(cache_path),
+            "embedding_model": args.embedding_model,
+            "model": gen_doc.get("model", {}),
+            "groups": [],
+            "group_errors": [],
+            "summary": {},
+        }
+        details_doc: Dict[str, Any] = {
+            "created_at_utc": utc_now(),
+            "source_generation_file": str(model_file),
+            "embedding_cache_file": str(cache_path),
+            "embedding_model": args.embedding_model,
+            "model": gen_doc.get("model", {}),
+            "groups": [],
+            "group_errors": [],
         }
 
-    # Rank models by average embedding-space diversity.
-    sortable = [
-        (name, vals["mean_group_distance"])
-        for name, vals in report["by_model"].items()
-        if vals["mean_group_distance"] is not None
-    ]
-    sortable.sort(key=lambda x: x[1], reverse=True)
-    report["ranking_by_mean_group_distance"] = [
-        {"model": name, "mean_group_distance": score} for name, score in sortable
-    ]
+        avg_values: List[float] = []
+        max_values: List[float] = []
+        group_items = sorted(grouped.items(), key=lambda x: x[0])
+        total_groups = len(group_items)
+        print(f"[baseline] model={model_name} groups={total_groups}")
 
-    out_path = ANALYSIS_DIR / "embedding_diversity.json"
-    with out_path.open("w", encoding="utf-8") as f:
-        json.dump(report, f, ensure_ascii=False, indent=2)
+        for idx, (key, records) in enumerate(group_items, start=1):
+            if len(records) < 2:
+                continue
+            try:
+                records = sorted(records, key=lambda r: r["sample_index"])
+                pending_texts: List[str] = []
+                pending_record_ids: List[str] = []
+                vectors_by_record: Dict[str, List[float]] = {}
+
+                for rec in records:
+                    rid = rec["record_id"]
+                    txt = rec["response_text"]
+                    th = text_hash(txt)
+                    cached = cache_doc["entries"].get(rid)
+                    if cached and cached.get("text_hash") == th:
+                        vectors_by_record[rid] = cached["embedding"]
+                    else:
+                        pending_record_ids.append(rid)
+                        pending_texts.append(txt)
+
+                if pending_texts:
+                    print(
+                        f"[baseline] model={model_name} group={idx}/{total_groups} "
+                        f"fetch_embeddings={len(pending_texts)}"
+                    )
+                    new_vectors = fetch_openai_embeddings(pending_texts, args.embedding_model)
+                    for rid, txt, vec in zip(pending_record_ids, pending_texts, new_vectors):
+                        vectors_by_record[rid] = vec
+                        cache_doc["entries"][rid] = {
+                            "text_hash": text_hash(txt),
+                            "embedding": vec,
+                        }
+                    save_embedding_cache(cache_path, cache_doc)
+
+                arrs = [np.array(vectors_by_record[r["record_id"]], dtype=np.float64) for r in records]
+                centroid = np.mean(np.stack(arrs, axis=0), axis=0)
+                deviations = [cosine_distance(v, centroid) for v in arrs]
+                avg_dev = float(np.mean(deviations))
+                max_dev = float(np.max(deviations))
+                max_i = int(np.argmax(deviations))
+
+                avg_values.append(avg_dev)
+                max_values.append(max_dev)
+
+                prompt_id, modifier_idx = key.split("::")
+                metrics_doc["groups"].append(
+                    {
+                        "prompt_id": int(prompt_id),
+                        "seed_modifier_index": int(modifier_idx),
+                        "num_samples": len(records),
+                        "average_cosine_deviation_to_centroid": avg_dev,
+                        "max_cosine_deviation_to_centroid": max_dev,
+                        "max_deviation_record_id": records[max_i]["record_id"],
+                        "max_deviation_sample_index": records[max_i]["sample_index"],
+                        "sample_record_ids": [r["record_id"] for r in records],
+                    }
+                )
+
+                details_doc["groups"].append(
+                    {
+                        "prompt_id": int(prompt_id),
+                        "seed_modifier_index": int(modifier_idx),
+                        "num_samples": len(records),
+                        "centroid_norm": float(np.linalg.norm(centroid)),
+                        "samples": [
+                            {
+                                "record_id": rec["record_id"],
+                                "sample_index": rec["sample_index"],
+                                "cosine_deviation_to_centroid": float(dev),
+                            }
+                            for rec, dev in zip(records, deviations)
+                        ],
+                    }
+                )
+
+                print(
+                    f"[baseline] model={model_name} group={idx}/{total_groups} "
+                    f"ok avg={avg_dev:.4f} max={max_dev:.4f}"
+                )
+            except Exception as e:
+                prompt_id, modifier_idx = key.split("::")
+                err_obj = {
+                    "prompt_id": int(prompt_id),
+                    "seed_modifier_index": int(modifier_idx),
+                    "error": str(e),
+                }
+                metrics_doc["group_errors"].append(err_obj)
+                details_doc["group_errors"].append(err_obj)
+                print(
+                    f"[baseline][error] model={model_name} group={idx}/{total_groups} "
+                    f"prompt={prompt_id} mod={modifier_idx} error={e}"
+                )
+            finally:
+                save_json(metrics_path, metrics_doc)
+                save_json(details_path, details_doc)
+
+        metrics_doc["summary"] = {
+            "model_name": model_name,
+            "num_groups": len(metrics_doc["groups"]),
+            "num_group_errors": len(metrics_doc["group_errors"]),
+            "mean_average_cosine_deviation_to_centroid": float(np.mean(avg_values)) if avg_values else None,
+            "mean_max_cosine_deviation_to_centroid": float(np.mean(max_values)) if max_values else None,
+        }
+        save_json(metrics_path, metrics_doc)
+        save_json(details_path, details_doc)
+        print(f"[saved] {metrics_path}")
+        print(f"[saved] {details_path}")
+        print(f"[saved] {cache_path}")
+
+        index_doc["per_model_files"].append(
+            {
+                "model_name": model_name,
+                "source_generation_file": str(model_file),
+                "metrics_file": str(metrics_path),
+                "details_file": str(details_path),
+                "embedding_cache_file": str(cache_path),
+                "status": "ok",
+                "num_groups": len(metrics_doc["groups"]),
+                "num_group_errors": len(metrics_doc["group_errors"]),
+            }
+        )
+        save_json(ANALYSIS_DIR / "baseline_deviation_index.json", index_doc)
+
+    out_path = ANALYSIS_DIR / "baseline_deviation_index.json"
+    save_json(out_path, index_doc)
     print(f"[saved] {out_path}")
 
 
@@ -743,6 +1031,13 @@ def build_parser() -> argparse.ArgumentParser:
     p_embed = sub.add_parser("analyze-embeddings", help="Compute embedding-space diversity metrics")
     p_embed.add_argument("--embedding-model", type=str, default="text-embedding-3-large")
     p_embed.set_defaults(func=analyze_embeddings)
+
+    p_dev = sub.add_parser(
+        "analyze-baseline-deviation",
+        help="Compute baseline deviation metrics (cosine distance to centroid) with per-model details",
+    )
+    p_dev.add_argument("--embedding-model", type=str, default="text-embedding-3-large")
+    p_dev.set_defaults(func=analyze_baseline_deviation)
 
     p_judge = sub.add_parser("build-judge-placeholders", help="Create LLM-as-judge placeholder prompts")
     p_judge.set_defaults(func=create_judge_placeholders)
