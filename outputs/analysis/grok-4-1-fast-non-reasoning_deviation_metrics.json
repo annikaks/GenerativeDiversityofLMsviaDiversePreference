@@ -1,0 +1,1154 @@
+{
+  "model": "grok-4-1-fast-non-reasoning",
+  "source_generation_file": "outputs/generations/grok-4-1-fast-non-reasoning.json",
+  "source_embedding_file": "outputs/embeddings/grok-4-1-fast-non-reasoning_embeddings.json",
+  "distance_recommendation": "cosine",
+  "groups": [
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06591597099007301,
+      "max_cosine_deviation": 0.08755036129912541,
+      "avg_euclidean_deviation": 0.35539443760770023,
+      "max_euclidean_deviation": 0.4097605471154821,
+      "sample_record_ids": [
+        "3fc5e698-83c6-4a95-adcc-8ab84c790f4e",
+        "eb3c607a-8b1e-45f8-99e2-d79d36132247",
+        "258eb45a-51e0-4899-8e7b-913482f9d344",
+        "cf8ec5bc-240a-4dac-b55c-20cf6ae4811f",
+        "1d2abe32-8dd6-4586-87c5-9937aa17926a",
+        "01fa350d-7007-45ca-a74b-cf58099102eb",
+        "b5a90aff-450e-4bf7-8152-87693ca0333f",
+        "23646cac-a3a5-4762-ae95-dd9ea2fa7a1c"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07521027987111076,
+      "max_cosine_deviation": 0.10643917022477256,
+      "avg_euclidean_deviation": 0.37890491609334337,
+      "max_euclidean_deviation": 0.4500269762707694,
+      "sample_record_ids": [
+        "a1b97e5b-1ff5-413b-b83d-a2c781513008",
+        "91aa5b73-ce92-4ce0-ab32-c1cc48eb2c7d",
+        "c256bd08-3d1a-40c6-a194-20d8304c844b",
+        "84b75651-b708-4c03-b616-642433e7ba0e",
+        "6656e96e-1d60-4093-9a58-4ec2f972f0ce",
+        "ab59ba60-43e0-4b40-a296-2449b493b542",
+        "4b57d0de-44fa-4b1f-9bfd-a31deeb689fb",
+        "35bcc3c8-9d03-4853-9fe2-e8f8385fbbbc"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06914365350055592,
+      "max_cosine_deviation": 0.10081211712776783,
+      "avg_euclidean_deviation": 0.3615720435546851,
+      "max_euclidean_deviation": 0.4387072526965779,
+      "sample_record_ids": [
+        "28eb2246-7e53-49e2-9566-839c4dca0084",
+        "1328d9be-a774-476b-b702-f3f45c166adc",
+        "81dac7d2-108e-44cd-83a0-14983d1abfd4",
+        "3d91559d-05c5-4413-bf54-1cab35005128",
+        "0d38aac5-7180-4c4a-b168-afe58e89ee01",
+        "dd3f6df1-e319-44b6-9715-7e56b9d26528",
+        "d3020236-19cf-4519-9155-ed84ed1855a6",
+        "2367a3b9-a93a-49e5-94ba-5d62088ce01a"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07199986080424053,
+      "max_cosine_deviation": 0.09662809745825207,
+      "avg_euclidean_deviation": 0.371429348176179,
+      "max_euclidean_deviation": 0.42956461928504486,
+      "sample_record_ids": [
+        "2eaf5383-3c52-4dd2-9d04-0cbcca8556a6",
+        "a5ea9e70-74ec-40ae-b54a-83c37c6e9b42",
+        "1a5991d7-0eed-425c-be71-b56ab36a9553",
+        "59f2d26d-4db6-4df9-b331-719f501531d8",
+        "270e4eaa-c7cf-484f-98cb-9a1b35f5cb00",
+        "129d83e3-2739-4d25-a562-1de425bcaa41",
+        "9fe0ae10-e74c-4662-be4a-8798a698bf31",
+        "1da6a5a4-b0d2-43f7-ae93-06f0a3474c73"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.08215366007290476,
+      "max_cosine_deviation": 0.10730253545594548,
+      "avg_euclidean_deviation": 0.39624406797209305,
+      "max_euclidean_deviation": 0.45135762857396516,
+      "sample_record_ids": [
+        "2ec9213d-bc93-484d-9905-e307e1b72de9",
+        "9750bdb9-33b0-4c2c-b789-6399eaf61450",
+        "6458c2e2-851c-43dd-8e44-843b3640ed80",
+        "9c6bf139-80ff-4ebd-8949-0c56db5c5146",
+        "16e5dc86-1e7c-4cb3-a409-7b4134692028",
+        "a6a8a7d2-c92a-4558-83a2-3cf0a2399ba9",
+        "1e17bbd6-4574-4808-b87e-95d4b5b4d77c",
+        "7c695211-0add-40f0-95cc-f39a6287f051"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06705782607663674,
+      "max_cosine_deviation": 0.12842694746030536,
+      "avg_euclidean_deviation": 0.35320084293374426,
+      "max_euclidean_deviation": 0.4940916861456635,
+      "sample_record_ids": [
+        "df8d449f-6ccd-4578-87a5-c782bf6b29bc",
+        "08232e4b-a38a-4298-b29b-5a9f7ab3d87f",
+        "9c4771a4-8f00-4a8a-96cb-68691efce32c",
+        "41d58c9a-8f9b-4013-b712-d9e6af6441a2",
+        "ea518a2a-622c-4392-8c23-936adbaf8250",
+        "99a25cd8-8b55-4810-9491-e7085ffe5125",
+        "caa8603c-d124-448b-af6a-ab6c751c99fc",
+        "c90e4491-e631-448d-9127-8fb826bfbc83"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06116721860812359,
+      "max_cosine_deviation": 0.09321990551831671,
+      "avg_euclidean_deviation": 0.34243076522350246,
+      "max_euclidean_deviation": 0.42282056498043996,
+      "sample_record_ids": [
+        "430cc931-00cb-4bb3-a4cd-8261cb387fc7",
+        "d2bc7d9b-29bf-4fc3-8165-e4d352bdad13",
+        "313cc32b-4353-49c4-b4e6-51edf443bc1c",
+        "971331c4-cc54-4056-94d1-2e8181f3b712",
+        "fe686a04-0d15-4e98-b32a-8c9f82f19228",
+        "36d3d119-a917-485c-9943-7e0958970dae",
+        "dad8714e-3e29-43ed-ab25-c7a4ca1c1805",
+        "f5db91c4-5eb6-40aa-8e8f-e952ab7934e0"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06039031725013813,
+      "max_cosine_deviation": 0.08495304853399865,
+      "avg_euclidean_deviation": 0.3381386481901366,
+      "max_euclidean_deviation": 0.4040945557093051,
+      "sample_record_ids": [
+        "67bc84de-4ec0-4673-a159-d3eb21aac4f7",
+        "e86e6335-c02e-4edf-8ac3-b5e179a3909d",
+        "27be656e-48a4-4a77-bc35-b01f14849b2a",
+        "a3252e2c-7eaf-4ed4-89f2-1697950c9094",
+        "1aa1e704-6b3a-4684-b837-8c0a3f078d37",
+        "083fd5f7-7343-4720-98ea-99cd7dafcbe8",
+        "8f3057bd-e3ef-4607-b3ab-925029677e84",
+        "31f32e5c-7d51-435e-a1a0-28d5071e24c5"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.043081851161010334,
+      "max_cosine_deviation": 0.073627620868011,
+      "avg_euclidean_deviation": 0.2865069585185774,
+      "max_euclidean_deviation": 0.37784554953976657,
+      "sample_record_ids": [
+        "dcc5e37e-3673-4260-87cd-10ecd401b791",
+        "afe0342e-654a-4f5c-a2a1-1f1869c3aafc",
+        "a311cb48-d6e0-46ba-8527-55514f07477e",
+        "3a27b2aa-77ba-4c2a-8f84-310a77bfbefc",
+        "bcfca2cf-f9f9-4873-9f8e-5b721cf2b069",
+        "efd5875d-fac4-4608-a10c-f469f9a3e22f",
+        "46a17af4-de86-46a8-b9f9-feb53e92fef3",
+        "db35455b-39cc-43c4-9033-2c2d36040656"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05773471153526068,
+      "max_cosine_deviation": 0.11636857400700928,
+      "avg_euclidean_deviation": 0.33053575490933007,
+      "max_euclidean_deviation": 0.4718404884534754,
+      "sample_record_ids": [
+        "6761a795-c6f6-4fa9-bfe3-7cca7f5491f9",
+        "5299efce-f5ab-4673-bcb7-70afcade018e",
+        "57e03284-6f48-4aa3-a218-34c4696c6cdd",
+        "b42a951e-9c8a-48ff-a7e9-51a39c6e6a4b",
+        "502988c5-b8e0-425f-9126-6793e2b17f16",
+        "78fd9aba-09e2-49de-9539-3d3fc3dd6735",
+        "2dd4fd17-1f97-4248-821a-4554d19fa2fb",
+        "1ad1f7ac-48eb-4ccb-b20d-e8a165610f16"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05229317532420219,
+      "max_cosine_deviation": 0.07205553505479989,
+      "avg_euclidean_deviation": 0.31690449135382703,
+      "max_euclidean_deviation": 0.37324204272546974,
+      "sample_record_ids": [
+        "9837c162-5a91-473c-aee1-0e07f37424cc",
+        "d66134b8-7e55-4502-9bd5-f108d5663859",
+        "9c953e37-60fa-4f0e-82b1-ce460791b9cf",
+        "22064089-7089-4432-bc52-0da40c7ef646",
+        "c3785af0-f83c-40a3-ab51-a29dcf3e0ea5",
+        "0f0e876a-ba68-49b6-b8df-bf4c656b7f3c",
+        "d56e6dd0-891d-4048-aa9a-cdc133677e8d",
+        "17939778-ba46-4fd5-873a-974a815f85c2"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06645640295843862,
+      "max_cosine_deviation": 0.10675588081902299,
+      "avg_euclidean_deviation": 0.3551942333383486,
+      "max_euclidean_deviation": 0.4513745574471468,
+      "sample_record_ids": [
+        "c4b069a6-8b58-442b-9371-ab7cac15b527",
+        "0573d3a5-06c4-4471-832e-b0f9e7cac240",
+        "3198acc6-2cb9-4e26-b5ba-8c88e32f6807",
+        "8e5606f6-7997-4dfa-8060-53e106506d2b",
+        "fa088d49-0ef2-4a82-a4bb-85b94cf477ed",
+        "3e2791ce-5700-42c7-b8ed-992339e7799b",
+        "69503b40-dbf8-4a96-bcc4-60894b57b98b",
+        "34445a6b-1c9b-45e1-ac5d-1a83da5ad4ae"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.04933728704272744,
+      "max_cosine_deviation": 0.07421614863994341,
+      "avg_euclidean_deviation": 0.3085174203525203,
+      "max_euclidean_deviation": 0.3788709583852189,
+      "sample_record_ids": [
+        "4a059d94-95f7-4fbe-9b9e-a7efbc17dcdc",
+        "0d66c195-6d79-46cc-8539-8bbaf7c820d7",
+        "3353cdca-355e-4a5b-8755-dc4c51d63a34",
+        "8b74b45a-68f4-4c55-a8af-2e99bd674321",
+        "fe0a5b37-e964-4600-93ca-1841e3f05886",
+        "77c4b100-8a5a-474b-8bfe-cb04d17e4c2d",
+        "c6fcc51d-2c23-4a02-8c2b-f9df0ace2942",
+        "5895517c-dad7-468c-b31c-209c8c5797af"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.057664983071863796,
+      "max_cosine_deviation": 0.09728351001638125,
+      "avg_euclidean_deviation": 0.3321896160833444,
+      "max_euclidean_deviation": 0.4320561970618281,
+      "sample_record_ids": [
+        "030339fa-8444-4920-86d7-6f03f1e9978e",
+        "80b947cd-5342-49ba-ad6c-2bdb454896cb",
+        "8ff44979-00a8-4bd4-824a-5d157c303466",
+        "efbf24bd-f742-42a5-b336-b4704d8989f4",
+        "89e84832-3245-4017-8155-cc9d773575c5",
+        "8896fbfe-055b-40d6-8efe-c9ce7dcc5184",
+        "71e2c80a-525a-41fb-8770-0c5a85a89661",
+        "cc2947aa-50bf-4832-9c33-ed61bf8ae955"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05997469507860176,
+      "max_cosine_deviation": 0.08871601437162524,
+      "avg_euclidean_deviation": 0.33836239293078807,
+      "max_euclidean_deviation": 0.41278028044695964,
+      "sample_record_ids": [
+        "428ab593-02e6-4d74-9f8e-55107bdc47cc",
+        "eeb1b6f3-1a50-46ec-9fa7-e0ab2c33918d",
+        "11c23cd3-38ff-4d97-8de2-5ff6263dcdc4",
+        "8ff08a55-8dfb-471f-acd7-38121dd63f86",
+        "8418d88b-6a27-4dff-9fa8-6accbbcf037b",
+        "8d8b9162-8592-44dc-b7fb-4962086a1113",
+        "084e484b-345e-460e-a80e-5f29739913fc",
+        "8a63fff8-7204-45a5-bf5d-97d399c1112d"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06055508920075954,
+      "max_cosine_deviation": 0.10017328516091173,
+      "avg_euclidean_deviation": 0.339559063533704,
+      "max_euclidean_deviation": 0.4380427892404344,
+      "sample_record_ids": [
+        "5d3b8f56-5b35-4487-b750-ed32209b2163",
+        "ab87ebc2-2703-4043-bba7-859159aa037c",
+        "c3c1a480-f0ec-47e9-b725-e79c1392e6b3",
+        "426fe2c4-7e36-44d8-a3cf-59aedcdbbccc",
+        "56cf6131-dd12-406e-a1f0-bd4c660d52f5",
+        "2aa092c5-5a66-459c-a8ab-1edc2dc956b4",
+        "d8be1db3-f6b5-4138-bb4b-5415f8111c74",
+        "74e4d508-928f-4607-89ee-146e221266f5"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06061052008884789,
+      "max_cosine_deviation": 0.08652255202141945,
+      "avg_euclidean_deviation": 0.3398094936600303,
+      "max_euclidean_deviation": 0.4077136180927137,
+      "sample_record_ids": [
+        "d212bcd5-87ba-4ad8-87da-9058a49254e7",
+        "9241616f-6c9c-4f34-aaf0-5270e7f89f1c",
+        "1b56d6c8-f2d7-4f32-a104-21587458fa6e",
+        "04889205-0bcb-445c-815d-cf76daf74b6f",
+        "73974820-6561-48e8-87e6-8791e93398c7",
+        "462a3669-f9e9-41a1-a118-5e4743b17883",
+        "129e7f09-9b3c-454d-848a-f684de8264b4",
+        "a9ff46f2-48c6-43eb-a130-ba43b0b5ab8c"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05737924555547033,
+      "max_cosine_deviation": 0.08945243313428541,
+      "avg_euclidean_deviation": 0.33052262406343935,
+      "max_euclidean_deviation": 0.41464664496370407,
+      "sample_record_ids": [
+        "9329338a-4b77-40e2-987a-f8bd426bb15a",
+        "002ca45f-9481-4ed7-9e44-08970eb15734",
+        "35e32522-b352-4e5c-a1be-be5a2ae2022e",
+        "a9134235-dd72-44a6-b06d-63054d96e1f8",
+        "6984c748-9bcd-414a-b089-d11d7cf95275",
+        "fb4d8430-d1ae-4af4-9d3b-932b36f2105f",
+        "103272c2-a4b0-45ea-b77a-b2af5c0fc2d8",
+        "5e262ccd-b627-45d3-bdbd-418ba2cf84f5"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06159578592500853,
+      "max_cosine_deviation": 0.07946245707248056,
+      "avg_euclidean_deviation": 0.34472433877688485,
+      "max_euclidean_deviation": 0.3910624781727485,
+      "sample_record_ids": [
+        "494511ad-b160-4d2b-9ebb-6fc26d9620ed",
+        "e6a4aa46-91cf-4da4-8337-92b90190a098",
+        "9ca6ffef-3fe3-4bb2-bb50-53544591af0a",
+        "a949f094-c8b3-4d36-906f-84fb928d8cd9",
+        "fe3f6eb2-a19b-4414-a8ee-acd20ed12ff8",
+        "b920b7a9-c4f0-4f11-82d1-a96bd8422a61",
+        "8ec3d8fe-2255-4764-84bd-60b463436254",
+        "d89f5220-074d-4a99-9c83-690431137614"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.043032129796108265,
+      "max_cosine_deviation": 0.05333394378567158,
+      "avg_euclidean_deviation": 0.28962401577580166,
+      "max_euclidean_deviation": 0.32238100129406666,
+      "sample_record_ids": [
+        "170932da-92dc-4e78-9bf5-802191686fd2",
+        "339d8335-d05d-4f89-9b13-c11123535551",
+        "32066d42-b44c-4075-ba92-aaccc695cbac",
+        "e30df42f-26d6-4465-863f-3ce8dda7d73a",
+        "b437c59a-2f3f-47e1-aacd-baef0aa32649",
+        "6b5811a4-0c43-4df8-a578-28ffc37b1540",
+        "e47ffaba-2461-4736-8fe0-68fed888785a",
+        "4ca2a8cd-ebc0-417b-a56f-667304140699"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03308048241376882,
+      "max_cosine_deviation": 0.040084283722496394,
+      "avg_euclidean_deviation": 0.2548091480953832,
+      "max_euclidean_deviation": 0.2803763120428743,
+      "sample_record_ids": [
+        "0d848f77-c0c1-48c6-94ea-82e34591a06d",
+        "632e7b0c-e450-464c-bb1b-e0b3ace03d8b",
+        "4dbad355-2d22-4751-81f4-ab6b663d6c68",
+        "fde5a19b-ec42-400e-a338-39f366b5d97c",
+        "e8f02492-92f6-4668-9363-2da8c22428bf",
+        "16ddf3c4-0d6d-4b76-8026-c62dfcaa4dfa",
+        "8ffb91f2-4241-4b70-bb47-da4904b3e952",
+        "418e422e-79a4-41dd-837b-55a20c411f27"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.028396858463312982,
+      "max_cosine_deviation": 0.033498690670585196,
+      "avg_euclidean_deviation": 0.23623036724927998,
+      "max_euclidean_deviation": 0.25671238221586934,
+      "sample_record_ids": [
+        "49544341-cae7-4a97-94a8-bd49b8f2513a",
+        "4c22d20e-aba5-420e-be9d-24bdd1171bd4",
+        "65fe09ea-ce38-42fd-9700-42bd33951952",
+        "3c8411c4-e141-4bba-b43e-b80f4b9e1ee9",
+        "8cbb2455-967c-4464-85c2-f6c310eaac44",
+        "9acb1684-24f7-4cc8-911d-2edaaec4f811",
+        "75d164bd-32f0-4be9-a7b8-2fdf1681a703",
+        "7aceeb18-d633-4b45-a234-cdcd5b12e449"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.027903727605045836,
+      "max_cosine_deviation": 0.03593745228857037,
+      "avg_euclidean_deviation": 0.23395508110919153,
+      "max_euclidean_deviation": 0.2657968041565549,
+      "sample_record_ids": [
+        "9da95e89-c6e7-4191-a613-589f1e0ca3e9",
+        "81afe16e-0c30-4e9a-8317-c170e6805f42",
+        "f42bcb36-8c86-4ffa-9d44-267bf7814e32",
+        "ad00f26a-78d1-4d4a-83cc-91fddf72c79d",
+        "d4c1ce82-4927-4a11-b243-72e3a25f93d2",
+        "118d514d-dc13-42d2-aeda-f3ef8c94641b",
+        "a89f6876-7c85-40a2-b2cf-0222f03c3267",
+        "539e03d3-292a-4fc5-9c4a-68171391e52e"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03130057255694749,
+      "max_cosine_deviation": 0.042031373410317596,
+      "avg_euclidean_deviation": 0.24735538286962322,
+      "max_euclidean_deviation": 0.28707361872923676,
+      "sample_record_ids": [
+        "223ae924-a137-4376-a73f-98ec6ad1bf70",
+        "c03cd635-ef3c-4be6-909e-129c1ac3bca1",
+        "37825565-7948-4812-805a-aa9e2ac6d2c4",
+        "b4ea24f4-8610-4201-80a3-3f9976a5e92c",
+        "55828fc7-1214-4c87-a3e2-3994ac4d41ed",
+        "be47af76-003b-4c2f-bdb2-85a05846d1f6",
+        "cebc4867-cd89-4a8d-8989-b49b531f2fff",
+        "8f8064a4-d40d-4529-8a41-bcea95e4177a"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.035522300398793796,
+      "max_cosine_deviation": 0.04107334969108645,
+      "avg_euclidean_deviation": 0.2636822960310062,
+      "max_euclidean_deviation": 0.28370847787925985,
+      "sample_record_ids": [
+        "943f806d-0ef6-4a08-ab75-9952cbd57e49",
+        "d3c4554d-813a-4625-9ed6-4d5a00dc3ca9",
+        "ecec968d-86ba-401d-864e-53cada64d178",
+        "7e3c92df-b9fd-4fdb-b9a0-ff3717a65cce",
+        "e1d82184-8041-4730-b3cb-b515dccdf4a9",
+        "0f00506b-7c49-4822-89d4-3e3941ec7644",
+        "9df6842e-974e-4fc1-a875-ec9ac437d011",
+        "1b6210ce-f2e1-4797-b2f1-85b0513c8961"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03265366413023282,
+      "max_cosine_deviation": 0.039551910837731574,
+      "avg_euclidean_deviation": 0.2527301653522952,
+      "max_euclidean_deviation": 0.27854453656701417,
+      "sample_record_ids": [
+        "56beb497-a01d-4be1-8ddd-07fcd7eb864b",
+        "8ab91e41-fc72-4592-ba1f-48eb59cc8340",
+        "7d836a61-66cc-4ef8-bee3-be67a6ac79e8",
+        "aae43690-8317-4a2a-b855-b195550bb90e",
+        "a96408c5-1bea-49a2-a37d-93ee0da34835",
+        "635c06c5-72ce-487a-9220-ee1a14c86a93",
+        "dc662aa2-524d-4749-801d-a2a76d4e5042",
+        "4b32b7c8-f65f-4730-94ad-327a7c5a5919"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.030647023212913252,
+      "max_cosine_deviation": 0.043724402267665496,
+      "avg_euclidean_deviation": 0.24480367068343278,
+      "max_euclidean_deviation": 0.29275929626460034,
+      "sample_record_ids": [
+        "c902c44a-6281-4c19-bd32-f14d761e884b",
+        "0ed5331a-f82d-4fe1-8c1f-ca585f0b1f06",
+        "991b9ca4-a3b2-4cf7-9c6b-f133caba7639",
+        "1797c847-6364-4a2d-b34b-fac5aa6713b0",
+        "e169df8a-a7d9-41c4-a9c2-503fe525485f",
+        "2efe3724-cd64-43ec-9d51-5d3232ea123f",
+        "89e00a09-4696-4ef9-b472-da246b085f94",
+        "af1e4b69-4275-42bf-9e6d-bff5c752e820"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03826829095286957,
+      "max_cosine_deviation": 0.061390157218341956,
+      "avg_euclidean_deviation": 0.2721466612244752,
+      "max_euclidean_deviation": 0.3457545300520145,
+      "sample_record_ids": [
+        "663be255-b791-4990-b4b2-32df604c18e0",
+        "055bae21-2a3e-4bbc-a2d0-9b299ed71b4d",
+        "b759a3b5-c299-4899-bfc7-e84155734ffb",
+        "4df5e815-6f4a-49d2-8dd3-952d22b3fa4e",
+        "b86060fc-16cc-4822-b0ae-39647de9f809",
+        "3aaee330-e7b4-4d6c-baa6-bf98f61ae9d0",
+        "72f7d9bf-a1ba-4c00-a679-9dfdf03f65e0",
+        "f4d94a8d-8591-48d1-aa27-43db18fc60e8"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.031681768304772095,
+      "max_cosine_deviation": 0.04317590016265249,
+      "avg_euclidean_deviation": 0.24807474529591145,
+      "max_euclidean_deviation": 0.29089475730064523,
+      "sample_record_ids": [
+        "b792817a-c4a8-49d1-b3c1-19ba9906e426",
+        "fa474d55-22ef-41fe-93ee-1ff05746ef60",
+        "b1f664aa-2139-4aa1-b4b5-c04ab6c7d380",
+        "cb9baef1-f482-4610-a279-3327449db22d",
+        "60c9f220-6ad8-4b40-9fa1-f2600c134353",
+        "ef5977bd-27d0-48e1-9db6-b106c6daf9fe",
+        "98d2e839-db1f-48df-ac8a-bc033978c86f",
+        "d06f0106-08b1-4d2d-9f18-a179204ddc47"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 9,
+      "num_samples": 7,
+      "avg_cosine_deviation": 0.03646261846182573,
+      "max_cosine_deviation": 0.043143682208571676,
+      "avg_euclidean_deviation": 0.2672673843555648,
+      "max_euclidean_deviation": 0.2906383138235087,
+      "sample_record_ids": [
+        "1bb20874-929b-4102-a4bd-20bd63bb7812",
+        "346646db-3225-4394-bf68-a293548a3465",
+        "b740f997-b7ec-4427-babf-c03ce55bba84",
+        "193216ab-aa14-4f92-ba03-49b7118e144c",
+        "95941495-02d1-437b-b897-f74a442029e6",
+        "32d7c102-cb40-42a5-849f-e31aaa72b639",
+        "c6b8410f-9437-4612-90a7-e142df3a6ef8"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.04815239865760225,
+      "max_cosine_deviation": 0.10319954629881012,
+      "avg_euclidean_deviation": 0.30071486778016665,
+      "max_euclidean_deviation": 0.4458465510768714,
+      "sample_record_ids": [
+        "86492425-a394-42eb-8ef7-88bb0035d237",
+        "47a6bf83-2098-4256-b6c2-2f45cd431227",
+        "6a6131a2-a052-40fe-ba31-e293d9c81efa",
+        "4fd74b72-55b9-4034-b405-8ac62fe1fdf7",
+        "6b130d26-5942-4899-8fcd-0d78bee52f5f",
+        "82161649-8682-4d2b-a492-6d94bba8cf10",
+        "baec5ec0-1eaa-45b6-be42-bcfe83e06465",
+        "d5ed665e-cd34-4762-9c3c-604a076c0013"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.061679678052497314,
+      "max_cosine_deviation": 0.08268634623100402,
+      "avg_euclidean_deviation": 0.34400173203913925,
+      "max_euclidean_deviation": 0.3987191346956162,
+      "sample_record_ids": [
+        "f880b5f0-b440-46d1-96eb-99137aeff69d",
+        "7051285d-630d-4e70-816c-3357d685bade",
+        "573dc1a7-83ce-43ad-a985-70a75891d0b9",
+        "fd4a0ed1-5185-43eb-aefe-279f9c4dc0d0",
+        "f23fa4c4-bda9-4424-94a5-97c721962eb5",
+        "39175623-f3ca-4892-8b47-d3b3032f94b7",
+        "78bc02bc-e3de-42a0-8cc8-097f60d64f17",
+        "7a0c9411-116a-4266-b22f-77baf8de0a50"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.037449045397866185,
+      "max_cosine_deviation": 0.061250069294270126,
+      "avg_euclidean_deviation": 0.2692928259382803,
+      "max_euclidean_deviation": 0.3454201168633656,
+      "sample_record_ids": [
+        "f607fc43-832e-40ae-9dbb-ccdb5d5d05b7",
+        "81734945-5386-44ce-b3b4-302374476931",
+        "e9bdcd21-89b6-4ff6-96bf-664ce9e51b0a",
+        "189a8d17-6eda-49e8-8a9a-d0873a64c33f",
+        "bf16426b-98fe-416c-9a60-bf7b14895086",
+        "0a703f59-d20d-46f8-a181-89d36a6bbd2b",
+        "9da2c2ec-f0c6-4427-865e-6b53b32024e3",
+        "fdd33c36-3cc5-4c89-ad24-5f6cd20fee8c"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05425815858387907,
+      "max_cosine_deviation": 0.089060166835772,
+      "avg_euclidean_deviation": 0.3212922114048449,
+      "max_euclidean_deviation": 0.41400458882144836,
+      "sample_record_ids": [
+        "02785e22-10fd-4707-9183-7fdc8bdd8c51",
+        "742f36f1-0c49-4691-8faf-9a725c193071",
+        "94e453d8-901f-4e2a-aaba-aa018fa50fc1",
+        "dad45ad2-b7d1-4b7b-a150-c24bc40b5ff7",
+        "beab51f7-6aef-4097-a5e7-43c65822100a",
+        "b82549d6-05dc-4064-ae04-87a79371636f",
+        "c3c1941e-2479-46ad-9401-12688cbdd06d",
+        "f0ba1aa4-13d6-40d5-83bb-4aebedf953fe"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05723082091922217,
+      "max_cosine_deviation": 0.06488210541807793,
+      "avg_euclidean_deviation": 0.3329999445394467,
+      "max_euclidean_deviation": 0.3544193256845625,
+      "sample_record_ids": [
+        "b19867a1-e595-4978-ac29-545a2515f202",
+        "198a4ca8-7f7b-4146-8def-3dbed95dd76b",
+        "3d9e2ee8-c943-4cd0-a0d1-29a220066942",
+        "655decea-88f7-40b5-b146-100eea53135a",
+        "c24d0aa9-a099-4278-81e0-537683efccd1",
+        "feb7295b-338e-42de-a925-d80f317a96e6",
+        "9c357cca-c933-4f3e-99d1-fd3b88be123c",
+        "57af7236-0596-4fa5-941b-7c1b9433dc2e"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.054076199220615406,
+      "max_cosine_deviation": 0.06986224509752859,
+      "avg_euclidean_deviation": 0.323347987166097,
+      "max_euclidean_deviation": 0.36754994789155593,
+      "sample_record_ids": [
+        "ab8e1108-24b1-485c-a8e2-d8fd9d8bcfd7",
+        "f63032d1-1829-4797-8126-e231c5a7d39c",
+        "f70ed35d-31d2-4911-ba58-d21c328c3370",
+        "4b2d68de-27b4-43cb-bdc6-361bd6400a74",
+        "9a21e478-f71f-4aa4-8694-65046cce4037",
+        "a1efcc8a-f6c2-4e63-b2ef-cc83eafe253d",
+        "2a095f46-8e53-40cc-a99a-b97e41d2b8ed",
+        "e719ff7c-b13c-42f4-bb75-bbe279126129"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05378665321396997,
+      "max_cosine_deviation": 0.08700874892749488,
+      "avg_euclidean_deviation": 0.3212536443875521,
+      "max_euclidean_deviation": 0.4093295399161337,
+      "sample_record_ids": [
+        "4925935b-2fb5-423d-91de-47f77a79073a",
+        "6b561619-b051-4021-bf6b-b5c53e992126",
+        "6ef1efbd-fda4-4434-bfcb-157b77109df2",
+        "6d5d4a88-7827-496e-9072-ce41b0ca84e2",
+        "7d2d8505-d75a-4b51-a437-12f59c7c2fe4",
+        "3afc61bc-4ec0-48c7-99f9-9edf108edabb",
+        "8bc8fc46-cc07-4725-9999-ce9f47e28cf8",
+        "c3c8995b-7b5e-43c2-a04f-d348960469f7"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.051612828197914004,
+      "max_cosine_deviation": 0.08923216321060434,
+      "avg_euclidean_deviation": 0.3138056868583669,
+      "max_euclidean_deviation": 0.4146289465044591,
+      "sample_record_ids": [
+        "b5958c4e-4749-49a5-b678-d562dd4f9e2e",
+        "30cce1aa-1912-4bf2-bda7-df27fdd7f7b9",
+        "e735e542-7d00-4ff4-b050-69e997ebcb6d",
+        "178fd87c-7644-4926-9190-e33e49d13326",
+        "406f406d-2266-4847-aeda-8b349a456890",
+        "3b4b0d82-ede9-448a-af7c-76f4b7ec9399",
+        "04fc16f1-1ae5-4afd-b9b9-8f40a8e31ba8",
+        "0e3949ec-b564-49d8-81b8-c078a628bc65"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05389744438382729,
+      "max_cosine_deviation": 0.10300284439023155,
+      "avg_euclidean_deviation": 0.3193307283299245,
+      "max_euclidean_deviation": 0.4447554815329517,
+      "sample_record_ids": [
+        "ab8758cd-2e54-46fa-b830-2b0d66c96395",
+        "cc7006f8-1c1b-4b67-bada-ab9e26fe3909",
+        "66a58eac-c833-44c8-a6fb-c0b9a9fc0653",
+        "0b6e4943-7c49-4eed-a2d2-86314d033c3f",
+        "860b6fd4-2346-4821-be78-b4fcd4554464",
+        "f804d828-0fc9-41af-970f-c900d555da51",
+        "e0788c39-b3df-4a43-9d9c-9d88230fe454",
+        "7420ec49-c7f6-4921-a277-6b9c1b1255cf"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.05838432542455681,
+      "max_cosine_deviation": 0.08034312655621456,
+      "avg_euclidean_deviation": 0.3338330780166142,
+      "max_euclidean_deviation": 0.3933362801516149,
+      "sample_record_ids": [
+        "8cb1aad7-3f09-42eb-966d-68dd5e2c0143",
+        "563515c8-f6fa-450f-85f9-731b2bda0e3c",
+        "d4fda5f9-fc72-445a-a782-c3855f3877ef",
+        "c8d1433a-3fe7-4b8c-81b9-2503e87e3fb9",
+        "8e3acf3a-95be-4532-982a-6e3369ead923",
+        "7941174e-025b-47f9-97a7-05fe41363a79",
+        "9a4a1e3e-f1d7-4ef0-b159-7ede02fb8c7d",
+        "32c844e7-3249-40bb-a98e-7c38f45f6ef2"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03610236545049465,
+      "max_cosine_deviation": 0.04245403383354107,
+      "avg_euclidean_deviation": 0.2657630817424671,
+      "max_euclidean_deviation": 0.28835058832106586,
+      "sample_record_ids": [
+        "f2c4b4df-8bae-4ac8-8159-27b1cc4f616b",
+        "48cd4eb9-e965-45e0-8b34-54e5a441f78e",
+        "908231e2-91aa-43dd-8c33-032dd8cf5c14",
+        "cfbadc01-7cba-41bc-9981-9e9bce598035",
+        "c1b3c406-f202-4a8d-8eb5-62bf13822d9f",
+        "7d218422-e905-4bba-8f78-8014f5370453",
+        "eda701c7-d8eb-4e3c-8ae6-765d110aeda2",
+        "ad1ff983-b28c-40a8-9f42-fdee403962a2"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.04404956402549243,
+      "max_cosine_deviation": 0.07655534283326215,
+      "avg_euclidean_deviation": 0.2912933977584774,
+      "max_euclidean_deviation": 0.3851059591187576,
+      "sample_record_ids": [
+        "37a7ccdf-da0a-4010-b09e-1fc07963e67f",
+        "795d6f2f-60d0-4d94-b14c-94cb6524635c",
+        "1f2f8f36-80f2-40f8-a8ec-3ac06ac7e743",
+        "4494c9c3-bf2b-459d-b008-ca0e37492d35",
+        "8e5d17d3-4f64-4ba5-96b7-f9d09f01cbe2",
+        "0a5dd5b4-dd61-45dd-b3a1-04e6cc5d0cce",
+        "c5bff8d9-9ec3-4b64-93c2-569fd7994d23",
+        "0bb5b7b7-115c-4a45-bab6-198fe819ead5"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.04292500286506476,
+      "max_cosine_deviation": 0.0648354563700656,
+      "avg_euclidean_deviation": 0.2881620075894372,
+      "max_euclidean_deviation": 0.3548906169489369,
+      "sample_record_ids": [
+        "2edec88e-edd5-4ef0-a50a-f236b9f539eb",
+        "6ef31937-d4b9-4237-889b-7311cf16cd6c",
+        "a029828a-d1a8-4771-a933-a0fc6c977ebc",
+        "f39e0afe-bc49-41d2-9d5f-4aced9253bbc",
+        "68cdcdcf-b01b-4912-987e-59314120347a",
+        "a81d9a7a-d35b-456d-949d-7e2a9dc9845f",
+        "b72332e3-e6d2-48bf-b4b5-bac66b6a055b",
+        "f8cb3ccb-4c73-4f88-8e5e-7619c6577e23"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.037897343183110305,
+      "max_cosine_deviation": 0.04510331068285234,
+      "avg_euclidean_deviation": 0.2719882301594226,
+      "max_euclidean_deviation": 0.29702567884365305,
+      "sample_record_ids": [
+        "92aea041-24a4-4785-af47-17600ae55bc2",
+        "d3090bd6-9f1e-4d44-8b83-391c7b735dea",
+        "981c6926-bb96-4dd4-ad5e-22145ea81d29",
+        "dc592dd5-eb63-4286-a404-fccdd5a11923",
+        "fbfcd91a-13a4-4ff8-83e9-b61a3078f7eb",
+        "af388494-d1be-4da4-9a7f-55ed0e9c993b",
+        "8dcb3f8e-9615-4542-9fbe-4eca182cf7b0",
+        "ba2ea45e-b15c-4f9a-9048-e1a2c855444f"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03750246043303829,
+      "max_cosine_deviation": 0.04461860807322071,
+      "avg_euclidean_deviation": 0.27066996866166404,
+      "max_euclidean_deviation": 0.2954607137583736,
+      "sample_record_ids": [
+        "e9e207dd-c828-40e8-aec9-b3e5773f7d43",
+        "75bb9e53-5003-4667-8e0c-6b2b7db85ecb",
+        "9ff0e755-a2e4-4618-8944-aed2addaf2ba",
+        "bdfb4272-3d02-48a6-8681-30c7be816a2b",
+        "80d7c75b-3be7-4277-a8c7-90b5a641ccf6",
+        "7bdfec32-8091-4b30-8948-dd95365ddd35",
+        "52427f0f-9d09-49a7-9635-fe4f0164ab3f",
+        "be706813-a29c-4175-a427-ab65a760d876"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.036329746723048506,
+      "max_cosine_deviation": 0.043287047493077435,
+      "avg_euclidean_deviation": 0.26649705665693807,
+      "max_euclidean_deviation": 0.29111636097508165,
+      "sample_record_ids": [
+        "8c2a0955-4086-4177-adae-c788e28f9150",
+        "db4955b2-0104-443b-a4b5-f570cbb6f139",
+        "fcd5b509-2bf9-497c-adc4-70b54ea3d36c",
+        "d067f9ab-69e6-4c16-a3ab-4f35bbf1af97",
+        "296e94ae-cb89-424b-8898-72bb3cc0fd55",
+        "823e78e8-2a62-4e52-9ce8-7998dd509342",
+        "862ce3a2-2203-4078-8616-008b3b00b02d",
+        "68efc56c-6b02-4c69-a45f-6a3a25041f17"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.037220364427339725,
+      "max_cosine_deviation": 0.05232383340966684,
+      "avg_euclidean_deviation": 0.26935252689679967,
+      "max_euclidean_deviation": 0.3195903592470569,
+      "sample_record_ids": [
+        "42052feb-dd90-4e4b-b4b8-3a41cd44c009",
+        "e5c01004-6f79-4119-ae75-661e5acd71d0",
+        "ebaf33b3-aa12-4abe-ae23-84ea281bf4c2",
+        "a31d0bbe-3e8f-4d76-8e48-141b909263b9",
+        "958f85d2-2307-4755-8372-80c1895753ce",
+        "326e04d4-fa12-405f-82f9-a5b312dfd4bb",
+        "8c81f98a-695c-4799-a466-dce703760b67",
+        "77c4d083-af43-47e5-98a5-7988976f4b92"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03798505649051338,
+      "max_cosine_deviation": 0.047263329055221015,
+      "avg_euclidean_deviation": 0.2722610959208269,
+      "max_euclidean_deviation": 0.3039390121652277,
+      "sample_record_ids": [
+        "a2fc9f66-626f-45b8-b2cb-80b99acf5491",
+        "0a399b0a-b51d-4ee2-bdcd-ff235db1330c",
+        "c106e6bd-a27c-48d3-a9c7-9df5b89242ba",
+        "019a7877-2099-4cb2-8631-3d780431c47f",
+        "37f3831f-fe46-4b82-ba0c-b6e9c66891c2",
+        "f667bda2-eb4a-4b81-99fe-07d073dc42c6",
+        "4401c198-83d0-4dc0-8382-485815c3837b",
+        "02c4b317-bbd9-4e2d-a6eb-be7ab7edf61b"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.04120260012918181,
+      "max_cosine_deviation": 0.05231222683831327,
+      "avg_euclidean_deviation": 0.2832778897845607,
+      "max_euclidean_deviation": 0.31939208664399477,
+      "sample_record_ids": [
+        "cc985af3-d8a8-4b84-a056-a242e32613d5",
+        "1ff9f758-1c10-42fa-a108-2c5b8e577826",
+        "6f4dd53e-3791-48c6-9037-47931974c394",
+        "93b58181-1ba4-473b-baa9-f2538829f586",
+        "9ad169ca-8159-4dc4-8f70-22d19fc263e5",
+        "ea17412e-b261-48dc-a30f-f3936322d62b",
+        "79141ce4-423f-4402-a18a-69294ba80f88",
+        "12e3b38e-7429-4913-949d-58e4dfa9e523"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.03749564109396657,
+      "max_cosine_deviation": 0.0411088191108222,
+      "avg_euclidean_deviation": 0.27108082306609427,
+      "max_euclidean_deviation": 0.2837970310402348,
+      "sample_record_ids": [
+        "37d6890a-2ffa-49ce-af2b-59d4e3a4961a",
+        "ed764192-6a76-4cd9-82c9-b66f3e97bbc0",
+        "f9ee1f81-0ddb-42ab-9b57-daacdb4d4b48",
+        "25a79634-46cd-41bb-8e9e-67bccd03e1ef",
+        "5bba0ac4-68cf-4957-8c9f-cc7cdbaa7682",
+        "36f9ac15-afee-4f41-873b-73994d3b2728",
+        "c051fb27-8259-4528-aecb-90c617298775",
+        "5fb7e74d-f454-48fc-885c-396ae8b1e9e5"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07506498425928601,
+      "max_cosine_deviation": 0.11266642553345796,
+      "avg_euclidean_deviation": 0.3770993978466458,
+      "max_euclidean_deviation": 0.4626586133608257,
+      "sample_record_ids": [
+        "df505014-af07-4fec-9c6f-a6204e79db08",
+        "4873b095-ccee-4d68-993c-bed6297276ed",
+        "91dfb9ea-cb13-4b44-a230-c0b82f8097ba",
+        "66d704eb-b658-4aff-aaf5-e5faba4fa51e",
+        "8e7e6943-4032-4aef-99f0-749de74eca4d",
+        "b7e6499b-1ecb-41b8-b976-3c66d26abc1c",
+        "42cf3d53-e591-4651-bc1b-67ebf6509332",
+        "52de92ff-f812-4aa7-b52b-a330c47b5848"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07876223725437619,
+      "max_cosine_deviation": 0.09682292409903182,
+      "avg_euclidean_deviation": 0.3883554707834008,
+      "max_euclidean_deviation": 0.42964794319260785,
+      "sample_record_ids": [
+        "42297476-4ef2-43f0-a028-8e142c6160fe",
+        "208c984a-d09a-459d-81a0-fa03e6d51f06",
+        "038544bf-e634-4f85-b81b-afb7d83f9aa7",
+        "d1e6cadf-51f3-4359-9fa0-f702fb0688c1",
+        "2fd1fc8a-6830-4614-923c-f1f9884367af",
+        "1fe63ece-5bea-4431-8589-e95145852e60",
+        "ebac75a9-7390-4653-9b36-4429db7ec312",
+        "4f024c8b-f985-4296-ba23-138acaf9d94b"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07008709227941856,
+      "max_cosine_deviation": 0.10121935172822638,
+      "avg_euclidean_deviation": 0.3647243637244223,
+      "max_euclidean_deviation": 0.43950262920110045,
+      "sample_record_ids": [
+        "0ece580b-fd4c-41bb-b2c3-e872a2f9f249",
+        "136c3a71-06c8-4adf-8b45-06b294e01de8",
+        "1354a128-ca6e-4b71-95cc-ef1a8784a5e2",
+        "44c1b1a5-d00a-4269-af34-d81c0816b66d",
+        "cf4fa5de-2b76-402c-a7f8-ec61f4dec10c",
+        "49a0822e-e32a-4fa8-9d96-912cbd16d91d",
+        "6f070531-ec2f-4d0b-afa3-37cc667b08ea",
+        "95655bf4-6db9-4749-8bb7-edc3f49f6cf7"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07027189864271467,
+      "max_cosine_deviation": 0.10820417567875174,
+      "avg_euclidean_deviation": 0.36594509259764807,
+      "max_euclidean_deviation": 0.45402540501334315,
+      "sample_record_ids": [
+        "06148a78-d39a-4a41-aaa5-10472b01ba05",
+        "84254b8d-91f7-4298-9c54-5284c3e3d858",
+        "0828903e-7707-42ef-95e5-0c50f923a0d9",
+        "ca5dac59-16c6-4b19-a5d6-a985ebf633b2",
+        "d80c9e84-6bf4-44ab-bb91-02c3f0fc9e75",
+        "379e53e0-a511-43c1-8607-7dd65b85f25d",
+        "928a508d-29d9-4d2b-ba48-3283f4573599",
+        "ee2fa374-a22f-4289-aab4-c6f70cdeff71"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07699030813619971,
+      "max_cosine_deviation": 0.09242677259562904,
+      "avg_euclidean_deviation": 0.38427020785631183,
+      "max_euclidean_deviation": 0.42017748612157346,
+      "sample_record_ids": [
+        "93a69fe2-69c4-4e3a-a05b-a487609b7a30",
+        "e5f282b5-b7cd-4898-9b11-35ff88cd4d36",
+        "e903d7cf-12f9-4ba5-9427-2bccd8c0ee1b",
+        "ee79c227-b690-4756-a079-fb2359a93cd4",
+        "1d21f83a-55ca-437a-84c9-b757d914b306",
+        "74220bbb-7340-4a1f-8a05-f85bc72db361",
+        "33ee3e7b-7a9c-49ee-8a4e-5191cc4d489c",
+        "e1cd490b-93eb-42eb-aff7-39e26b2088be"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.08104407746059765,
+      "max_cosine_deviation": 0.11263094343215152,
+      "avg_euclidean_deviation": 0.39270489082157395,
+      "max_euclidean_deviation": 0.4621405390053443,
+      "sample_record_ids": [
+        "78e639c1-ddc9-46cb-98e7-86e3fba2da89",
+        "3c5a426a-0dee-4d12-8f69-63d57d5b5eb9",
+        "bb85a3b9-de4d-4ee4-91c3-d442f8c183e7",
+        "8505731c-9224-449f-b69f-dd632a43a9fa",
+        "5db4e72b-ed46-471f-ae67-b7608aadb53b",
+        "f0904e28-e174-46c2-a537-99feb366c592",
+        "f536f7ff-d753-431b-8e18-53d26a033ebc",
+        "b6e77be5-648e-4df3-a991-26702c8483f5"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.06598594196871159,
+      "max_cosine_deviation": 0.07688253984668947,
+      "avg_euclidean_deviation": 0.35663260944416386,
+      "max_euclidean_deviation": 0.3846724553727616,
+      "sample_record_ids": [
+        "04a80798-9e5c-4768-94e7-760fa10be403",
+        "cca8ceea-d72e-4a52-9c8e-205692d6d276",
+        "b4b20b5e-11a8-4086-a59a-eddf32eb9fc4",
+        "97e61af0-3979-4b80-832c-64b36a177ed3",
+        "909ae086-2d67-4c10-8bfa-927a1cff185b",
+        "ead1db59-5c0d-48d5-83d9-aab2b14c40e9",
+        "5588e8a8-9a6d-4e63-9627-6be16376b90f",
+        "6646f28c-f906-4452-a8ad-d3d9cd2b9e43"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.07750649936177495,
+      "max_cosine_deviation": 0.09991656927181869,
+      "avg_euclidean_deviation": 0.38489556206831277,
+      "max_euclidean_deviation": 0.4362934931662672,
+      "sample_record_ids": [
+        "7cd8a76b-464b-44fc-8cf9-5de7a98c445c",
+        "81277fb6-f160-4ecb-974e-d462e9b8ef20",
+        "b5e179de-4dfc-4e15-94e0-4216772604a6",
+        "47dc596c-922b-4b41-9164-31cd93893015",
+        "04b12c85-f483-4efc-af07-b9631715c1e8",
+        "41f6c952-bec2-4871-aa52-53de7a1b01a9",
+        "acd8a658-20c8-4d0e-9aec-38ba295f2b40",
+        "5fdea3ab-432b-42aa-abf7-268c7e51a356"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.08017643802397263,
+      "max_cosine_deviation": 0.10598526708133749,
+      "avg_euclidean_deviation": 0.3899768052101973,
+      "max_euclidean_deviation": 0.44878030664358076,
+      "sample_record_ids": [
+        "5113900e-f032-4d67-ba42-e7a6a830c5b4",
+        "ff173d03-1029-446a-81a0-4e1a98cc0496",
+        "cdfd2e79-ba6e-490c-a130-76a1674cdb26",
+        "ecbf8a56-2d7e-4b61-a277-76bdf7567834",
+        "520c7f0b-036c-480d-9cd0-451b75e1d47d",
+        "def75afe-0801-45d5-a956-dc425a50bc1d",
+        "449e6bf2-83f4-4235-b921-df92515725b3",
+        "57d9b96c-40f8-4c4e-9c72-9f33592ba223"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "avg_cosine_deviation": 0.08710542478633386,
+      "max_cosine_deviation": 0.1074760008903285,
+      "avg_euclidean_deviation": 0.40732166432529066,
+      "max_euclidean_deviation": 0.4514597211793281,
+      "sample_record_ids": [
+        "0b83bd7a-73b1-422b-a1e4-b2bed850a5bb",
+        "c65fcbab-e8eb-42fb-ab46-ff8f88734525",
+        "509520af-dcd5-4e17-89a7-9e823e8be62e",
+        "73c719e9-44e5-4660-8b81-9fc6b836ce81",
+        "b34603ac-402b-44e6-a97b-495fb7594142",
+        "fc7cca29-1c86-4557-8ba1-be8d561e3d14",
+        "3e2a88b0-ea97-4b08-bc5f-c52050e13a89",
+        "f65e328d-b331-42c8-8bb1-2c198dfa5489"
+      ]
+    }
+  ],
+  "summary": {
+    "num_groups": 60,
+    "mean_avg_cosine_deviation": 0.05384840949098586,
+    "mean_max_cosine_deviation": 0.07702552801042564,
+    "mean_avg_euclidean_deviation": 0.31788275374482045,
+    "mean_max_euclidean_deviation": 0.37934293963483423
+  }
+}

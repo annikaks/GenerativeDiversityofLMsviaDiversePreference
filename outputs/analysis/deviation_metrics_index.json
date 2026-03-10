@@ -1,0 +1,35 @@
+{
+  "note": "For text embeddings, cosine deviation is usually the primary metric.",
+  "files": [
+    {
+      "model": "claude-opus-4-6 (thinking disabled)",
+      "metrics_file": "outputs/analysis/claude-opus-4-6-thinking-disabled_deviation_metrics.json",
+      "num_groups": 44
+    },
+    {
+      "model": "claude-opus-4-6 (thinking enabled)",
+      "metrics_file": "outputs/analysis/claude-opus-4-6-thinking-enabled_deviation_metrics.json",
+      "num_groups": 55
+    },
+    {
+      "model": "GPT-5.2 pro (reasoning high)",
+      "metrics_file": "outputs/analysis/gpt-5-2-pro-reasoning-high_deviation_metrics.json",
+      "num_groups": 60
+    },
+    {
+      "model": "GPT-5.2 pro (reasoning low)",
+      "metrics_file": "outputs/analysis/gpt-5-2-pro-reasoning-low_deviation_metrics.json",
+      "num_groups": 60
+    },
+    {
+      "model": "grok-4-1-fast-non-reasoning",
+      "metrics_file": "outputs/analysis/grok-4-1-fast-non-reasoning_deviation_metrics.json",
+      "num_groups": 60
+    },
+    {
+      "model": "grok-4-1-fast-reasoning",
+      "metrics_file": "outputs/analysis/grok-4-1-fast-reasoning_deviation_metrics.json",
+      "num_groups": 60
+    }
+  ]
+}

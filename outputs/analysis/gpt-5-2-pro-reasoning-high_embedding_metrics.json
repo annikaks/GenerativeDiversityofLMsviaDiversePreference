@@ -1,0 +1,1465 @@
+{
+  "created_at_utc": "2026-02-27T08:05:17.867853+00:00",
+  "source_generation_file": "outputs/generations/gpt-5-2-pro-reasoning-high.json",
+  "embedding_cache_file": "outputs/embeddings/gpt-5-2-pro-reasoning-high_embeddings.json",
+  "embedding_model": "text-embedding-3-large",
+  "model": {
+    "display_name": "GPT-5.2 pro (reasoning high)",
+    "provider": "openai",
+    "api_model": "gpt-5.2",
+    "thinking": "reasoning"
+  },
+  "grouping": "prompt_id + seed_modifier_index",
+  "groups": [
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 0,
+      "num_samples": 6,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.28455529167207494,
+      "average_cosine_distance_to_centroid": 0.09489889376311846,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 6,
+        "record_id_a": "b42cff02-b8df-4b3e-840d-a9e8a42eff6f",
+        "record_id_b": "8cf42949-449c-445d-97c0-6d5aad7defee",
+        "distance": 0.28455529167207494
+      },
+      "sample_record_ids": [
+        "f992d06a-163f-4524-baba-d939d087a80d",
+        "b42cff02-b8df-4b3e-840d-a9e8a42eff6f",
+        "c709033e-1f03-4154-926a-380bf7eeb391",
+        "464fe918-3b7a-4f05-88f0-c968d30ea4f6",
+        "8cf42949-449c-445d-97c0-6d5aad7defee",
+        "c8bb432e-76e2-4719-ad09-342f67ab27fc"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 1,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2726046348860338,
+      "average_cosine_distance_to_centroid": 0.07923066087804038,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 3,
+        "record_id_a": "b09cc134-39b3-4409-a290-b5aa843bb1de",
+        "record_id_b": "dcd953a3-679c-49aa-9ac7-72cd2e8cd1ee",
+        "distance": 0.2726046348860338
+      },
+      "sample_record_ids": [
+        "85186878-c615-4a68-9a64-99759f916609",
+        "b09cc134-39b3-4409-a290-b5aa843bb1de",
+        "dcd953a3-679c-49aa-9ac7-72cd2e8cd1ee",
+        "799cc31f-c772-410c-91d2-d70c5b2e4b59",
+        "acbb24b5-8a28-417c-8cca-42e8f192939b"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 2,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2994938888960208,
+      "average_cosine_distance_to_centroid": 0.07963199048146219,
+      "furthest_pair": {
+        "sample_index_a": 5,
+        "sample_index_b": 6,
+        "record_id_a": "8b1297d0-bc08-40db-b2f1-6cafa6e4f283",
+        "record_id_b": "b3fdd77e-1d27-4025-9984-6efa79bdb699",
+        "distance": 0.2994938888960208
+      },
+      "sample_record_ids": [
+        "f6ff4fb1-986a-494d-b60d-5895e65984ac",
+        "18a075ae-73b8-4ae5-b556-d2b4c29410bf",
+        "f4265ecb-1f68-4afe-8ce5-92fa30aba69b",
+        "8b1297d0-bc08-40db-b2f1-6cafa6e4f283",
+        "b3fdd77e-1d27-4025-9984-6efa79bdb699"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 3,
+      "num_samples": 4,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.24461695162030594,
+      "average_cosine_distance_to_centroid": 0.07163885002874545,
+      "furthest_pair": {
+        "sample_index_a": 5,
+        "sample_index_b": 7,
+        "record_id_a": "879382d5-5b52-4cbc-8c0f-afbaf55fa65e",
+        "record_id_b": "2d141342-605a-4a74-bec1-2e897159b6fa",
+        "distance": 0.24461695162030594
+      },
+      "sample_record_ids": [
+        "9593b260-b403-431d-bc21-691fc2917171",
+        "bc533737-389c-4a33-82f6-b6de7dbd43e0",
+        "879382d5-5b52-4cbc-8c0f-afbaf55fa65e",
+        "2d141342-605a-4a74-bec1-2e897159b6fa"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 4,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3652774076595866,
+      "average_cosine_distance_to_centroid": 0.10764089203948127,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 5,
+        "record_id_a": "3735d080-a5da-4dee-aeac-d965755b18af",
+        "record_id_b": "6bdc13fb-f206-4d57-9b78-b44f71692994",
+        "distance": 0.3652774076595866
+      },
+      "sample_record_ids": [
+        "370413de-16a4-4608-b9b6-766b1039b3dd",
+        "3735d080-a5da-4dee-aeac-d965755b18af",
+        "874d4de5-1180-4c83-9f21-ab8bfbce458f",
+        "962465ba-028f-41ea-958b-d7337b921242",
+        "6bdc13fb-f206-4d57-9b78-b44f71692994"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 5,
+      "num_samples": 6,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.30778632607354683,
+      "average_cosine_distance_to_centroid": 0.11064205054201244,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 7,
+        "record_id_a": "4c84931b-8c82-4a55-9d71-fadacb60d51c",
+        "record_id_b": "a2b248f4-5fa5-44bf-acb1-bc2205d8013b",
+        "distance": 0.30778632607354683
+      },
+      "sample_record_ids": [
+        "4c84931b-8c82-4a55-9d71-fadacb60d51c",
+        "747bf8e3-fa1b-4b4a-ba31-dde78b791e3f",
+        "1f67e449-e996-469d-9e6d-c27024fa25fb",
+        "db67c7bf-6e15-43c6-9056-9bfef88836be",
+        "397c278f-2eac-4996-b1dd-caaf30199273",
+        "a2b248f4-5fa5-44bf-acb1-bc2205d8013b"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 6,
+      "num_samples": 6,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.27179069853848115,
+      "average_cosine_distance_to_centroid": 0.08291262338430772,
+      "furthest_pair": {
+        "sample_index_a": 3,
+        "sample_index_b": 4,
+        "record_id_a": "e668c4ac-8e94-45c8-a5c6-b14d79b29f49",
+        "record_id_b": "5b8879b0-354b-44e2-ae04-7dd0c4ba3dee",
+        "distance": 0.27179069853848115
+      },
+      "sample_record_ids": [
+        "ea6ada9a-25f1-46cf-b207-2bf775a8c263",
+        "069f36bf-d70a-47aa-b534-999ebf3f128f",
+        "e668c4ac-8e94-45c8-a5c6-b14d79b29f49",
+        "5b8879b0-354b-44e2-ae04-7dd0c4ba3dee",
+        "d98b447f-22fe-440a-b184-c3028ff06152",
+        "7606300d-1143-4ecc-9336-5c18b986b4a1"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 7,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.5431399038936466,
+      "average_cosine_distance_to_centroid": 0.14514805523100055,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 6,
+        "record_id_a": "e155af41-ac9d-460d-bb54-bd92a3a5449f",
+        "record_id_b": "11292bda-d893-4062-9809-779b7ffd4d4a",
+        "distance": 0.5431399038936466
+      },
+      "sample_record_ids": [
+        "e155af41-ac9d-460d-bb54-bd92a3a5449f",
+        "cee166d0-7f5b-419f-afe0-7469fde9cfa3",
+        "c20c66e9-9d37-4dc4-a71e-666860eb71e1",
+        "0bfc62f6-d2e9-4d3e-8ea3-65bd25734583",
+        "11292bda-d893-4062-9809-779b7ffd4d4a"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 8,
+      "num_samples": 6,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.6455890822877453,
+      "average_cosine_distance_to_centroid": 0.1691972156680631,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 6,
+        "record_id_a": "5a15084e-513d-4b17-bdd8-7451bffdd11e",
+        "record_id_b": "c46c9f66-ff97-44c0-a688-b5b4cc28184a",
+        "distance": 0.6455890822877453
+      },
+      "sample_record_ids": [
+        "c631cf45-3e46-4f4d-86c1-55d62b5d76a4",
+        "c891f1c7-316a-49c4-84b0-39e2b38d309f",
+        "5a15084e-513d-4b17-bdd8-7451bffdd11e",
+        "8ebd685a-16a9-41f2-b064-a8a52a3524a9",
+        "c46c9f66-ff97-44c0-a688-b5b4cc28184a",
+        "768ae537-11f2-427b-ae61-7bdafa6b2c1b"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 9,
+      "num_samples": 6,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.46826887206458334,
+      "average_cosine_distance_to_centroid": 0.13780172614031663,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 6,
+        "record_id_a": "f5adadc4-13e6-4bbc-9774-bfd5bf51250f",
+        "record_id_b": "13e9b58d-bbbe-4b6b-bc26-c054e3284f5b",
+        "distance": 0.46826887206458334
+      },
+      "sample_record_ids": [
+        "d2242f8e-feae-4b73-89b6-c65d2a5004cc",
+        "97946bd5-1412-49f8-9f91-64a115a6ccb6",
+        "f5adadc4-13e6-4bbc-9774-bfd5bf51250f",
+        "88b6a463-f431-4d04-927f-16cf8e3731c6",
+        "3cad4fc6-dc6c-470c-bbab-f4b2f43eddc0",
+        "13e9b58d-bbbe-4b6b-bc26-c054e3284f5b"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 0,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.5030677607132468,
+      "average_cosine_distance_to_centroid": 0.11106924660274646,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 2,
+        "record_id_a": "2fc2e705-c486-49e5-bf4e-ed3c58f56c9e",
+        "record_id_b": "2dd22c7b-0c64-4344-b2ac-02ef4aab94ed",
+        "distance": 0.5030677607132468
+      },
+      "sample_record_ids": [
+        "8e7cca35-c2e4-49d9-80a7-955b426eedce",
+        "2fc2e705-c486-49e5-bf4e-ed3c58f56c9e",
+        "2dd22c7b-0c64-4344-b2ac-02ef4aab94ed",
+        "6b55b336-a366-4192-a8b8-23a7d3ada032",
+        "e539b1b6-c4ae-4f8b-a9b0-7a5e9c4599ea"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 1,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.45375317446482155,
+      "average_cosine_distance_to_centroid": 0.1314122640162768,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 6,
+        "record_id_a": "e04fd0a0-12cd-4d6f-8a31-599376ee5d6a",
+        "record_id_b": "7b73a6ea-a50f-4d77-83bc-3f43c5a2ece4",
+        "distance": 0.45375317446482155
+      },
+      "sample_record_ids": [
+        "e04fd0a0-12cd-4d6f-8a31-599376ee5d6a",
+        "3f310fdd-2056-46b6-bc17-40c73034cdcf",
+        "ae843c96-b689-42a6-9755-eae03d9da615",
+        "41137d2e-36e0-4721-8b9e-2ed94ecc715a",
+        "7b73a6ea-a50f-4d77-83bc-3f43c5a2ece4"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 2,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3088055377754504,
+      "average_cosine_distance_to_centroid": 0.09797205860967846,
+      "furthest_pair": {
+        "sample_index_a": 5,
+        "sample_index_b": 7,
+        "record_id_a": "0743052e-5ef4-43fd-acd9-620322ce4536",
+        "record_id_b": "4d04f0d9-101b-4f0a-9b0c-e9fd71a6ed4d",
+        "distance": 0.3088055377754504
+      },
+      "sample_record_ids": [
+        "0f5e334d-217d-4017-9834-1425c11d33ff",
+        "d1e1d71c-820d-407b-9be6-82f8b2a1e0ec",
+        "0743052e-5ef4-43fd-acd9-620322ce4536",
+        "835a8f98-b63b-4e81-b891-f2d5f5d89db6",
+        "4d04f0d9-101b-4f0a-9b0c-e9fd71a6ed4d"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 3,
+      "num_samples": 4,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.6017328746886348,
+      "average_cosine_distance_to_centroid": 0.13795676946173208,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 7,
+        "record_id_a": "7545dc44-268f-4607-b87f-8c4cb6e2ed35",
+        "record_id_b": "8c12ce84-c819-4d97-80fd-4f50d542bd6f",
+        "distance": 0.6017328746886348
+      },
+      "sample_record_ids": [
+        "7545dc44-268f-4607-b87f-8c4cb6e2ed35",
+        "d19dcd08-9b96-4e10-a667-670dde211bd6",
+        "48f9ac9d-579f-4ca9-9758-d0dab4236b9a",
+        "8c12ce84-c819-4d97-80fd-4f50d542bd6f"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 4,
+      "num_samples": 7,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3451053712442226,
+      "average_cosine_distance_to_centroid": 0.09878575877792314,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 5,
+        "record_id_a": "29a3be0e-ef3b-4b9d-ba65-47c2d6909ed5",
+        "record_id_b": "2f98117c-017d-411a-a9f1-912d1c9d98f7",
+        "distance": 0.3451053712442226
+      },
+      "sample_record_ids": [
+        "322e1d60-9b49-493a-a697-788bb85af851",
+        "29a3be0e-ef3b-4b9d-ba65-47c2d6909ed5",
+        "91fabefd-9a1b-4440-844f-bcbf007281e0",
+        "f2d0768f-5406-444a-a351-6cf9526618ed",
+        "2f98117c-017d-411a-a9f1-912d1c9d98f7",
+        "c3d7806d-64bf-4687-8d06-f028fc8ce9c6",
+        "6cd4cd49-ee79-448b-ad22-2245c3723c56"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 5,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.5211999931972429,
+      "average_cosine_distance_to_centroid": 0.14966620653228385,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 5,
+        "record_id_a": "15e62e1e-fc55-4a90-b287-f89b017bd3cf",
+        "record_id_b": "417684f1-54b2-4230-9884-e331875af7f2",
+        "distance": 0.5211999931972429
+      },
+      "sample_record_ids": [
+        "843225eb-9828-46a9-acc8-df0052bc4507",
+        "15e62e1e-fc55-4a90-b287-f89b017bd3cf",
+        "f20f0480-6b67-4655-9528-6ed11f2c6eff",
+        "07647cb3-7af9-4531-9d97-5f1d8f31bb23",
+        "417684f1-54b2-4230-9884-e331875af7f2"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 6,
+      "num_samples": 6,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3481761267532838,
+      "average_cosine_distance_to_centroid": 0.1072579492516439,
+      "furthest_pair": {
+        "sample_index_a": 5,
+        "sample_index_b": 6,
+        "record_id_a": "2e5f5c50-63e3-4fc4-8322-469805305ef7",
+        "record_id_b": "7c455b63-d11c-42a4-b048-bc07e2adb225",
+        "distance": 0.3481761267532838
+      },
+      "sample_record_ids": [
+        "d2862f9d-b542-4270-a13c-5dde86216a6c",
+        "e485d052-84ac-4886-a9a4-0c476a0cf612",
+        "f478556c-636c-436a-b76a-07b8fe821a00",
+        "e13b6293-7623-439f-997b-8880107ad26c",
+        "2e5f5c50-63e3-4fc4-8322-469805305ef7",
+        "7c455b63-d11c-42a4-b048-bc07e2adb225"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 7,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.5559363528124661,
+      "average_cosine_distance_to_centroid": 0.13053435989973472,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 6,
+        "record_id_a": "f679ddff-f48d-4179-be0b-58c23325fe16",
+        "record_id_b": "5faa0761-bef9-4632-9022-cab6d7da47d7",
+        "distance": 0.5559363528124661
+      },
+      "sample_record_ids": [
+        "ee6769f4-7e47-4173-85a7-047d8b9f512f",
+        "f679ddff-f48d-4179-be0b-58c23325fe16",
+        "e24a7f0d-a6c1-4950-ad4f-1812e2993b54",
+        "5faa0761-bef9-4632-9022-cab6d7da47d7",
+        "a6982d15-eed9-415e-91dd-24158b432e35"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 8,
+      "num_samples": 7,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.5983688205569704,
+      "average_cosine_distance_to_centroid": 0.17795595268118206,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 3,
+        "record_id_a": "6951f39d-526d-4f7b-9ec2-0d65aef44747",
+        "record_id_b": "208cae0b-f378-47d2-acb2-6c7b6c4113c1",
+        "distance": 0.5983688205569704
+      },
+      "sample_record_ids": [
+        "6951f39d-526d-4f7b-9ec2-0d65aef44747",
+        "2d8f5f3d-e872-4983-aab4-c58aef598b18",
+        "3d4fa170-12dd-4a7b-ae04-bbfcfc30cb3e",
+        "208cae0b-f378-47d2-acb2-6c7b6c4113c1",
+        "dd91dfbf-3971-4aec-acc5-680189adef61",
+        "c911d761-33d8-4503-bf68-28a5612f387f",
+        "a40056c6-c887-4343-a5c2-44ad6943751e"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 9,
+      "num_samples": 5,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.4382080774794418,
+      "average_cosine_distance_to_centroid": 0.11262069207382937,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 7,
+        "record_id_a": "6bb059ea-c977-4716-99ab-8b92496e8148",
+        "record_id_b": "f7422e24-9a62-4416-9786-cb8f2d7763a6",
+        "distance": 0.4382080774794418
+      },
+      "sample_record_ids": [
+        "d7565d71-3c27-492b-b5ed-53637756cab6",
+        "6bb059ea-c977-4716-99ab-8b92496e8148",
+        "fa64641f-167d-425c-ad1b-279edda9d5ed",
+        "406a9d76-6a83-41a4-9053-6c0bc9ce3dfb",
+        "f7422e24-9a62-4416-9786-cb8f2d7763a6"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.6761116525619374,
+      "average_cosine_distance_to_centroid": 0.13812824956991587,
+      "furthest_pair": {
+        "sample_index_a": 3,
+        "sample_index_b": 4,
+        "record_id_a": "3ddbaf1d-dbcd-4f26-ba7d-47c5adecfd77",
+        "record_id_b": "dd111fb5-64be-471b-878f-31b084579c57",
+        "distance": 0.6761116525619374
+      },
+      "sample_record_ids": [
+        "fd5dd1e3-2c17-4568-b7b3-031f4e9cdcb4",
+        "3482700e-3b10-4fc8-bb4a-3bb00f3e5b08",
+        "98c7a4ee-dbb8-4211-a87a-f5f9398ab044",
+        "3ddbaf1d-dbcd-4f26-ba7d-47c5adecfd77",
+        "dd111fb5-64be-471b-878f-31b084579c57",
+        "dbae4b5c-1923-4958-8311-018f19b93187",
+        "a61be2a4-fceb-4fb1-aad7-fd27125f4cd0",
+        "3532ee73-3dca-4343-8217-811b2492d923"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2003930760307122,
+      "average_cosine_distance_to_centroid": 0.07201962635841645,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 2,
+        "record_id_a": "062f5778-10b4-42a0-9ca9-cdd41764dd54",
+        "record_id_b": "01638fb3-230f-4858-a5c2-5296722c5dca",
+        "distance": 0.2003930760307122
+      },
+      "sample_record_ids": [
+        "3b423c09-e2f8-4f28-b744-f3bba5bc4d22",
+        "062f5778-10b4-42a0-9ca9-cdd41764dd54",
+        "01638fb3-230f-4858-a5c2-5296722c5dca",
+        "132ed6f8-f5c4-47b4-b53c-5a09d0c8fa71",
+        "4f7b6436-e4bb-4b07-91f5-a9503f27e89a",
+        "d1c2ddf5-a551-46c5-850c-560d32143cff",
+        "3f4379ff-b7e2-4c44-97fd-ccf9562104c6",
+        "1cd095fe-9451-494a-b0cc-714949813070"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.6595347690526897,
+      "average_cosine_distance_to_centroid": 0.1582872766207446,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 5,
+        "record_id_a": "cc6b953e-4cb3-47e6-87a8-2615a684f9f4",
+        "record_id_b": "9e1fedd2-a43d-43a2-aa19-d46e30a0c939",
+        "distance": 0.6595347690526897
+      },
+      "sample_record_ids": [
+        "7ec50e32-cd0c-46df-adb8-27797ad9e7f4",
+        "96402b46-5246-4732-bbea-b5c6bfb339ca",
+        "f9e57585-166c-4361-8db2-68b3e6cefeba",
+        "f89839fa-9e4f-4f8a-af12-740e290e5eaa",
+        "cc6b953e-4cb3-47e6-87a8-2615a684f9f4",
+        "9e1fedd2-a43d-43a2-aa19-d46e30a0c939",
+        "cb5adf2e-1f6d-4d70-8e77-28de05d15581",
+        "b34bc314-6fdb-4c4a-8d44-b97fe66f96c4"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.38748426498566335,
+      "average_cosine_distance_to_centroid": 0.09831427288564021,
+      "furthest_pair": {
+        "sample_index_a": 3,
+        "sample_index_b": 4,
+        "record_id_a": "8ead8c0a-0d92-4bf8-8621-8341f7d2af78",
+        "record_id_b": "b9caf8fe-3050-47a1-b172-23db38676a57",
+        "distance": 0.38748426498566335
+      },
+      "sample_record_ids": [
+        "46b2c8b7-5c26-48f2-91e6-58a46d788a0a",
+        "6e7d392a-fa11-4067-9429-36001c28ffe1",
+        "4f13a0cf-b21c-4b0b-9b47-88c28a51f169",
+        "8ead8c0a-0d92-4bf8-8621-8341f7d2af78",
+        "b9caf8fe-3050-47a1-b172-23db38676a57",
+        "13f1e644-5299-4674-a481-377e155fac37",
+        "c53206f8-e4e4-4cf7-bc69-752462842da8",
+        "9ccef1ab-c2f7-40a8-9c2e-5095539ca599"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2685198584299828,
+      "average_cosine_distance_to_centroid": 0.07660672199937388,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 2,
+        "record_id_a": "ebe36ce6-93fc-4b0e-a760-61aa74a6309a",
+        "record_id_b": "0ab1d1c2-cb94-4b35-a174-7a32004dddfb",
+        "distance": 0.2685198584299828
+      },
+      "sample_record_ids": [
+        "9819486e-8aa4-43bb-adcd-5514929222a7",
+        "ebe36ce6-93fc-4b0e-a760-61aa74a6309a",
+        "0ab1d1c2-cb94-4b35-a174-7a32004dddfb",
+        "0ace6d89-f1a8-42b7-b8b3-239b039b3f1b",
+        "c8f9d858-52f3-435a-bd3c-0ace85faa2b3",
+        "81338585-c09f-47d5-8393-fdd207a045ce",
+        "ef185d20-70e6-46ea-abda-edcf21367c84",
+        "bfaa1510-1c02-44f9-aa4f-831a45c9b916"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 5,
+      "num_samples": 7,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.26009113110273174,
+      "average_cosine_distance_to_centroid": 0.07845036546841602,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 6,
+        "record_id_a": "90a2ce6c-09ee-405d-9287-85fe62bd4225",
+        "record_id_b": "3843b247-85e2-496f-be92-c3c72600fa06",
+        "distance": 0.26009113110273174
+      },
+      "sample_record_ids": [
+        "37a25171-e9ea-46c2-821a-e19858b31401",
+        "1c800bb7-146e-4775-945c-4befe321e812",
+        "90a2ce6c-09ee-405d-9287-85fe62bd4225",
+        "565fd79f-169e-498d-9280-6e55ed77e9bc",
+        "5031a891-d5fc-491e-a89c-54a49767227a",
+        "3843b247-85e2-496f-be92-c3c72600fa06",
+        "23d88441-502e-4839-a8d0-cbd0522f86cf"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 6,
+      "num_samples": 7,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.540722900154708,
+      "average_cosine_distance_to_centroid": 0.11331148245846483,
+      "furthest_pair": {
+        "sample_index_a": 5,
+        "sample_index_b": 7,
+        "record_id_a": "5da883ac-80a8-48a3-87f6-1f7b9c4eceab",
+        "record_id_b": "5826cd1b-38b5-42f0-9b8e-a111d5800ad0",
+        "distance": 0.540722900154708
+      },
+      "sample_record_ids": [
+        "00d712fc-b79a-4c0e-8cae-2760bb2bb8d3",
+        "2802f733-da32-4aa0-9039-349f254331bb",
+        "0a04aef8-7c63-41a2-b2e5-84f1968ea7fd",
+        "c3835a1f-2bfb-41ff-962e-86519f08c629",
+        "5da883ac-80a8-48a3-87f6-1f7b9c4eceab",
+        "b06dde73-6ace-42fa-bea1-a08dcafd8404",
+        "5826cd1b-38b5-42f0-9b8e-a111d5800ad0"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.20259351322615948,
+      "average_cosine_distance_to_centroid": 0.06344703890154962,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 6,
+        "record_id_a": "5c05ba4a-7dc3-4f0c-951c-4fc7078641f6",
+        "record_id_b": "e8fa99ff-a7b4-4b3b-ac37-05d9f598ef87",
+        "distance": 0.20259351322615948
+      },
+      "sample_record_ids": [
+        "ccc9483f-b5d8-4c02-9607-0de12ea03ce4",
+        "5169f367-4954-48e7-9b64-4ed88ec666ae",
+        "81dc29f1-ad62-4256-ac64-89f263fc0145",
+        "cd70af95-8aaa-42a0-b6c1-e5be3c0173bd",
+        "5c05ba4a-7dc3-4f0c-951c-4fc7078641f6",
+        "7d072e57-8368-458e-841c-85053f9cf3d7",
+        "e8fa99ff-a7b4-4b3b-ac37-05d9f598ef87",
+        "50730fee-16cd-4598-887b-e77799d747ef"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3033575443946275,
+      "average_cosine_distance_to_centroid": 0.08805430234899084,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 3,
+        "record_id_a": "5ce4583c-f415-4426-8731-5242fb946c8e",
+        "record_id_b": "79b50ae9-5ae4-45ac-84e4-b5976847a9fd",
+        "distance": 0.3033575443946275
+      },
+      "sample_record_ids": [
+        "f16ab75f-ba9e-4923-94dd-ece983670111",
+        "576fae46-a00f-4bd9-a7c2-ba99a8dd7197",
+        "5ce4583c-f415-4426-8731-5242fb946c8e",
+        "79b50ae9-5ae4-45ac-84e4-b5976847a9fd",
+        "3ad8fa46-8610-45a4-9fad-f257b7c6665e",
+        "94beaa0a-ca54-41f3-9026-3e6fa2b3be4a",
+        "2e20f5d2-60d9-4f44-b856-ac6a88c394d8",
+        "b0d8d50a-c240-4f2e-a0ea-7699f7ef1a9c"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 9,
+      "num_samples": 7,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.36463960735484624,
+      "average_cosine_distance_to_centroid": 0.09263242888803061,
+      "furthest_pair": {
+        "sample_index_a": 5,
+        "sample_index_b": 7,
+        "record_id_a": "36174a4c-98a7-4738-a357-a30e9f14c1fc",
+        "record_id_b": "6130a5a8-c93f-40aa-b40a-a39ef8d502f4",
+        "distance": 0.36463960735484624
+      },
+      "sample_record_ids": [
+        "1446bd99-d620-4ffe-aca9-55cec0e84d68",
+        "a1cbe0b7-0031-4214-99a2-77c53dd9b082",
+        "80fb0b7f-b26f-4ad4-85d6-c06aaf3a5c4a",
+        "6c5c0341-6cae-4f1e-a4da-1fe7aef03d39",
+        "36174a4c-98a7-4738-a357-a30e9f14c1fc",
+        "2e7b32fc-212a-4bf7-80d2-d2a4cf4f905d",
+        "6130a5a8-c93f-40aa-b40a-a39ef8d502f4"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.8796811194817051,
+      "average_cosine_distance_to_centroid": 0.15239756431308413,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 7,
+        "record_id_a": "6d5c60af-5822-4494-8979-6d1abec592c1",
+        "record_id_b": "b4fb7b90-4a8a-436c-87f9-bd8598bb5ca5",
+        "distance": 0.8796811194817051
+      },
+      "sample_record_ids": [
+        "8153eeb4-d1aa-4b18-b72a-d6cbfc2f0bfa",
+        "9629e693-d1fd-4afd-ab0f-ed0d87662dab",
+        "bbae5dfc-2834-4957-9149-0319a558c650",
+        "9f12a157-cfd3-4b4a-b69a-bf846b689505",
+        "6d5c60af-5822-4494-8979-6d1abec592c1",
+        "75b612ef-9218-4caf-983d-0d1b2092839b",
+        "b007f98a-5ba5-47c3-8d2c-455e7bb855e0",
+        "b4fb7b90-4a8a-436c-87f9-bd8598bb5ca5"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3004860081137988,
+      "average_cosine_distance_to_centroid": 0.0785924683594625,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 1,
+        "record_id_a": "d348e592-2d15-407b-8be6-9a575557fa31",
+        "record_id_b": "050fedd6-ca53-47b5-bfba-79631f19f48b",
+        "distance": 0.3004860081137988
+      },
+      "sample_record_ids": [
+        "d348e592-2d15-407b-8be6-9a575557fa31",
+        "050fedd6-ca53-47b5-bfba-79631f19f48b",
+        "babff44f-ae2c-4cbf-a262-3056e98efe1e",
+        "b2b2e4dc-98b7-4a42-936e-2f61a3f630c9",
+        "1bf6ee47-04e4-4e9b-a145-811e5f43861d",
+        "dad6046a-9db5-4737-b6e3-3a05eca66233",
+        "a0674083-f498-4f81-80bc-951df8f4373b",
+        "a26aa41f-fddf-422d-84fe-e3cccb20dad6"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.4912873119840945,
+      "average_cosine_distance_to_centroid": 0.10551329037196401,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 2,
+        "record_id_a": "a3ab0caf-0e72-4d6f-9f51-922b50afb6cc",
+        "record_id_b": "7f085e8a-83e7-4a32-87e8-483fb0180055",
+        "distance": 0.4912873119840945
+      },
+      "sample_record_ids": [
+        "4d7a9639-7b1f-4496-bcb3-dc5f71fda82e",
+        "a3ab0caf-0e72-4d6f-9f51-922b50afb6cc",
+        "7f085e8a-83e7-4a32-87e8-483fb0180055",
+        "ec778ac2-7fed-4b7f-91b4-945b4cccc4e3",
+        "67677b2c-cd14-49ad-b545-7deb0ab88642",
+        "cf75eb3d-6e7e-4a02-b560-90dba012ebd2",
+        "027cf187-3412-4f06-95db-ce8602d94137",
+        "5b0827ae-f56a-40c1-8732-fbbf837e9bc8"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.49702196529694875,
+      "average_cosine_distance_to_centroid": 0.0956598743195727,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 4,
+        "record_id_a": "968f9781-fc9d-4899-a7db-f9702a1be686",
+        "record_id_b": "086ca9bf-6753-41b2-964f-01d49153c019",
+        "distance": 0.49702196529694875
+      },
+      "sample_record_ids": [
+        "5fceb5cf-76d6-4ae1-b0ab-fb66f2552a1b",
+        "26ad23d1-34b8-4024-a7f8-c1d157352b03",
+        "968f9781-fc9d-4899-a7db-f9702a1be686",
+        "98f4ed28-8057-4f0d-9dae-d983f5cb2d9e",
+        "086ca9bf-6753-41b2-964f-01d49153c019",
+        "415b1666-9366-4cb8-9d93-005ea4640fc4",
+        "e9b67479-70bd-41a2-9b09-4b839c20e230",
+        "0378dbbf-ea10-4a5a-b562-ad96f5143e62"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.18452559299054272,
+      "average_cosine_distance_to_centroid": 0.05476920250269815,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 5,
+        "record_id_a": "6456d2cf-c5c7-4cbd-8f73-32849d85cdcb",
+        "record_id_b": "d0472678-7a2f-453d-be18-4909ee7d8f15",
+        "distance": 0.18452559299054272
+      },
+      "sample_record_ids": [
+        "67c414ed-9d69-43a2-8971-229b3f57a324",
+        "2687f4a3-d974-4ecc-8a4d-8c627583c4f0",
+        "6456d2cf-c5c7-4cbd-8f73-32849d85cdcb",
+        "489f8e45-299d-4e5d-8919-6dd96f3d2bcf",
+        "bb2bea0f-933c-49ea-a225-1b07f47484bc",
+        "d0472678-7a2f-453d-be18-4909ee7d8f15",
+        "6ad2bb05-15b1-4ece-a7fc-4ccafa7e32fe",
+        "b804ce97-755f-4e33-a39d-be98fe334327"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3434613559803643,
+      "average_cosine_distance_to_centroid": 0.08135479755452801,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 7,
+        "record_id_a": "85ae9a36-d53e-4fdf-a17f-dd1cb79af80c",
+        "record_id_b": "e35cb55c-be08-4652-817e-4d5b1981c1a1",
+        "distance": 0.3434613559803643
+      },
+      "sample_record_ids": [
+        "9aab2399-e234-4471-9fae-89eab561dacf",
+        "ffa6a1f4-1a11-4eae-bb55-0c945edb0305",
+        "85ae9a36-d53e-4fdf-a17f-dd1cb79af80c",
+        "ce23b244-4da6-4136-9244-b54a9cbe6ca0",
+        "67831671-0575-4fa3-9dbf-9a63712d79bb",
+        "a7442bc8-1d5b-4548-b3d4-14eb2340bafe",
+        "3bc4ceb7-033a-4631-9b79-fc7ba3a98f4d",
+        "e35cb55c-be08-4652-817e-4d5b1981c1a1"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.44386011046412366,
+      "average_cosine_distance_to_centroid": 0.08111318499510962,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 5,
+        "record_id_a": "5d4dc00f-f896-4bc9-b2f4-6ed1d8f291c9",
+        "record_id_b": "f9011e30-c6a7-492a-930d-1c45370033e4",
+        "distance": 0.44386011046412366
+      },
+      "sample_record_ids": [
+        "d727958b-b043-421a-9c1f-1b1f8c5c52ee",
+        "2dd69c5a-0edd-457e-a235-d0ed8c0d034a",
+        "5d4dc00f-f896-4bc9-b2f4-6ed1d8f291c9",
+        "1641274f-c46f-465d-af08-afd5452a4e21",
+        "5b10c067-d06c-4552-8c98-6d7d56f87e7c",
+        "f9011e30-c6a7-492a-930d-1c45370033e4",
+        "d6e56623-984c-4d66-8cd8-a067d78c3d4b",
+        "52e9c0cb-3e72-4c60-b12a-bbc8946a5aeb"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.20136332494463682,
+      "average_cosine_distance_to_centroid": 0.06112133622099451,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 3,
+        "record_id_a": "02003cac-f17b-481f-b387-87bc26a10347",
+        "record_id_b": "1d8356e1-89d8-4a27-bfe1-745e04b0b46b",
+        "distance": 0.20136332494463682
+      },
+      "sample_record_ids": [
+        "02003cac-f17b-481f-b387-87bc26a10347",
+        "f4457ada-3db2-48ef-9a76-4d3ee0392a9a",
+        "bf48c3ef-3587-43e4-9b64-4d2b154a8b9c",
+        "1d8356e1-89d8-4a27-bfe1-745e04b0b46b",
+        "c6e3dbca-bf52-4f7a-bcbb-a45519816316",
+        "a5a62afe-d40e-40e4-b421-2cf1da46f125",
+        "8c159ebd-309d-4f18-8f5f-aba4ec1674d8",
+        "4b4aadfc-1b70-4fed-a7b0-9d0f1f4f4ffd"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2318495993236992,
+      "average_cosine_distance_to_centroid": 0.06714314109992468,
+      "furthest_pair": {
+        "sample_index_a": 6,
+        "sample_index_b": 7,
+        "record_id_a": "6af1a4f8-341a-4b3a-b9a7-7e877acc324f",
+        "record_id_b": "c26ffb0b-11ee-414c-8078-ac5fd5238563",
+        "distance": 0.2318495993236992
+      },
+      "sample_record_ids": [
+        "e7dcdd0b-0911-43a0-a305-a26bfc1ef30d",
+        "f7b45613-098e-42d9-be24-56135e2e2f45",
+        "9dbcc68c-8ca1-4129-9def-b38b93e35df9",
+        "05968e08-1115-4a15-9eb9-46153781391f",
+        "ccc224d5-367c-468d-ba59-2cf67b29cc3f",
+        "36194d45-2868-4da9-b15b-32d7170de85e",
+        "6af1a4f8-341a-4b3a-b9a7-7e877acc324f",
+        "c26ffb0b-11ee-414c-8078-ac5fd5238563"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.1918375961158565,
+      "average_cosine_distance_to_centroid": 0.06477465590940339,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 4,
+        "record_id_a": "2b747330-2148-4fee-80fb-1301c6cef221",
+        "record_id_b": "f6e33fe9-5c3e-4fed-b00c-819a57da6615",
+        "distance": 0.1918375961158565
+      },
+      "sample_record_ids": [
+        "059d8ab0-719f-424c-b615-6f0c1b3f7bc7",
+        "cd84dd4b-3da7-4acd-bda9-32a4d75bf2e4",
+        "2b747330-2148-4fee-80fb-1301c6cef221",
+        "d3c01461-060c-4e97-8b77-26853a500586",
+        "f6e33fe9-5c3e-4fed-b00c-819a57da6615",
+        "d1b73843-49a1-4b85-a5a5-5cdc89876718",
+        "d0c07c89-d306-44ed-9b55-d3ca4352c154",
+        "02040b34-cf01-4a31-b570-3b6ecfef6760"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3231303279284726,
+      "average_cosine_distance_to_centroid": 0.07620106645951778,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 4,
+        "record_id_a": "7e60e001-321d-49b0-b7b3-4ce7108a3bd0",
+        "record_id_b": "9178e3a6-4de5-4bd6-9a20-c0bacffc49f5",
+        "distance": 0.3231303279284726
+      },
+      "sample_record_ids": [
+        "a17fc7ab-93f4-4b38-8c93-333041ecf2dc",
+        "8ed59fa8-d157-403b-80b3-6280b761ca75",
+        "7e60e001-321d-49b0-b7b3-4ce7108a3bd0",
+        "3b4bbe36-19c7-461b-9e74-9e232832edab",
+        "9178e3a6-4de5-4bd6-9a20-c0bacffc49f5",
+        "395cc0f7-a443-4f3c-ac61-55ebce679be9",
+        "6d6da2b2-193b-4905-9771-74c1a420200e",
+        "203968ca-c9b3-4cbe-ac4c-810809390759"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2548791717651817,
+      "average_cosine_distance_to_centroid": 0.06170987803814895,
+      "furthest_pair": {
+        "sample_index_a": 2,
+        "sample_index_b": 5,
+        "record_id_a": "d011ffb5-cb3d-44d9-a034-699c824e8cb2",
+        "record_id_b": "c337656b-43ca-4f43-a5cd-981ac95f1c42",
+        "distance": 0.2548791717651817
+      },
+      "sample_record_ids": [
+        "e690fe80-fff7-4187-a5ff-6756ab24dd25",
+        "19c18c51-2a5c-41e9-8f62-bbb59dda338c",
+        "d011ffb5-cb3d-44d9-a034-699c824e8cb2",
+        "a0ddc33f-0d77-4aa3-acee-dc5ff1ce5b69",
+        "6595712d-16e6-4470-a57a-96e5c471af48",
+        "c337656b-43ca-4f43-a5cd-981ac95f1c42",
+        "aa4385a3-260b-4181-be6c-ca65e8e8129c",
+        "4115df81-d9a0-4d12-a337-c8133a226618"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.21171992549862895,
+      "average_cosine_distance_to_centroid": 0.056064419256903586,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 7,
+        "record_id_a": "426bbbf2-974f-469c-81fb-42096cb7ff48",
+        "record_id_b": "6bdacd54-ed7f-467f-8765-f056ab826ece",
+        "distance": 0.21171992549862895
+      },
+      "sample_record_ids": [
+        "0992af62-2485-486c-a797-c6e788b33de2",
+        "28d2e878-08e9-48fa-b4ea-0b77db6af0c5",
+        "9fafcdef-68f0-4b40-8c78-40a659751081",
+        "89a03b24-9bc9-48f9-b756-32614d57c924",
+        "426bbbf2-974f-469c-81fb-42096cb7ff48",
+        "c2ed78cf-77a4-4859-bb18-fb2b36f9fd9d",
+        "b22803c2-be26-41bf-b45f-e5ea3e5b56fb",
+        "6bdacd54-ed7f-467f-8765-f056ab826ece"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.20083865633114328,
+      "average_cosine_distance_to_centroid": 0.057487063698159355,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 3,
+        "record_id_a": "312cb6f1-e03c-4f35-8a97-22fdd7925e3c",
+        "record_id_b": "252ba830-8560-4d12-aedc-c1e4a6b3ab08",
+        "distance": 0.20083865633114328
+      },
+      "sample_record_ids": [
+        "312cb6f1-e03c-4f35-8a97-22fdd7925e3c",
+        "8d13fe81-5466-453c-9ff4-c3c8e07e733c",
+        "2a640c31-008c-4dd3-9b0f-c016c38220b3",
+        "252ba830-8560-4d12-aedc-c1e4a6b3ab08",
+        "8eafbcc4-b679-484e-87ff-40d39ebf5c98",
+        "13d91aa3-8f13-4047-8d09-828794ca6baf",
+        "32d05c9e-6c37-4663-be84-b315981e03a8",
+        "638ec667-a717-4f2f-9b34-3c277c3f2865"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.19034382307404907,
+      "average_cosine_distance_to_centroid": 0.05143369207285366,
+      "furthest_pair": {
+        "sample_index_a": 3,
+        "sample_index_b": 4,
+        "record_id_a": "5c7dccaa-dafe-4f99-aa61-5774c05f2636",
+        "record_id_b": "3005af17-f9aa-49c0-8c97-88f5c2579799",
+        "distance": 0.19034382307404907
+      },
+      "sample_record_ids": [
+        "4ae7c19d-b301-4675-942c-34b036056e19",
+        "5ffc1cc5-e879-492b-a865-eb11b12ec5bd",
+        "d0290667-bf8a-460d-9572-0de10b34da11",
+        "5c7dccaa-dafe-4f99-aa61-5774c05f2636",
+        "3005af17-f9aa-49c0-8c97-88f5c2579799",
+        "a7a4c7f8-b962-447e-8b9b-2ef2a9a95e65",
+        "5992dc68-6e47-4f18-87c8-76b3982e0b2f",
+        "326fa1de-1913-4b36-a4dc-9ba0856c3af1"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.4561037461262326,
+      "average_cosine_distance_to_centroid": 0.0892611673306036,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 5,
+        "record_id_a": "bc686763-b0c5-4a8f-b80a-1b0ac14359ed",
+        "record_id_b": "945c8305-f23d-4dd0-900c-a2f99be62f5a",
+        "distance": 0.4561037461262326
+      },
+      "sample_record_ids": [
+        "2a565f15-9378-4181-8658-793c7c9348c6",
+        "4f75a3fe-aa48-4761-a25a-945b2c61375c",
+        "f93d34d4-6e9b-4d87-a4fa-70659d6fdbd2",
+        "8fa55af9-c05d-4695-8909-84216ccef0ef",
+        "bc686763-b0c5-4a8f-b80a-1b0ac14359ed",
+        "945c8305-f23d-4dd0-900c-a2f99be62f5a",
+        "669542ef-d10e-4aa8-8ee4-3a32e50b06c6",
+        "30c8b2dd-bb7d-4476-a19a-74c03486bf76"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.26840117094656035,
+      "average_cosine_distance_to_centroid": 0.06844185261241159,
+      "furthest_pair": {
+        "sample_index_a": 6,
+        "sample_index_b": 7,
+        "record_id_a": "fba7e5c6-bbbd-4cb9-9a46-91a0a9102d67",
+        "record_id_b": "d9fe3720-0a0c-428c-979a-8a75c6024b70",
+        "distance": 0.26840117094656035
+      },
+      "sample_record_ids": [
+        "2feca7e3-5801-4139-a1b2-b1a43b91c24a",
+        "607f0a3b-a3c9-465b-8369-f6e56beabe76",
+        "81234150-ff20-41e9-bca0-4eba1f4ca69d",
+        "dad57090-3e94-4bb4-8621-d2df4bfdea04",
+        "c8339ee7-ef8d-4fae-92c8-49cce3142cbd",
+        "15f9702c-46c3-4760-bc41-a8bebbe58953",
+        "fba7e5c6-bbbd-4cb9-9a46-91a0a9102d67",
+        "d9fe3720-0a0c-428c-979a-8a75c6024b70"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.21715564353545957,
+      "average_cosine_distance_to_centroid": 0.05581211107040601,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 2,
+        "record_id_a": "e1038931-038e-42f2-9988-a0c625510350",
+        "record_id_b": "18df7da6-dd50-492a-b3a5-74c8b7de3a65",
+        "distance": 0.21715564353545957
+      },
+      "sample_record_ids": [
+        "9eb22434-2c46-4e52-b47d-c55fe314af7b",
+        "e1038931-038e-42f2-9988-a0c625510350",
+        "18df7da6-dd50-492a-b3a5-74c8b7de3a65",
+        "dec9a675-babd-4044-a4ce-7c34ea5a4b14",
+        "12cf311d-1b83-44f4-8407-e46631356e3d",
+        "d124c562-3e25-4796-80c0-d9352f226f0a",
+        "43e0e920-f753-49cd-beb5-e38f3c439623",
+        "5c4b040e-77d4-401b-b5cd-b6267ebebf4e"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.13215633785306324,
+      "average_cosine_distance_to_centroid": 0.04406337446171385,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 7,
+        "record_id_a": "34cd1af5-ea63-497e-beec-c876854b0fbf",
+        "record_id_b": "17b052bb-aa82-471b-aeaf-a30ee4821e1c",
+        "distance": 0.13215633785306324
+      },
+      "sample_record_ids": [
+        "e7941379-3448-4769-9a45-225f62b9a074",
+        "fd3420f8-e889-4768-bf0d-ab49f32d62d9",
+        "ec7d3508-ca88-4ef4-a252-9179b582b0e7",
+        "47fa9838-1eb7-4839-a565-2a46e7e64353",
+        "34cd1af5-ea63-497e-beec-c876854b0fbf",
+        "238e03fd-7f0b-4fb6-ba09-257a5927c2c5",
+        "3ddf7cb2-e721-430e-909c-c493b1ced5bf",
+        "17b052bb-aa82-471b-aeaf-a30ee4821e1c"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.17792042324928647,
+      "average_cosine_distance_to_centroid": 0.0580779321248507,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 7,
+        "record_id_a": "3165c340-5cdc-4be0-af08-38093a570625",
+        "record_id_b": "ccc49f23-66c5-468e-9fa6-ee9aa5e210be",
+        "distance": 0.17792042324928647
+      },
+      "sample_record_ids": [
+        "3165c340-5cdc-4be0-af08-38093a570625",
+        "84683c7d-24a5-4c36-8b7c-c366a4151a48",
+        "d71dfffc-f065-4973-a481-edf346ed322e",
+        "fdcd5e8f-68b2-4706-a925-f9bbd39473a6",
+        "fbf9f116-d1ec-4b3e-b857-58fa6ed60fb2",
+        "b6036222-30c3-46cd-8b45-89592d4564f2",
+        "8986ffc9-1fae-42b7-b107-ed7f03f864a4",
+        "ccc49f23-66c5-468e-9fa6-ee9aa5e210be"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2968497128305364,
+      "average_cosine_distance_to_centroid": 0.08553265187058941,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 6,
+        "record_id_a": "b775696e-1482-4276-866d-bcc117fd744f",
+        "record_id_b": "c68af282-3d2e-46d4-97cc-db6646d790af",
+        "distance": 0.2968497128305364
+      },
+      "sample_record_ids": [
+        "59a3994c-fa9c-413e-8377-d7d77f0e3a34",
+        "b775696e-1482-4276-866d-bcc117fd744f",
+        "856f7111-7ebd-4b70-b13b-34badb69c6f3",
+        "f2af2555-a84c-4338-ac2f-f399c0fee0e2",
+        "a3e395ca-6f12-416b-8756-799ede074eb0",
+        "051cb0c1-e38f-4995-af0d-b58efdfa80e1",
+        "c68af282-3d2e-46d4-97cc-db6646d790af",
+        "57cd089c-2b86-4792-b29d-c80ef05d1cbd"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.2749655841227465,
+      "average_cosine_distance_to_centroid": 0.08382363182406283,
+      "furthest_pair": {
+        "sample_index_a": 3,
+        "sample_index_b": 6,
+        "record_id_a": "5e37bb88-9893-4975-96c3-3b8617376873",
+        "record_id_b": "f009f893-26fb-4692-8341-96eece2db2b9",
+        "distance": 0.2749655841227465
+      },
+      "sample_record_ids": [
+        "04e3b125-60e6-4460-b56b-9a2bf503ca22",
+        "4266c297-78b4-4915-a600-46c231941373",
+        "bfd01a3b-a3e2-4008-8ab6-6b8644d9c5d9",
+        "5e37bb88-9893-4975-96c3-3b8617376873",
+        "b32ed65f-9a26-4b03-8dc7-8511091d893a",
+        "2a66184c-fe4b-4883-883c-c3837d98ebd9",
+        "f009f893-26fb-4692-8341-96eece2db2b9",
+        "78909c92-af80-42de-9e68-624a0bae01a7"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.21483713154507222,
+      "average_cosine_distance_to_centroid": 0.07232527598027426,
+      "furthest_pair": {
+        "sample_index_a": 5,
+        "sample_index_b": 6,
+        "record_id_a": "bd759bbf-03a4-4ecd-adc1-996dc078ff42",
+        "record_id_b": "1b708be2-ce6b-40de-b2e7-ff6ab4a6ba96",
+        "distance": 0.21483713154507222
+      },
+      "sample_record_ids": [
+        "9886c2df-db13-4019-a515-711dd1df92a0",
+        "c56f65cc-822a-4227-a413-cf1f4ec83ea5",
+        "914abfcf-3b58-487e-b1bb-7f3f3531fa42",
+        "d4752dc6-a191-414e-998f-a4a0140ad37e",
+        "caf6ae6b-c620-4416-919e-9fa0b8f93f63",
+        "bd759bbf-03a4-4ecd-adc1-996dc078ff42",
+        "1b708be2-ce6b-40de-b2e7-ff6ab4a6ba96",
+        "1fb0a83b-9277-48d9-8b19-56088bf04a1a"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.31175769024082856,
+      "average_cosine_distance_to_centroid": 0.08697352058352092,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 6,
+        "record_id_a": "5c746f6f-796a-4d1d-a882-c8996eb6cf81",
+        "record_id_b": "528636e6-8b2a-4baf-a35a-919e762d0adf",
+        "distance": 0.31175769024082856
+      },
+      "sample_record_ids": [
+        "22093046-3dea-41ad-90c5-3bfbfc8fdc4a",
+        "5c746f6f-796a-4d1d-a882-c8996eb6cf81",
+        "55d9539e-211a-426f-8392-d165efd87fed",
+        "4220eb71-ead1-45fb-a602-424f9b13dd90",
+        "3821fa1b-25ff-45ec-be86-a3efd5062ad6",
+        "518b030d-6368-4bdc-8a77-6a157bd06ae3",
+        "528636e6-8b2a-4baf-a35a-919e762d0adf",
+        "c12a329b-7d79-42a5-914b-996a8eebfeaf"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.32561210669351015,
+      "average_cosine_distance_to_centroid": 0.0927534610857876,
+      "furthest_pair": {
+        "sample_index_a": 3,
+        "sample_index_b": 4,
+        "record_id_a": "74f9cf0e-409f-4979-8aae-fc2d2419d7d6",
+        "record_id_b": "bf50ec6d-2d8e-4ed3-b58a-5c5f3e036722",
+        "distance": 0.32561210669351015
+      },
+      "sample_record_ids": [
+        "cf1da45c-de84-4bc1-8e23-27c30467ef0e",
+        "d7c827b2-655c-48e3-83e7-73f36d6166b9",
+        "e120eafc-e933-41f2-9a88-c2b996a71569",
+        "74f9cf0e-409f-4979-8aae-fc2d2419d7d6",
+        "bf50ec6d-2d8e-4ed3-b58a-5c5f3e036722",
+        "88a4232a-d646-41b1-b840-3f47042c7120",
+        "8f78418f-dc97-4948-a8af-bf3d14c719e8",
+        "f5a62b23-8c86-4f8c-b18f-3fdb6ca7499a"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3555601374045667,
+      "average_cosine_distance_to_centroid": 0.09525261800592166,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 4,
+        "record_id_a": "f748ebda-4e77-460e-b103-bc23772efa9b",
+        "record_id_b": "58de70f3-9f46-44b6-b9f4-e0210eddf1ac",
+        "distance": 0.3555601374045667
+      },
+      "sample_record_ids": [
+        "f748ebda-4e77-460e-b103-bc23772efa9b",
+        "c24cc758-8155-43a5-bb48-87a3171a5138",
+        "cf53f1ca-776d-4c57-b65c-4c1b695de696",
+        "9584607f-9aba-4db8-af8e-8a66cce18929",
+        "58de70f3-9f46-44b6-b9f4-e0210eddf1ac",
+        "1af01a1d-62f5-4613-9ee3-270a5e743efc",
+        "47f2b465-9ee8-4191-b5d6-a2794b7adb15",
+        "2a19cd2b-2557-4e2b-8299-4b01b10dbc2c"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.3230568590978361,
+      "average_cosine_distance_to_centroid": 0.09975608842820716,
+      "furthest_pair": {
+        "sample_index_a": 0,
+        "sample_index_b": 2,
+        "record_id_a": "a9777450-e307-4a59-b6aa-6e61771554b9",
+        "record_id_b": "9bf3eea7-42f6-49cf-b1ca-88c013b50e0f",
+        "distance": 0.3230568590978361
+      },
+      "sample_record_ids": [
+        "a9777450-e307-4a59-b6aa-6e61771554b9",
+        "6c203b1b-6fb1-4fc2-8ae8-b80d6d896568",
+        "9bf3eea7-42f6-49cf-b1ca-88c013b50e0f",
+        "d59cb3f4-6e62-4c47-aaa7-fc60c348163b",
+        "f78ab013-dee9-4646-b8a5-5717fd8ef18b",
+        "1d71403d-b402-42bc-8f3a-dd3853ac76ee",
+        "01290f19-0ed4-4e4e-b19e-49dcf47d8588",
+        "6503fd3d-6505-4810-89b6-8e8c66fddea8"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.4088499042238285,
+      "average_cosine_distance_to_centroid": 0.0998301054268688,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 7,
+        "record_id_a": "78b196ef-24cd-4e15-ac3c-2de0912e3547",
+        "record_id_b": "0d63cb8e-3e2b-4276-b968-a4b04dab2710",
+        "distance": 0.4088499042238285
+      },
+      "sample_record_ids": [
+        "7d7c5f28-84ed-47bc-83b1-05cdb66549eb",
+        "af419e0b-e272-41d7-9991-6bb5d58428f4",
+        "5b385628-5373-49ee-a3a2-6d5e6372d5b6",
+        "7b5bcdfe-f16a-4dbe-a072-f3f8cff3c8ce",
+        "78b196ef-24cd-4e15-ac3c-2de0912e3547",
+        "af891b75-cbc3-4fb7-b41f-4682f5291511",
+        "7a45c86b-a21d-4ffd-a79a-8514300cee0c",
+        "0d63cb8e-3e2b-4276-b968-a4b04dab2710"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.5955783027807031,
+      "average_cosine_distance_to_centroid": 0.14651144595247928,
+      "furthest_pair": {
+        "sample_index_a": 1,
+        "sample_index_b": 7,
+        "record_id_a": "a483ecd3-23e7-4db8-837a-bb0ef7c48e96",
+        "record_id_b": "c64d01aa-ba45-4094-bc79-0d7e353f1f5f",
+        "distance": 0.5955783027807031
+      },
+      "sample_record_ids": [
+        "6e6087d2-aed0-43b2-a212-b0d642dc971f",
+        "a483ecd3-23e7-4db8-837a-bb0ef7c48e96",
+        "776bf133-fb45-4a35-862a-52306f28f949",
+        "cee3cfc9-f78c-471f-82b8-b7e3b4faf795",
+        "c2c89b57-f1b5-4b1c-85d2-2b7b05f60a21",
+        "9018ba8a-0b79-4807-a084-20f994db8fe2",
+        "dfc1347b-4d58-407a-b0ba-f43c3430168d",
+        "c64d01aa-ba45-4094-bc79-0d7e353f1f5f"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 9,
+      "num_samples": 7,
+      "distance_metric": "cosine_distance",
+      "max_pairwise_cosine_distance": 0.28211627947463924,
+      "average_cosine_distance_to_centroid": 0.08140852317999674,
+      "furthest_pair": {
+        "sample_index_a": 4,
+        "sample_index_b": 7,
+        "record_id_a": "4598a79a-5737-47be-8241-2678a811c799",
+        "record_id_b": "c4f28886-993c-4225-8478-f47f47cbe996",
+        "distance": 0.28211627947463924
+      },
+      "sample_record_ids": [
+        "99181918-d20b-454d-929b-0e78a7846e4a",
+        "47ff7417-753e-431a-bb6c-120fa4796b0c",
+        "52bfddd8-c685-4092-96c1-2d4935acfea3",
+        "4598a79a-5737-47be-8241-2678a811c799",
+        "6919a07b-e7a1-4460-b570-abc93dbd8391",
+        "c76cfd3e-c7f6-42f3-bd6d-697322504448",
+        "c4f28886-993c-4225-8478-f47f47cbe996"
+      ]
+    }
+  ],
+  "summary": {
+    "model_name": "GPT-5.2 pro (reasoning high)",
+    "num_groups": 60,
+    "mean_of_max_pairwise_distance": 0.36380220639983296,
+    "mean_of_avg_distance_to_centroid": 0.09530642294455237
+  }
+}
