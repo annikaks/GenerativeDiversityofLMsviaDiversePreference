@@ -33,6 +33,7 @@ GEN_DIR = OUTPUT_DIR / "generations"
 ANALYSIS_DIR = OUTPUT_DIR / "analysis"
 JUDGE_DIR = OUTPUT_DIR / "judge"
 EMBED_DIR = OUTPUT_DIR / "embeddings"
+ACCURACY_DIR = OUTPUT_DIR / "accuracy"
 
 PROMPT_IDS_REQUESTED = list(range(27, 34))  # inclusive range 27..33
 NUM_SAMPLES_PER_PROMPT = 8
@@ -959,6 +960,249 @@ def build_judge_prompt(model_name: str, prompt_id: int, modifier_text: str, resp
     )
 
 
+def extract_first_json_obj(text: str) -> Optional[Dict[str, Any]]:
+    """Best-effort extraction of a JSON object from model text output."""
+    text = (text or "").strip()
+    if not text:
+        return None
+    try:
+        obj = json.loads(text)
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        pass
+
+    start = text.find("{")
+    end = text.rfind("}")
+    if start == -1 or end == -1 or end <= start:
+        return None
+    snippet = text[start : end + 1]
+    try:
+        obj = json.loads(snippet)
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        return None
+
+
+def build_accuracy_judge_prompt(prompt_text: str, response_text: str) -> str:
+    return (
+        "You are grading how well a response follows a writing prompt.\n"
+        "Score from 0 to 100 where:\n"
+        "- 0 = completely unrelated / fails prompt\n"
+        "- 50 = partially follows prompt but misses important constraints\n"
+        "- 100 = fully addresses prompt intent and constraints very well\n\n"
+        "Return STRICT JSON only with keys:\n"
+        "{ \"score\": <integer 0-100>, \"rationale\": \"<1-3 sentences>\" }\n\n"
+        "Prompt:\n"
+        f"{prompt_text}\n\n"
+        "Response:\n"
+        f"{response_text}"
+    )
+
+
+def score_response_with_gemini(
+    http: HttpClient,
+    judge_model: str,
+    judge_temperature: float,
+    prompt_text: str,
+    response_text: str,
+) -> Dict[str, Any]:
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY not set")
+
+    judge_prompt = build_accuracy_judge_prompt(prompt_text, response_text)
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{judge_model}:generateContent?key={api_key}"
+    body: Dict[str, Any] = {
+        "contents": [{"parts": [{"text": judge_prompt}]}],
+        "generationConfig": {
+            "temperature": judge_temperature,
+            "maxOutputTokens": 300,
+            "responseMimeType": "application/json",
+        },
+    }
+    result = http.post_json(
+        url=url,
+        headers={"Content-Type": "application/json"},
+        body=body,
+    )
+    raw_text = parse_gemini_response_text(result.data)
+    parsed = extract_first_json_obj(raw_text)
+    if not parsed:
+        raise RuntimeError(f"Failed to parse judge JSON: {raw_text[:500]}")
+
+    score = parsed.get("score")
+    if not isinstance(score, (int, float)):
+        raise RuntimeError(f"Judge score missing/invalid: {parsed}")
+    score_int = int(round(float(score)))
+    score_int = max(0, min(100, score_int))
+    rationale = parsed.get("rationale")
+    if rationale is None:
+        rationale = ""
+
+    return {
+        "score": score_int,
+        "rationale": str(rationale),
+        "judge_raw_text": raw_text,
+    }
+
+
+def analyze_accuracy_judge(args: argparse.Namespace) -> None:
+    """LLM-as-a-judge accuracy scoring using Gemini judge model."""
+    load_dotenv()
+    ACCURACY_DIR.mkdir(parents=True, exist_ok=True)
+
+    model_files = sorted(GEN_DIR.glob("*.json"))
+    if not model_files:
+        raise RuntimeError("No generation files found under outputs/generations")
+
+    http = HttpClient(timeout_seconds=args.timeout, max_retries=args.retries)
+    index_doc: Dict[str, Any] = {
+        "created_at_utc": utc_now(),
+        "judge_provider": "gemini",
+        "judge_model": args.judge_model,
+        "score_range": [0, 100],
+        "per_model_files": [],
+    }
+
+    for model_file in model_files:
+        print(f"[accuracy] loading model file: {model_file}")
+        try:
+            with model_file.open("r", encoding="utf-8") as f:
+                gen_doc = json.load(f)
+        except Exception as e:
+            print(f"[accuracy][error] failed to load {model_file}: {e}")
+            index_doc["per_model_files"].append(
+                {
+                    "source_generation_file": str(model_file),
+                    "status": "error_loading_generation_file",
+                    "error": str(e),
+                }
+            )
+            save_json(ACCURACY_DIR / "accuracy_judge_index.json", index_doc)
+            continue
+
+        model_name = gen_doc.get("model", {}).get("display_name", model_file.stem)
+        out_path = ACCURACY_DIR / f"{model_file.stem}_accuracy_judge.json"
+
+        out_doc: Dict[str, Any] = {
+            "created_at_utc": utc_now(),
+            "source_generation_file": str(model_file),
+            "judge_config": {
+                "provider": "gemini",
+                "model": args.judge_model,
+                "temperature": args.judge_temperature,
+                "score_range": [0, 100],
+            },
+            "model": gen_doc.get("model", {}),
+            "groups": [],
+            "group_errors": [],
+            "summary": {},
+        }
+        save_json(out_path, out_doc)
+
+        grouped: Dict[str, List[Dict[str, Any]]] = {}
+        for rec in gen_doc.get("records", []):
+            if rec.get("error") is not None:
+                continue
+            if not rec.get("response_text"):
+                continue
+            key = f"{rec['prompt_id']}::{rec['seed_modifier_index']}"
+            grouped.setdefault(key, []).append(rec)
+
+        all_scores: List[int] = []
+        group_items = sorted(grouped.items(), key=lambda x: x[0])
+        total_groups = len(group_items)
+        print(f"[accuracy] model={model_name} groups={total_groups}")
+
+        for idx, (key, records) in enumerate(group_items, start=1):
+            records = sorted(records, key=lambda r: r["sample_index"])
+            prompt_id, modifier_idx = key.split("::")
+
+            group_obj: Dict[str, Any] = {
+                "prompt_id": int(prompt_id),
+                "seed_modifier_index": int(modifier_idx),
+                "seed_modifier": records[0].get("seed_modifier"),
+                "prompt_text": records[0].get("final_prompt"),
+                "num_scored_responses": 0,
+                "scores": [],
+            }
+
+            for rec in records:
+                try:
+                    judge = score_response_with_gemini(
+                        http=http,
+                        judge_model=args.judge_model,
+                        judge_temperature=args.judge_temperature,
+                        prompt_text=rec.get("final_prompt", ""),
+                        response_text=rec.get("response_text", ""),
+                    )
+                    score_val = judge["score"]
+                    all_scores.append(score_val)
+                    group_obj["scores"].append(
+                        {
+                            "record_id": rec.get("record_id"),
+                            "sample_index": rec.get("sample_index"),
+                            "score": score_val,
+                            "rationale": judge.get("rationale", ""),
+                            "judge_raw_text": judge.get("judge_raw_text", ""),
+                            "error": None,
+                        }
+                    )
+                except Exception as e:
+                    group_obj["scores"].append(
+                        {
+                            "record_id": rec.get("record_id"),
+                            "sample_index": rec.get("sample_index"),
+                            "score": None,
+                            "rationale": "",
+                            "judge_raw_text": "",
+                            "error": str(e),
+                        }
+                    )
+                    print(
+                        f"[accuracy][error] model={model_name} group={idx}/{total_groups} "
+                        f"prompt={prompt_id} mod={modifier_idx} sample={rec.get('sample_index')} error={e}"
+                    )
+                finally:
+                    group_obj["num_scored_responses"] = sum(1 for s in group_obj["scores"] if s["score"] is not None)
+                    # Save incrementally as requested.
+                    existing = [g for g in out_doc["groups"] if not (g["prompt_id"] == int(prompt_id) and g["seed_modifier_index"] == int(modifier_idx))]
+                    out_doc["groups"] = existing + [group_obj]
+                    save_json(out_path, out_doc)
+
+            print(
+                f"[accuracy] model={model_name} group={idx}/{total_groups} "
+                f"scored={group_obj['num_scored_responses']}/{len(records)}"
+            )
+
+        out_doc["summary"] = {
+            "model_name": model_name,
+            "num_groups": len(out_doc["groups"]),
+            "total_scored_responses": len(all_scores),
+            "mean_score": float(np.mean(all_scores)) if all_scores else None,
+            "min_score": int(min(all_scores)) if all_scores else None,
+            "max_score": int(max(all_scores)) if all_scores else None,
+        }
+        save_json(out_path, out_doc)
+        print(f"[saved] {out_path}")
+
+        index_doc["per_model_files"].append(
+            {
+                "model_name": model_name,
+                "source_generation_file": str(model_file),
+                "accuracy_file": str(out_path),
+                "status": "ok",
+                "num_groups": out_doc["summary"]["num_groups"],
+                "total_scored_responses": out_doc["summary"]["total_scored_responses"],
+                "mean_score": out_doc["summary"]["mean_score"],
+            }
+        )
+        save_json(ACCURACY_DIR / "accuracy_judge_index.json", index_doc)
+
+    save_json(ACCURACY_DIR / "accuracy_judge_index.json", index_doc)
+    print(f"[saved] {ACCURACY_DIR / 'accuracy_judge_index.json'}")
+
+
 def create_judge_placeholders(_: argparse.Namespace) -> None:
     JUDGE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -1038,6 +1282,16 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_dev.add_argument("--embedding-model", type=str, default="text-embedding-3-large")
     p_dev.set_defaults(func=analyze_baseline_deviation)
+
+    p_acc = sub.add_parser(
+        "analyze-accuracy-judge",
+        help="Score prompt adherence accuracy (0-100) with Gemini judge; one output JSON per model",
+    )
+    p_acc.add_argument("--judge-model", type=str, default="gemini-3-flash-preview")
+    p_acc.add_argument("--judge-temperature", type=float, default=0.0)
+    p_acc.add_argument("--timeout", type=int, default=120)
+    p_acc.add_argument("--retries", type=int, default=4)
+    p_acc.set_defaults(func=analyze_accuracy_judge)
 
     p_judge = sub.add_parser("build-judge-placeholders", help="Create LLM-as-judge placeholder prompts")
     p_judge.set_defaults(func=create_judge_placeholders)
