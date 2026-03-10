@@ -1,104 +1,216 @@
-# LLM Output Diversity Pipeline (Creative Writing Bench)
+# LLM Diversity + Accuracy Evaluation
 
-This repo now contains an end-to-end pipeline to:
-- Query multiple LLMs on Creative Writing Bench prompts with appended `seed_modifiers`
-- Sample each prompt condition 8 times per model
-- Save raw outputs in per-model JSON files
-- Analyze diversity in embedding space (`text-embedding-3-large`)
-- Build placeholder artifacts for LLM-as-a-judge evaluation
+This repository currently supports two concrete things:
 
-## Models currently configured
-- `gemini-3-flash-preview`
-- `gemini-3-pro-preview`
-- `GPT-5.2 pro (reasoning low)`
-- `GPT-5.2 pro (reasoning high)`
-- `claude-opus-4-6 (thinking disabled)`
-- `claude-opus-4-6 (thinking enabled)`
-- `grok-4-1-fast-non-reasoning`
-- `grok-4-1-fast-reasoning`
+1. Baseline generation for prompt-conditioned creative writing outputs.
+2. Downstream evaluation of those outputs with:
+   - embedding-based diversity metrics
+   - LLM-as-judge prompt-adherence accuracy
 
-No Qwen models are included for now.
+The repository does **not** yet implement DivPO fine-tuning. The current codebase is set up to produce the baseline data and evaluation artifacts that you will use before and after post-training.
 
-## Prompt subset
-The pipeline requests prompts `27..33` inclusive. Your dataset currently contains `28..33` in that region, so `27` is logged as missing and skipped.
+## Current Recommendation
 
-Each selected prompt uses all listed `seed_modifiers` (unless you cap via CLI), and each `(prompt, seed_modifier)` condition is sampled `8` times.
+If your actual goal is DivPO on post-trainable models, use the open-source path, not the old API-baseline path.
 
-## Setup
-1. Create a virtual env and install deps:
+Recommended baseline family:
+- `Qwen/Qwen3-8B` with thinking disabled
+- `Qwen/Qwen3-8B` with thinking enabled
+- `meta-llama/Llama-3.1-8B-Instruct` as an additional open baseline
+
+The open-source generator writes the **same JSON schema** as the older API pipeline, so the analysis and judge scripts still work.
+
+## Environment
+
+Use a Python 3.10+ environment. Python 3.8 is too old for the current requirements.
+
+Example with conda:
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+conda create -n divpo python=3.11
+conda activate divpo
+python -m pip install -r requirements.txt
 ```
 
-2. Create `.env` from example:
+If you use API-based judging, create `.env` and set the relevant keys:
+
 ```bash
 cp .env.example .env
 ```
 
-3. Fill `.env` with keys:
+Possible keys:
 - `OPENAI_API_KEY`
 - `ANTHROPIC_API_KEY`
 - `GEMINI_API_KEY`
 - `XAI_API_KEY`
 
-## Run
-### 1) Generate samples
+## Dataset Split
+
+Current prompt usage in code:
+- training / future post-training set: prompts `1..26`
+- test / baseline evaluation set: prompts `28..33`
+- prompt `27` is missing in the dataset and is skipped automatically
+
+Each selected prompt uses all available `seed_modifiers`.
+
+## Baseline Pipeline
+
+### Step 1: Generate open-source baseline outputs
+
+Run:
+
 ```bash
-python pipeline.py generate
+python generate_open_source.py --preset tinker-baselines
 ```
 
-Optional knobs:
-```bash
-python pipeline.py generate --temperature 1.0 --top-p 1.0 --max-tokens 1100 --max-modifiers 2
-```
-You can parallelize calls per model:
-```bash
-python pipeline.py generate --max-workers 8
-```
+What this runs:
+- `Qwen/Qwen3-8B` as `qwen3-8b-non-reasoning`
+- `Qwen/Qwen3-8B` as `qwen3-8b-reasoning`
+- `meta-llama/Llama-3.1-8B-Instruct` as `llama-3-1-8b-instruct`
 
-### 2) Embedding diversity analysis
-Uses OpenAI embeddings model `text-embedding-3-large` by default.
+What it does:
+- loads prompts `28..33`
+- appends every seed modifier
+- generates `8` responses per prompt-condition
+- writes one file per model to `outputs/generations/`
+
+Expected outputs:
+- `outputs/generations/qwen3-8b-non-reasoning.json`
+- `outputs/generations/qwen3-8b-reasoning.json`
+- `outputs/generations/llama-3-1-8b-instruct.json`
+
+### Step 2: Compute embedding-space diversity
+
+Run:
+
 ```bash
 python pipeline.py analyze-embeddings
+python pipeline.py analyze-baseline-deviation
 ```
 
-### 3) LLM-as-judge placeholders
-Builds judge prompts + placeholder result fields (no judge API calls yet).
+What these do:
+
+`analyze-embeddings`
+- computes per-group embedding distances
+- caches embeddings in `outputs/embeddings/`
+- writes per-model metrics to `outputs/analysis/*_embedding_metrics.json`
+
+`analyze-baseline-deviation`
+- computes the two main baseline metrics you have been using:
+  - average cosine deviation to centroid
+  - max cosine deviation to centroid
+- writes per-model metrics and details files
+
+Expected outputs:
+- `outputs/embeddings/*_embeddings.json`
+- `outputs/analysis/*_embedding_metrics.json`
+- `outputs/analysis/*_baseline_deviation_metrics.json`
+- `outputs/analysis/*_baseline_deviation_details.json`
+
+### Step 3: Compute prompt-adherence accuracy
+
+Recommended run:
+
 ```bash
-python pipeline.py build-judge-placeholders
+python run_accuracy_batched.py \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --batch-size 4 \
+  --generation-glob '*qwen3*.json'
 ```
 
-## Output structure
-- `outputs/generations/*.json`: one file per model with all generation records
-- `outputs/analysis/embedding_diversity.json`: pairwise cosine-distance metrics and model ranking
-- `outputs/judge/judge_placeholder_*.json`: judge prompt templates + `judge_result: null`
+And for Llama:
 
-## Generation JSON format (per model)
-Top-level fields:
-- `run_id`, `created_at_utc`
-- `model`: provider + display name + API model id + thinking label
-- `dataset`: prompt ids requested and missing ids
-- `generation_config`
-- `records`: flat list of generation attempts
+```bash
+python run_accuracy_batched.py \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --batch-size 4 \
+  --generation-glob '*llama-3-1-8b-instruct*.json'
+```
 
-Each record includes:
-- `record_id`
-- `prompt_id`, `prompt_title`, `prompt_category`
-- `seed_modifier_index`, `seed_modifier`
-- `sample_index` (0..7)
-- `base_prompt`, `final_prompt` (seed modifier appended)
-- `response_text`
-- `latency_sec`
-- `raw_api_response`
-- `error` (null on success)
+What this does:
+- reads only matching generation files
+- scores prompt adherence with the specified judge model
+- writes one accuracy file per model into `outputs/accuracy/`
 
-## Notes / caveats
-- The pipeline uses direct HTTPS requests (`urllib.request`) for all providers, including Anthropic `POST /v1/messages` in the style you requested.
-- Some model IDs as written may need provider-specific normalization in practice (for example, spacing/punctuation differences in API model names). If a model call fails, update `MODEL_SPECS` in `pipeline.py`.
-- The `thinking` vs `non_reasoning` label is tracked in metadata. For OpenAI reasoning variants, the code additionally attaches `{"reasoning": {"effort": "high"}}`.
-- Judge step is intentionally a placeholder scaffold for now; it writes the exact prompt and storage format for later API integration.
+Expected outputs:
+- `outputs/accuracy/qwen3-8b-non-reasoning_accuracy_judge_batched.json`
+- `outputs/accuracy/qwen3-8b-reasoning_accuracy_judge_batched.json`
+- `outputs/accuracy/llama-3-1-8b-instruct_accuracy_judge_batched.json`
 
-## Main file
-- `pipeline.py`: generation + embedding analysis + judge-placeholder generation
+## How To Interpret The Baselines
+
+You should look at two axes:
+
+1. Diversity
+- from `*_baseline_deviation_metrics.json`
+- key values:
+  - `average_cosine_deviation_to_centroid`
+  - `max_cosine_deviation_to_centroid`
+
+2. Accuracy
+- from `*_accuracy_judge_batched.json`
+- key value:
+  - average judge score across all scored responses
+
+Interpretation:
+- higher diversity is better only if accuracy does not collapse
+- if the reasoning variant has higher deviation and similar accuracy, it is a stronger baseline
+- if diversity rises but judge-based prompt adherence falls sharply, the model may just be drifting or becoming noisy
+
+## Post-Training Status
+
+Post-training / DivPO is **not implemented yet** in this repository.
+
+That means there is currently **no command you can run yet** for:
+- constructing DivPO preference pairs
+- training a Qwen/Llama checkpoint with those pairs
+- saving post-trained adapters
+- re-running the same pipeline automatically on trained adapters
+
+## Planned Post-Training Workflow
+
+Once DivPO training is added, the intended workflow should be:
+
+1. Use prompts `1..26` to build candidate generations for training.
+2. Construct synthetic preference pairs using:
+   - quality / prompt adherence
+   - diversity contribution in embedding space
+3. Fine-tune one or more open models with a preference-optimization objective.
+4. Re-run generation on prompts `28..33`.
+5. Re-run:
+   - `python pipeline.py analyze-embeddings`
+   - `python pipeline.py analyze-baseline-deviation`
+   - `python run_accuracy_batched.py ...`
+6. Compare post-trained metrics against the baseline metrics.
+
+## Useful Commands
+
+Estimate accuracy-judge runtime without scoring:
+
+```bash
+python run_accuracy_batched.py \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --batch-size 4 \
+  --generation-glob '*qwen3*.json' \
+  --estimate-only
+```
+
+Test one judge call before a full run:
+
+```bash
+python test_accuracy_judge_batched.py \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --batch-size 4
+```
+
+## Files
+
+- [pipeline.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/pipeline.py): embedding analysis, baseline deviation analysis, legacy API generation
+- [generate_open_source.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/generate_open_source.py): local/HF generation for post-trainable models
+- [run_accuracy_batched.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/run_accuracy_batched.py): prompt-adherence accuracy scoring
+- [test_accuracy_judge_batched.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/test_accuracy_judge_batched.py): judge smoke test
+- [creative_writing_prompts_v3.json](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/creative_writing_prompts_v3.json): source prompt dataset
