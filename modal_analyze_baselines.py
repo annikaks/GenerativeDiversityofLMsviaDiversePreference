@@ -32,7 +32,7 @@ image = (
     modal.Image.debian_slim(python_version="3.11")
     .apt_install("git")
     .pip_install_from_requirements("requirements.txt")
-    .add_local_dir(".", remote_path=str(PROJECT_ROOT))
+    .add_local_dir(".", remote_path=str(PROJECT_ROOT), ignore=["outputs/", "outputs/**"])
 )
 
 
