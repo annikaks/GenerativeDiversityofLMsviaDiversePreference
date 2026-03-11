@@ -67,8 +67,8 @@ def sync_private_repo_if_configured() -> Path:
 )
 def run_generation(
     model_spec: str,
-    max_modifiers: int = 2,
-    num_samples: int = 4,
+    max_modifiers: int = 10,
+    num_samples: int = 8,
     batch_size: int = 4,
     max_tokens: int = 700,
     temperature: float = 0.9,
@@ -119,8 +119,8 @@ def run_generation(
 @app.local_entrypoint()
 def main(
     model_spec: str = "qwen3-8b-non-reasoning|Qwen/Qwen3-8B|non_reasoning",
-    max_modifiers: int = 2,
-    num_samples: int = 4,
+    max_modifiers: int = 10,
+    num_samples: int = 8,
     batch_size: int = 4,
     max_tokens: int = 700,
     temperature: float = 0.9,
