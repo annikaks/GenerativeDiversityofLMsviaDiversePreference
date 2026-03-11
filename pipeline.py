@@ -24,7 +24,9 @@ from typing import Any, Dict, List, Optional, Tuple
 from urllib import error, request
 
 import numpy as np
+import torch
 from dotenv import load_dotenv
+from transformers import AutoModel, AutoTokenizer
 
 
 DATASET_PATH = Path("creative_writing_prompts_v3.json")
@@ -52,6 +54,10 @@ MODEL_SPECS = [
     {"display_name": "grok-4-1-fast-non-reasoning", "provider": "xai", "api_model": "grok-4-1-fast-non-reasoning", "thinking": "non_reasoning"},
     {"display_name": "grok-4-1-fast-reasoning", "provider": "xai", "api_model": "grok-4-1-fast-reasoning", "thinking": "reasoning"},
 ]
+
+_HF_EMBED_MODEL = None
+_HF_EMBED_TOKENIZER = None
+_HF_EMBED_MODEL_ID = None
 
 
 def utc_now() -> str:
@@ -546,6 +552,60 @@ def fetch_openai_embeddings(texts: List[str], model: str) -> List[List[float]]:
     return vectors
 
 
+def _load_hf_embedding_model(model_id: str) -> Tuple[Any, Any]:
+    global _HF_EMBED_MODEL, _HF_EMBED_TOKENIZER, _HF_EMBED_MODEL_ID
+    if _HF_EMBED_MODEL is not None and _HF_EMBED_TOKENIZER is not None and _HF_EMBED_MODEL_ID == model_id:
+        return _HF_EMBED_TOKENIZER, _HF_EMBED_MODEL
+
+    tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+    model = AutoModel.from_pretrained(model_id, trust_remote_code=True)
+    if torch.cuda.is_available():
+        model = model.to("cuda")
+    elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+        model = model.to("mps")
+    else:
+        model = model.to("cpu")
+    model.eval()
+
+    _HF_EMBED_TOKENIZER = tokenizer
+    _HF_EMBED_MODEL = model
+    _HF_EMBED_MODEL_ID = model_id
+    return tokenizer, model
+
+
+def fetch_hf_e5_embeddings(texts: List[str], model_id: str) -> List[List[float]]:
+    tokenizer, model = _load_hf_embedding_model(model_id)
+    prefixed = [f"query: {text}" for text in texts]
+    vectors: List[List[float]] = []
+    batch_size = 32
+
+    for i in range(0, len(prefixed), batch_size):
+        batch = prefixed[i : i + batch_size]
+        encoded = tokenizer(
+            batch,
+            padding=True,
+            truncation=True,
+            max_length=512,
+            return_tensors="pt",
+        )
+        encoded = {k: v.to(model.device) for k, v in encoded.items()}
+        with torch.no_grad():
+            outputs = model(**encoded)
+            hidden = outputs.last_hidden_state
+            attention_mask = encoded["attention_mask"].unsqueeze(-1)
+            pooled = (hidden * attention_mask).sum(dim=1) / attention_mask.sum(dim=1).clamp(min=1)
+            pooled = torch.nn.functional.normalize(pooled, p=2, dim=1)
+        vectors.extend(pooled.detach().cpu().tolist())
+
+    return vectors
+
+
+def fetch_embeddings(texts: List[str], embedding_model: str) -> List[List[float]]:
+    if embedding_model.startswith("intfloat/"):
+        return fetch_hf_e5_embeddings(texts, embedding_model)
+    return fetch_openai_embeddings(texts, embedding_model)
+
+
 def text_hash(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
@@ -653,7 +713,7 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
                     pending_texts.append(txt)
 
             if pending_texts:
-                new_vectors = fetch_openai_embeddings(pending_texts, args.embedding_model)
+                new_vectors = fetch_embeddings(pending_texts, args.embedding_model)
                 for rid, txt, vec in zip(pending_record_ids, pending_texts, new_vectors):
                     vectors_by_record[rid] = vec
                     cache_doc["entries"][rid] = {
@@ -836,7 +896,7 @@ def analyze_baseline_deviation(args: argparse.Namespace) -> None:
                         f"[baseline] model={model_name} group={idx}/{total_groups} "
                         f"fetch_embeddings={len(pending_texts)}"
                     )
-                    new_vectors = fetch_openai_embeddings(pending_texts, args.embedding_model)
+                    new_vectors = fetch_embeddings(pending_texts, args.embedding_model)
                     for rid, txt, vec in zip(pending_record_ids, pending_texts, new_vectors):
                         vectors_by_record[rid] = vec
                         cache_doc["entries"][rid] = {
@@ -1273,14 +1333,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_generate.set_defaults(func=generate_all)
 
     p_embed = sub.add_parser("analyze-embeddings", help="Compute embedding-space diversity metrics")
-    p_embed.add_argument("--embedding-model", type=str, default="text-embedding-3-large")
+    p_embed.add_argument("--embedding-model", type=str, default="intfloat/e5-large")
     p_embed.set_defaults(func=analyze_embeddings)
 
     p_dev = sub.add_parser(
         "analyze-baseline-deviation",
         help="Compute baseline deviation metrics (cosine distance to centroid) with per-model details",
     )
-    p_dev.add_argument("--embedding-model", type=str, default="text-embedding-3-large")
+    p_dev.add_argument("--embedding-model", type=str, default="intfloat/e5-large")
     p_dev.set_defaults(func=analyze_baseline_deviation)
 
     p_acc = sub.add_parser(

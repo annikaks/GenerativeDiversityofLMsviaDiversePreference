@@ -318,6 +318,50 @@ For the currently implemented Qwen path, the intended workflow is:
 
 ## Useful Commands
 
+Run embedding/diversity analysis on Modal:
+
+```bash
+modal run -d modal_analyze_baselines.py --task diversity
+```
+
+For Modal runs, make sure the remote environment has the required API keys:
+- embeddings default to `intfloat/e5-large` on Hugging Face, so `OPENAI_API_KEY` is no longer required unless you explicitly switch back to OpenAI embeddings
+- Anthropic judge: `ANTHROPIC_API_KEY`
+- Gemini judge: `GEMINI_API_KEY`
+- xAI judge: `XAI_API_KEY`
+
+Run accuracy judging on Modal:
+
+```bash
+modal run -d modal_analyze_baselines.py \
+  --task accuracy \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --batch-size 4 \
+  --rpm 5
+```
+
+Run both on Modal:
+
+```bash
+modal run -d modal_analyze_baselines.py \
+  --task both \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --batch-size 4 \
+  --rpm 5
+```
+
+If you only want to analyze Qwen files:
+
+```bash
+modal run -d modal_analyze_baselines.py \
+  --task accuracy \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --generation-glob '*qwen3*.json'
+```
+
 Estimate accuracy-judge runtime without scoring:
 
 ```bash
