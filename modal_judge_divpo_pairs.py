@@ -11,7 +11,7 @@ import modal
 
 APP_NAME = "project-lmdiversity-divpo-judge"
 PROJECT_ROOT = Path("/root/project")
-OUTPUTS_PATH = PROJECT_ROOT / "outputs"
+OUTPUTS_MOUNT = Path("/vol/outputs")
 REPO_SYNC_DIR = Path("/vol/repo")
 
 app = modal.App(APP_NAME)
@@ -45,7 +45,7 @@ def sync_private_repo_if_configured() -> Path:
     image=image,
     timeout=60 * 60 * 12,
     volumes={
-        str(OUTPUTS_PATH): outputs_volume,
+        str(OUTPUTS_MOUNT): outputs_volume,
         "/vol/repo": repo_volume,
     },
 )
@@ -63,6 +63,22 @@ def annotate_pairs(
     repo_root = sync_private_repo_if_configured()
     env = os.environ.copy()
     env["PYTHONUNBUFFERED"] = "1"
+
+    def rewrite_output_path(path_str: str) -> str:
+        path = Path(path_str)
+        try:
+            rel = path.resolve().relative_to(Path.cwd().resolve() / "outputs")
+            return str(OUTPUTS_MOUNT / rel)
+        except Exception:
+            pass
+        if path_str.startswith("/root/project/outputs/"):
+            return path_str.replace("/root/project/outputs", str(OUTPUTS_MOUNT), 1)
+        return path_str
+
+    input_path = rewrite_output_path(input_path)
+    annotated_output_path = rewrite_output_path(annotated_output_path)
+    if summary_out_path:
+        summary_out_path = rewrite_output_path(summary_out_path)
 
     print(f"[modal-judge-pairs] repo_root={repo_root}")
     print(f"[modal-judge-pairs] input={input_path}")

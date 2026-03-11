@@ -18,15 +18,21 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import math
 import os
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 from dotenv import load_dotenv
 
-from run_accuracy_batched import HttpClient, RateLimiter, call_judge
+from run_accuracy_batched import HttpClient, RateLimiter
+from pipeline import (
+    build_accuracy_judge_prompt,
+    extract_first_json_obj,
+    parse_anthropic_response_text,
+    parse_gemini_response_text,
+    parse_xai_response_text,
+)
 
 
 def load_jsonl(path: Path) -> List[Dict[str, Any]]:
@@ -58,6 +64,88 @@ def stable_key(prompt: str, response: str) -> str:
     h.update(b"\n<SEP>\n")
     h.update(response.encode("utf-8"))
     return h.hexdigest()
+
+
+def score_single_response(
+    http: HttpClient,
+    limiter: RateLimiter,
+    judge_provider: str,
+    judge_model: str,
+    judge_temperature: float,
+    prompt_text: str,
+    response_text: str,
+) -> int:
+    judge_prompt = build_accuracy_judge_prompt(prompt_text, response_text)
+    provider = judge_provider.lower()
+
+    if provider == "anthropic":
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise RuntimeError("ANTHROPIC_API_KEY not set")
+        body = {
+            "model": judge_model,
+            "max_tokens": 300,
+            "temperature": judge_temperature,
+            "messages": [{"role": "user", "content": judge_prompt}],
+        }
+        limiter.wait()
+        data = http.post_json(
+            url="https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+            body=body,
+        )
+        raw_text = parse_anthropic_response_text(data)
+    elif provider == "gemini":
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            raise RuntimeError("GEMINI_API_KEY not set")
+        limiter.wait()
+        data = http.post_json(
+            url=f"https://generativelanguage.googleapis.com/v1beta/models/{judge_model}:generateContent?key={api_key}",
+            headers={"Content-Type": "application/json"},
+            body={
+                "contents": [{"parts": [{"text": judge_prompt}]}],
+                "generationConfig": {
+                    "temperature": judge_temperature,
+                    "maxOutputTokens": 300,
+                    "responseMimeType": "application/json",
+                },
+            },
+        )
+        raw_text = parse_gemini_response_text(data)
+    elif provider == "xai":
+        api_key = os.getenv("XAI_API_KEY")
+        if not api_key:
+            raise RuntimeError("XAI_API_KEY not set")
+        limiter.wait()
+        data = http.post_json(
+            url="https://api.x.ai/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            body={
+                "model": judge_model,
+                "messages": [{"role": "user", "content": judge_prompt}],
+                "temperature": judge_temperature,
+                "max_tokens": 300,
+            },
+        )
+        raw_text = parse_xai_response_text(data)
+    else:
+        raise ValueError(f"Unsupported judge provider: {judge_provider}")
+
+    parsed = extract_first_json_obj(raw_text)
+    if not parsed:
+        raise RuntimeError("Could not parse JSON from judge output")
+    score = parsed.get("score")
+    if not isinstance(score, (int, float)):
+        raise RuntimeError(f"Judge score missing/invalid: {parsed}")
+    return max(0, min(100, int(round(float(score)))))
 
 
 def main() -> None:
@@ -120,25 +208,15 @@ def main() -> None:
             continue
 
         try:
-            parsed = call_judge(
-                judge_provider=args.judge_provider,
+            score = score_single_response(
                 http=http,
                 limiter=limiter,
+                judge_provider=args.judge_provider,
                 judge_model=args.judge_model,
                 judge_temperature=args.judge_temperature,
                 prompt_text=item["prompt"],
-                responses=[
-                    {
-                        "sample_index": 0,
-                        "record_id": key,
-                        "response_text": item["response"],
-                    }
-                ],
+                response_text=item["response"],
             )
-            score_items = parsed.get("scores", [])
-            if not score_items:
-                raise RuntimeError("Judge returned empty scores list")
-            score = int(score_items[0]["score"])
             item["score"] = score
             item["error"] = None
         except Exception as e:
@@ -153,9 +231,12 @@ def main() -> None:
         elapsed_min = (time.time() - started) / 60.0
         remaining = total_unique - idx
         eta_min = remaining / args.rpm if args.rpm > 0 else 0.0
+        error_preview = ""
+        if item["score"] is None and item["error"]:
+            error_preview = f" error={str(item['error'])[:160]}"
         print(
             f"[judge-pairs] unique={idx}/{total_unique} score={item['score']} "
-            f"elapsed_min={elapsed_min:.1f} eta_min~{eta_min:.1f}"
+            f"elapsed_min={elapsed_min:.1f} eta_min~{eta_min:.1f}{error_preview}"
         )
 
     annotated_rows: List[Dict[str, Any]] = []

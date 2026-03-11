@@ -240,6 +240,8 @@ Qwen3 DivPO-style post-training is now split into:
 - [build_divpo_pairs.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/build_divpo_pairs.py)
 - [modal_build_divpo_pairs.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/modal_build_divpo_pairs.py)
 - [train_divpo_qwen_tinker.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/train_divpo_qwen_tinker.py)
+- [judge_divpo_pairs.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/judge_divpo_pairs.py)
+- [modal_judge_divpo_pairs.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/modal_judge_divpo_pairs.py)
 
 The intended workflow is:
 - uses prompts `0..26` for training
@@ -274,6 +276,33 @@ python train_divpo_qwen_tinker.py --thinking-mode non_reasoning
 python train_divpo_qwen_tinker.py --thinking-mode reasoning
 ```
 
+If you want to annotate existing pairs with LLM-as-judge accuracy before pruning/training:
+
+```bash
+python judge_divpo_pairs.py \
+  --input outputs/divpo/qwen3-8b-non-reasoning-divpo/preference_pairs.jsonl \
+  --annotated-output outputs/divpo/qwen3-8b-non-reasoning-divpo/preference_pairs_with_llm_accuracy.jsonl \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6
+```
+
+Or on Modal:
+
+```bash
+modal run -d modal_judge_divpo_pairs.py \
+  --input-path /root/project/outputs/divpo/qwen3-8b-non-reasoning-divpo/preference_pairs.jsonl \
+  --annotated-output-path /root/project/outputs/divpo/qwen3-8b-non-reasoning-divpo/preference_pairs_with_llm_accuracy.jsonl \
+  --judge-provider anthropic \
+  --judge-model claude-opus-4-6 \
+  --rpm 5
+```
+
+Control checkpoint frequency with:
+
+```bash
+python train_divpo_qwen_tinker.py --thinking-mode reasoning --save-every-steps 25
+```
+
 Outputs are written under:
 - `outputs/divpo/qwen3-8b-non-reasoning-divpo/`
 - `outputs/divpo/qwen3-8b-reasoning-divpo/`
@@ -284,6 +313,7 @@ Key artifacts:
 - `preference_pairs_tinker_ready.json`
 - `training_metrics.json`
 - `tinker_training_metrics.json`
+- `tinker_checkpoints.json`
 
 If you build pairs on Modal, download the resulting pair files before Tinker training. The important file is:
 - `outputs/divpo/qwen3-8b-<mode>-divpo/preference_pairs.jsonl`
