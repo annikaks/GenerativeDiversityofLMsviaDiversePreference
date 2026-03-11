@@ -97,6 +97,10 @@ def build_pairs(
     print(f"[modal-divpo] repo_root={repo_root}")
     print(f"[modal-divpo] output_root={output_root}")
     print(f"[modal-divpo] thinking_mode={thinking_mode}")
+    print(
+        f"[modal-divpo] samples_per_prompt={samples_per_prompt} "
+        f"generation_batch_size={generation_batch_size} max_new_tokens={max_new_tokens}"
+    )
     subprocess.run(cmd, cwd=str(repo_root), env=env, check=True)
     outputs_volume.commit()
     hf_cache_volume.commit()
