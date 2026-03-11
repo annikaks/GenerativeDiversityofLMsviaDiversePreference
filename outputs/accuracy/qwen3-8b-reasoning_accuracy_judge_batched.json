@@ -1,0 +1,150 @@
+{
+  "created_at_utc": "2026-03-11T17:38:26.074015+00:00",
+  "source_generation_file": "outputs/generations/baseline-qwen3-8b-reasoning.json",
+  "judge_config": {
+    "provider": "anthropic",
+    "model": "claude-opus-4-6",
+    "temperature": 0.0,
+    "score_range": [
+      0,
+      100
+    ],
+    "rate_limit_rpm": 5.0,
+    "batch_size": 4,
+    "schedule": "prompt-major"
+  },
+  "model": {
+    "display_name": "qwen3-8b-reasoning",
+    "provider": "huggingface",
+    "api_model": "Qwen/Qwen3-8B",
+    "thinking": "reasoning"
+  },
+  "groups": [
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": -1,
+      "seed_modifier": "",
+      "prompt_text": "Teen Horror (Goosebumps style)\n\nWrite a chapter where a middle school student discovers their new smart watch has the ability to rewind time, but doesn't realize that each use is aging them until they notice physical changes (like accelerating through puberty) and that people are treating them differently. They inadvertently cause a timeline shift with disastrous consequences -- and it can only be rectified (maybe?) by reversing the clock once more.\n\n<SEED> Length: 1000 words.",
+      "num_input_responses": 8,
+      "num_scored_responses": 8,
+      "scores": [
+        {
+          "record_id": "668941db-0d3f-4444-822b-b743693e8786",
+          "sample_index": 0,
+          "score": 18,
+          "error": null
+        },
+        {
+          "record_id": "0b84f43f-c11e-4633-b17f-df1c7abeb99f",
+          "sample_index": 1,
+          "score": 3,
+          "error": null
+        },
+        {
+          "record_id": "c9e0684e-3c57-4ae5-a4ff-f7e9f111a046",
+          "sample_index": 2,
+          "score": 3,
+          "error": null
+        },
+        {
+          "record_id": "cef5bde9-9e40-4aed-b7f4-47e970036e4b",
+          "sample_index": 3,
+          "score": 3,
+          "error": null
+        },
+        {
+          "record_id": "c5f25808-6ddc-4d60-8498-31e008b259e1",
+          "sample_index": 4,
+          "score": 5,
+          "error": null
+        },
+        {
+          "record_id": "4c33d719-dc0b-49d6-be29-9b21679c491d",
+          "sample_index": 5,
+          "score": 5,
+          "error": null
+        },
+        {
+          "record_id": "c21144e8-aa2d-418d-adb5-6972b373ddb1",
+          "sample_index": 6,
+          "score": 5,
+          "error": null
+        },
+        {
+          "record_id": "4972b799-c72f-4979-a811-8a869a59e85b",
+          "sample_index": 7,
+          "score": 5,
+          "error": null
+        }
+      ],
+      "judge_raw_text": [
+        "```json\n{\"scores\":[{\"sample_index\":0,\"record_id\":\"668941db-0d3f-4444-822b-b743693e8786\",\"score\":18},{\"sample_index\":1,\"record_id\":\"0b84f43f-c11e-4633-b17f-df1c7abeb99f\",\"score\":3},{\"sample_index\":2,\"record_id\":\"c9e0684e-3c57-4ae5-a4ff-f7e9f111a046\",\"score\":3},{\"sample_index\":3,\"record_id\":\"cef5bde9-9e40-4aed-b7f4-47e970036e4b\",\"score\":3}]}\n```",
+        "```json\n{\"scores\": [{\"sample_index\": 4, \"record_id\": \"c5f25808-6ddc-4d60-8498-31e008b259e1\", \"score\": 5}, {\"sample_index\": 5, \"record_id\": \"4c33d719-dc0b-49d6-be29-9b21679c491d\", \"score\": 5}, {\"sample_index\": 6, \"record_id\": \"c21144e8-aa2d-418d-adb5-6972b373ddb1\", \"score\": 5}, {\"sample_index\": 7, \"record_id\": \"4972b799-c72f-4979-a811-8a869a59e85b\", \"score\": 5}]}\n```"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 0,
+      "seed_modifier": "A stray cat near the school looks at the student with uncanny recognition after each rewind.",
+      "prompt_text": "Teen Horror (Goosebumps style)\n\nWrite a chapter where a middle school student discovers their new smart watch has the ability to rewind time, but doesn't realize that each use is aging them until they notice physical changes (like accelerating through puberty) and that people are treating them differently. They inadvertently cause a timeline shift with disastrous consequences -- and it can only be rectified (maybe?) by reversing the clock once more.\n\n<SEED> Length: 1000 words.\n\nSeed modifier: A stray cat near the school looks at the student with uncanny recognition after each rewind.",
+      "num_input_responses": 8,
+      "num_scored_responses": 8,
+      "scores": [
+        {
+          "record_id": "252ee464-7bb5-4c1e-8275-8dae2cde79c2",
+          "sample_index": 0,
+          "score": 2,
+          "error": null
+        },
+        {
+          "record_id": "c4a4e10f-8f74-4cfb-b569-d659e1281a6f",
+          "sample_index": 1,
+          "score": 2,
+          "error": null
+        },
+        {
+          "record_id": "642e7f80-d12a-4b47-8212-50d5668de9b6",
+          "sample_index": 2,
+          "score": 2,
+          "error": null
+        },
+        {
+          "record_id": "f4054a07-256d-4ba9-b382-64dc602aa8a9",
+          "sample_index": 3,
+          "score": 12,
+          "error": null
+        },
+        {
+          "record_id": "77dac031-0598-4738-a6db-7f5de476381e",
+          "sample_index": 4,
+          "score": 5,
+          "error": null
+        },
+        {
+          "record_id": "2364ee86-a5ec-4c04-b438-5383a0523619",
+          "sample_index": 5,
+          "score": 5,
+          "error": null
+        },
+        {
+          "record_id": "20d6d511-cdab-4b54-9af5-683f372fd9cf",
+          "sample_index": 6,
+          "score": 5,
+          "error": null
+        },
+        {
+          "record_id": "1370be9b-2e0f-41fa-b4c0-ab8a1c21ba37",
+          "sample_index": 7,
+          "score": 12,
+          "error": null
+        }
+      ],
+      "judge_raw_text": [
+        "I need to evaluate each response for how well it follows the prompt constraints.\n\nLet me analyze each one:\n\n**Prompt requirements:**\n1. Teen Horror, Goosebumps style\n2. Chapter format (~1000 words)\n3. Middle school student discovers smartwatch can rewind time\n4. Aging effect from each use (accelerating through puberty)\n5. Physical changes noticed + people treating them differently\n6. Timeline shift with disastrous consequences\n7. Resolution attempt by reversing clock once more\n8. Seed: stray cat near school looks at student with uncanny recognition after each rewind\n\n**Sample 0 (252ee464):** This is just brainstorming/planning notes - never actually writes the chapter. It's entirely a thinking process with no actual story output. Fails to deliver the creative writing piece.\n\n**Sample 1 (c4a4e10f):** Also just brainstorming/planning notes - never writes the actual chapter. Same issue as sample 0. No story delivered.\n\n**Sample 2 (642e7f80):** Again, only planning/thinking notes with no actual chapter written. No creative output.\n\n**Sample 3 (f4054a07):** Has thinking notes BUT also begins an actual chapter (\"Chapter 1: The Watch That Didn't Tick\"). However, the chapter is severely truncated - it cuts off mid-sentence after only ~200 words. It barely introduces the protagonist and the first rewind. It doesn't cover: aging/physical changes, people treating them differently, timeline shift disaster, resolution attempt, or the stray cat. Far from the 1000-word target.\n\n```json\n{\n  \"scores\": [\n    {\"sample_index\": 0, \"record_id\": \"252ee464-7bb5-4c1e-8275-8dae2cde79c2\", \"score\": 2},\n    {\"sample_index\": 1, \"record_id\": \"c4a4e10f-8f74-4cfb-b569-d659e1281a6f\", \"score\": 2},\n    {\"sample_index\": 2, \"record_id\": \"642e7f80-d12a-4b47-8212-50d5668de9b6\", \"score\": 2},\n    {\"sample_index\": 3, \"record_id\": \"f4054a07-256d-4ba9-b382-64dc602aa8a9\", \"score\": 12}\n  ]\n}\n```",
+        "Here are my scores:\n\n```json\n{\n  \"scores\": [\n    {\"sample_index\": 4, \"record_id\": \"77dac031-0598-4738-a6db-7f5de476381e\", \"score\": 5},\n    {\"sample_index\": 5, \"record_id\": \"2364ee86-a5ec-4c04-b438-5383a0523619\", \"score\": 5},\n    {\"sample_index\": 6, \"record_id\": \"20d6d511-cdab-4b54-9af5-683f372fd9cf\", \"score\": 5},\n    {\"sample_index\": 7, \"record_id\": \"1370be9b-2e0f-41fa-b4c0-ab8a1c21ba37\", \"score\": 12}\n  ]\n}\n```"
+      ]
+    }
+  ],
+  "group_errors": [],
+  "summary": {}
+}
