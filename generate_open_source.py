@@ -21,7 +21,6 @@ from pipeline import (
     DEFAULT_MAX_TOKENS,
     DEFAULT_TEMPERATURE,
     DEFAULT_TOP_P,
-    NUM_SAMPLES_PER_PROMPT,
     PROMPT_IDS_REQUESTED,
     build_final_prompt,
     load_prompt_items,
@@ -52,6 +51,8 @@ PRESET_MODEL_SPECS = {
         },
     ]
 }
+DEFAULT_NUM_SAMPLES = 4
+DEFAULT_NUM_SEED_MODIFIERS = 2
 
 
 def utc_now() -> str:
@@ -114,6 +115,28 @@ def load_hf_model(model_id: str) -> Tuple[Any, Any]:
     return tokenizer, model
 
 
+def build_prompt_variants(prompt_item: Dict[str, Any], max_seed_modifiers: int) -> List[Dict[str, Any]]:
+    """Return prompt variants: base prompt + first N seed-modified prompts."""
+    variants: List[Dict[str, Any]] = [
+        {
+            "seed_modifier_index": -1,
+            "seed_modifier": "",
+            "variant_type": "base_prompt",
+            "final_prompt": prompt_item["writing_prompt"],
+        }
+    ]
+    for modifier_idx, modifier in enumerate(prompt_item["seed_modifiers"][:max_seed_modifiers]):
+        variants.append(
+            {
+                "seed_modifier_index": modifier_idx,
+                "seed_modifier": modifier,
+                "variant_type": "seed_modified_prompt",
+                "final_prompt": build_final_prompt(prompt_item["writing_prompt"], modifier),
+            }
+        )
+    return variants
+
+
 def generate_one(
     tokenizer: Any,
     model: Any,
@@ -123,8 +146,29 @@ def generate_one(
     top_p: float,
     max_new_tokens: int,
 ) -> str:
-    prompt_text = build_prompt_text(tokenizer, model_spec, prompt)
-    inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
+    return generate_batch(
+        tokenizer=tokenizer,
+        model=model,
+        model_spec=model_spec,
+        prompts=[prompt],
+        temperature=temperature,
+        top_p=top_p,
+        max_new_tokens=max_new_tokens,
+    )[0]
+
+
+def generate_batch(
+    tokenizer: Any,
+    model: Any,
+    model_spec: Dict[str, str],
+    prompts: List[str],
+    temperature: float,
+    top_p: float,
+    max_new_tokens: int,
+) -> List[str]:
+    prompt_texts = [build_prompt_text(tokenizer, model_spec, prompt) for prompt in prompts]
+    inputs = tokenizer(prompt_texts, return_tensors="pt", padding=True).to(model.device)
+    input_lengths = inputs["attention_mask"].sum(dim=1).tolist()
     outputs = model.generate(
         **inputs,
         do_sample=True,
@@ -134,8 +178,11 @@ def generate_one(
         pad_token_id=tokenizer.pad_token_id,
         eos_token_id=tokenizer.eos_token_id,
     )
-    new_tokens = outputs[0][inputs["input_ids"].shape[1] :]
-    return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+    results: List[str] = []
+    for idx, input_len in enumerate(input_lengths):
+        new_tokens = outputs[idx][int(input_len) :]
+        results.append(tokenizer.decode(new_tokens, skip_special_tokens=True).strip())
+    return results
 
 
 def main() -> None:
@@ -159,8 +206,14 @@ def main() -> None:
     parser.add_argument("--temperature", type=float, default=DEFAULT_TEMPERATURE)
     parser.add_argument("--top-p", type=float, default=DEFAULT_TOP_P)
     parser.add_argument("--max-tokens", type=int, default=DEFAULT_MAX_TOKENS)
-    parser.add_argument("--max-modifiers", type=int, default=None)
-    parser.add_argument("--num-samples", type=int, default=NUM_SAMPLES_PER_PROMPT)
+    parser.add_argument(
+        "--max-modifiers",
+        type=int,
+        default=DEFAULT_NUM_SEED_MODIFIERS,
+        help="Number of seed-modified variants to use in addition to the unmodified base prompt",
+    )
+    parser.add_argument("--num-samples", type=int, default=DEFAULT_NUM_SAMPLES)
+    parser.add_argument("--batch-size", type=int, default=4)
     args = parser.parse_args()
 
     load_dotenv()
@@ -201,52 +254,67 @@ def main() -> None:
         }
         save_json(out_path, doc)
 
+        pending: List[Dict[str, Any]] = []
         for prompt_item in prompt_items:
-            mods = prompt_item["seed_modifiers"]
-            if not mods:
-                continue
-
-            for modifier_idx, modifier in enumerate(mods):
-                final_prompt = build_final_prompt(prompt_item["writing_prompt"], modifier)
+            variants = build_prompt_variants(prompt_item, args.max_modifiers)
+            for variant in variants:
                 for sample_idx in range(args.num_samples):
-                    started = time.time()
-                    record = {
-                        "record_id": str(uuid.uuid4()),
-                        "created_at_utc": utc_now(),
-                        "prompt_id": prompt_item["prompt_id"],
-                        "prompt_title": prompt_item["title"],
-                        "prompt_category": prompt_item["category"],
-                        "seed_modifier_index": modifier_idx,
-                        "seed_modifier": modifier,
-                        "sample_index": sample_idx,
-                        "base_prompt": prompt_item["writing_prompt"],
-                        "final_prompt": final_prompt,
-                        "response_text": None,
-                        "latency_sec": None,
-                        "raw_api_response": None,
-                        "error": None,
-                    }
-                    try:
-                        record["response_text"] = generate_one(
-                            tokenizer=tokenizer,
-                            model=model,
-                            model_spec=model_spec,
-                            prompt=final_prompt,
-                            temperature=args.temperature,
-                            top_p=args.top_p,
-                            max_new_tokens=args.max_tokens,
-                        )
-                    except Exception as e:
-                        record["error"] = str(e)
-
-                    record["latency_sec"] = round(time.time() - started, 3)
-                    doc["records"].append(record)
-                    save_json(out_path, doc)
-                    print(
-                        f"[generate-open] model={display_name} prompt={prompt_item['prompt_id']} "
-                        f"mod={modifier_idx} sample={sample_idx + 1}/{args.num_samples} "
-                        f"status={'ok' if record['error'] is None else 'error'}"
+                    pending.append(
+                        {
+                            "record_id": str(uuid.uuid4()),
+                            "created_at_utc": utc_now(),
+                            "prompt_id": prompt_item["prompt_id"],
+                            "prompt_title": prompt_item["title"],
+                            "prompt_category": prompt_item["category"],
+                            "seed_modifier_index": variant["seed_modifier_index"],
+                            "seed_modifier": variant["seed_modifier"],
+                            "variant_type": variant["variant_type"],
+                            "sample_index": sample_idx,
+                            "base_prompt": prompt_item["writing_prompt"],
+                            "final_prompt": variant["final_prompt"],
+                            "response_text": None,
+                            "latency_sec": None,
+                            "raw_api_response": None,
+                            "error": None,
+                        }
                     )
+
+        total = len(pending)
+        for start_idx in range(0, total, args.batch_size):
+            batch = pending[start_idx : start_idx + args.batch_size]
+            started = time.time()
+            prompts = [item["final_prompt"] for item in batch]
+            try:
+                responses = generate_batch(
+                    tokenizer=tokenizer,
+                    model=model,
+                    model_spec=model_spec,
+                    prompts=prompts,
+                    temperature=args.temperature,
+                    top_p=args.top_p,
+                    max_new_tokens=args.max_tokens,
+                )
+                for item, response_text in zip(batch, responses):
+                    item["response_text"] = response_text
+            except Exception as e:
+                for item in batch:
+                    item["error"] = str(e)
+
+            batch_latency = round(time.time() - started, 3)
+            for item in batch:
+                item["latency_sec"] = batch_latency
+                doc["records"].append(item)
+                print(
+                    f"[generate-open] model={display_name} prompt={item['prompt_id']} "
+                    f"mod={item['seed_modifier_index']} sample={item['sample_index'] + 1}/{args.num_samples} "
+                    f"status={'ok' if item['error'] is None else 'error'} "
+                    f"latency_sec={item['latency_sec']}"
+                )
+            save_json(out_path, doc)
+            print(
+                f"[generate-open] model={display_name} batch={min(start_idx + len(batch), total)}/{total} "
+                f"batch_latency_sec={batch_latency} saved={out_path}"
+            )
 
         print(f"[saved] {out_path}")
 
