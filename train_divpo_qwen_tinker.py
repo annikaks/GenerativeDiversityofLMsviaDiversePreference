@@ -222,6 +222,7 @@ def main() -> None:
     pairs_path = args.pairs_path or (mode_dir / "preference_pairs.jsonl")
     annotated_pairs_path = mode_dir / "preference_pairs_tinker_ready.json"
     metrics_path = mode_dir / "tinker_training_metrics.json"
+    checkpoints_path = mode_dir / "tinker_checkpoints.json"
 
     pair_rows = load_jsonl(pairs_path)
     if not pair_rows:
@@ -254,6 +255,7 @@ def main() -> None:
     loss_fn = dpo_loss_factory(args.beta)
 
     metrics: List[Dict[str, Any]] = []
+    checkpoints: List[Dict[str, Any]] = []
     random.shuffle(annotated_rows)
     row_batches = list(batched(annotated_rows, args.batch_size_pairs))
     for step in range(args.num_steps):
@@ -282,23 +284,60 @@ def main() -> None:
 
         if (step + 1) % args.save_every_steps == 0:
             checkpoint_path = training_client.save_state().result().path
+            checkpoint_obj = {
+                "step": step + 1,
+                "checkpoint_path": checkpoint_path,
+            }
+            checkpoints.append(checkpoint_obj)
+            print(
+                f"[tinker-divpo] checkpoint_saved step={step + 1}/{args.num_steps} "
+                f"path={checkpoint_path}"
+            )
+            save_json(
+                checkpoints_path,
+                {
+                    "created_at_utc": "generated-by-train_divpo_qwen_tinker",
+                    "base_model": MODEL_ID,
+                    "thinking_mode": args.thinking_mode,
+                    "checkpoints": checkpoints,
+                },
+            )
             save_json(
                 metrics_path,
                 {
                     "created_at_utc": "generated-by-train_divpo_qwen_tinker",
                     "last_checkpoint_path": checkpoint_path,
+                    "num_checkpoints_saved": len(checkpoints),
                     "metrics": metrics,
                 },
             )
 
     final_state = training_client.save_state().result().path
     final_sampler = training_client.save_weights_and_get_sampling_client().result()
+    checkpoints.append(
+        {
+            "step": args.num_steps,
+            "checkpoint_path": final_state,
+            "kind": "final_state",
+        }
+    )
+    save_json(
+        checkpoints_path,
+        {
+            "created_at_utc": "generated-by-train_divpo_qwen_tinker",
+            "base_model": MODEL_ID,
+            "thinking_mode": args.thinking_mode,
+            "checkpoints": checkpoints,
+            "final_state_path": final_state,
+        },
+    )
     save_json(
         metrics_path,
         {
             "created_at_utc": "generated-by-train_divpo_qwen_tinker",
             "final_state_path": final_state,
             "sampling_client": str(final_sampler),
+            "num_checkpoints_saved": len(checkpoints),
             "metrics": metrics,
         },
     )
