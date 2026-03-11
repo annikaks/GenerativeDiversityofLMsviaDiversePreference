@@ -3,3 +3,4 @@ python-dotenv>=1.0.1
 transformers>=4.46.0
 torch>=2.2.0
 accelerate>=0.34.0
+modal>=0.74.0

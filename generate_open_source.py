@@ -102,6 +102,21 @@ def save_json(path: Path, doc: Dict[str, Any]) -> None:
         json.dump(doc, f, ensure_ascii=False, indent=2)
 
 
+def load_json_if_exists(path: Path) -> Dict[str, Any] | None:
+    if not path.exists():
+        return None
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def record_identity(record: Dict[str, Any]) -> Tuple[int, int, int]:
+    return (
+        int(record["prompt_id"]),
+        int(record["seed_modifier_index"]),
+        int(record["sample_index"]),
+    )
+
+
 def load_hf_model(model_id: str) -> Tuple[Any, Any]:
     tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
@@ -214,10 +229,11 @@ def main() -> None:
     )
     parser.add_argument("--num-samples", type=int, default=DEFAULT_NUM_SAMPLES)
     parser.add_argument("--batch-size", type=int, default=4)
+    parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
     args = parser.parse_args()
 
     load_dotenv()
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    args.output_dir.mkdir(parents=True, exist_ok=True)
 
     prompt_items, missing = load_prompt_items(DATASET_PATH, PROMPT_IDS_REQUESTED, args.max_modifiers)
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -230,35 +246,48 @@ def main() -> None:
     for model_spec in model_specs:
         display_name = model_spec["display_name"]
         model_id = model_spec["api_model"]
-        out_path = OUTPUT_DIR / f"{slugify(display_name)}.json"
+        out_path = args.output_dir / f"{slugify(display_name)}.json"
 
         print(f"[generate-open] loading model={display_name} hf_id={model_id}")
         tokenizer, model = load_hf_model(model_id)
 
-        doc: Dict[str, Any] = {
-            "run_id": run_id,
-            "created_at_utc": utc_now(),
-            "model": model_spec,
-            "dataset": {
-                "path": str(DATASET_PATH),
-                "prompt_ids_requested": PROMPT_IDS_REQUESTED,
-                "missing_prompt_ids": missing,
-            },
-            "generation_config": {
-                "num_samples_per_prompt": args.num_samples,
-                "temperature": args.temperature,
-                "top_p": args.top_p,
-                "max_tokens": args.max_tokens,
-            },
-            "records": [],
-        }
-        save_json(out_path, doc)
+        existing_doc = load_json_if_exists(out_path)
+        if existing_doc is not None:
+            doc = existing_doc
+            existing_records = doc.get("records", [])
+            completed_keys = {record_identity(record) for record in existing_records}
+            print(
+                f"[generate-open] resuming model={display_name} existing_records={len(existing_records)}"
+            )
+        else:
+            doc = {
+                "run_id": run_id,
+                "created_at_utc": utc_now(),
+                "model": model_spec,
+                "dataset": {
+                    "path": str(DATASET_PATH),
+                    "prompt_ids_requested": PROMPT_IDS_REQUESTED,
+                    "missing_prompt_ids": missing,
+                },
+                "generation_config": {
+                    "num_samples_per_prompt": args.num_samples,
+                    "temperature": args.temperature,
+                    "top_p": args.top_p,
+                    "max_tokens": args.max_tokens,
+                },
+                "records": [],
+            }
+            completed_keys = set()
+            save_json(out_path, doc)
 
         pending: List[Dict[str, Any]] = []
         for prompt_item in prompt_items:
             variants = build_prompt_variants(prompt_item, args.max_modifiers)
             for variant in variants:
                 for sample_idx in range(args.num_samples):
+                    key = (prompt_item["prompt_id"], variant["seed_modifier_index"], sample_idx)
+                    if key in completed_keys:
+                        continue
                     pending.append(
                         {
                             "record_id": str(uuid.uuid4()),
@@ -280,6 +309,7 @@ def main() -> None:
                     )
 
         total = len(pending)
+        print(f"[generate-open] model={display_name} pending_records={total}")
         for start_idx in range(0, total, args.batch_size):
             batch = pending[start_idx : start_idx + args.batch_size]
             started = time.time()
