@@ -4,3 +4,7 @@ transformers>=4.46.0
 torch>=2.2.0
 accelerate>=0.34.0
 modal>=0.74.0
+peft>=0.12.0
+datasets>=2.21.0
+trl>=0.16.1
+tinker
