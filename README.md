@@ -58,7 +58,7 @@ Current prompt usage in code:
 - test / baseline evaluation set: prompts `28..33`
 - prompt `27` is missing in the dataset and is skipped automatically
 
-Each selected prompt uses all available `seed_modifiers`.
+Each selected prompt uses all available `seed_modifiers` by default.
 
 ## Baseline Pipeline
 
@@ -77,17 +77,17 @@ What this runs:
 
 What it does:
 - loads prompts `28..33`
-- uses `3` prompt variants per prompt by default:
+- uses `11` prompt variants per prompt by default:
   - the unmodified base prompt
-  - the first `2` seed-modified prompts
-- generates `4` responses per prompt-condition by default
+  - all `10` seed-modified prompts
+- generates `8` responses per prompt-condition by default
 - batches generations locally with `--batch-size 4` by default
 - writes one file per model to `outputs/generations/`
 
 Explicit version:
 
 ```bash
-python generate_open_source.py --preset tinker-baselines --max-modifiers 2 --num-samples 4 --batch-size 4
+python generate_open_source.py --preset tinker-baselines --max-modifiers 10 --num-samples 8 --batch-size 4
 ```
 
 Expected outputs:
@@ -112,8 +112,8 @@ Recommended first run, Qwen non-reasoning only:
 ```bash
 modal run -d modal_generate_open_source.py \
   --model-spec 'qwen3-8b-non-reasoning|Qwen/Qwen3-8B|non_reasoning' \
-  --max-modifiers 2 \
-  --num-samples 4 \
+  --max-modifiers 10 \
+  --num-samples 8 \
   --batch-size 4 \
   --max-tokens 700
 ```
@@ -123,8 +123,8 @@ Then Qwen reasoning:
 ```bash
 modal run -d modal_generate_open_source.py \
   --model-spec 'qwen3-8b-reasoning|Qwen/Qwen3-8B|reasoning' \
-  --max-modifiers 2 \
-  --num-samples 4 \
+  --max-modifiers 10 \
+  --num-samples 8 \
   --batch-size 4 \
   --max-tokens 700
 ```
@@ -134,8 +134,8 @@ If you have gated-model access, Llama:
 ```bash
 modal run -d modal_generate_open_source.py \
   --model-spec 'llama-3-1-8b-instruct|meta-llama/Llama-3.1-8B-Instruct|non_reasoning' \
-  --max-modifiers 2 \
-  --num-samples 4 \
+  --max-modifiers 10 \
+  --num-samples 8 \
   --batch-size 4 \
   --max-tokens 700
 ```
@@ -236,13 +236,57 @@ Interpretation:
 
 ## Post-Training Status
 
-Post-training / DivPO is **not implemented yet** in this repository.
+Qwen3 DivPO-style post-training is now split into:
+- [build_divpo_pairs.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/build_divpo_pairs.py)
+- [modal_build_divpo_pairs.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/modal_build_divpo_pairs.py)
+- [train_divpo_qwen_tinker.py](/Users/annikaks/Desktop/_stanford/cs224N-NLPwDL/project_LMDiversity/train_divpo_qwen_tinker.py)
 
-That means there is currently **no command you can run yet** for:
-- constructing DivPO preference pairs
-- training a Qwen/Llama checkpoint with those pairs
-- saving post-trained adapters
-- re-running the same pipeline automatically on trained adapters
+The intended workflow is:
+- uses prompts `0..26` for training
+- uses the unmodified base prompt plus all `10` seed modifiers
+- generates batched candidate responses for each prompt-condition on Modal
+- builds preference pairs from a set-aware reward on Modal:
+  - prompt-adherence proxy from prompt/response embedding cosine similarity
+  - marginal diversity contribution relative to already-selected responses
+- then trains a Qwen3-8B LoRA adapter on Tinker with a DPO loss
+
+It supports:
+- `non_reasoning`
+- `reasoning`
+- or both sequentially
+
+Build pairwise data locally:
+
+```bash
+python build_divpo_pairs.py --thinking-mode both
+```
+
+Build pairwise data on Modal:
+
+```bash
+modal run -d modal_build_divpo_pairs.py --thinking-mode both
+```
+
+Then train one mode on Tinker:
+
+```bash
+python train_divpo_qwen_tinker.py --thinking-mode non_reasoning
+python train_divpo_qwen_tinker.py --thinking-mode reasoning
+```
+
+Outputs are written under:
+- `outputs/divpo/qwen3-8b-non-reasoning-divpo/`
+- `outputs/divpo/qwen3-8b-reasoning-divpo/`
+
+Key artifacts:
+- `candidates.jsonl`
+- `preference_pairs.jsonl`
+- `preference_pairs_tinker_ready.json`
+- `training_metrics.json`
+- `tinker_training_metrics.json`
+
+If you build pairs on Modal, download the resulting pair files before Tinker training. The important file is:
+- `outputs/divpo/qwen3-8b-<mode>-divpo/preference_pairs.jsonl`
 
 ## Planned Post-Training Workflow
 
@@ -260,7 +304,17 @@ Once DivPO training is added, the intended workflow should be:
    - `python run_accuracy_batched.py ...`
 6. Compare post-trained metrics against the baseline metrics.
 
-There is currently no runnable training command in this repo. The baseline pipeline is implemented; the post-training pipeline is not.
+For the currently implemented Qwen path, the intended workflow is:
+1. Run `modal run -d modal_build_divpo_pairs.py --thinking-mode both`
+2. Download `preference_pairs.jsonl` for each mode into `outputs/divpo/...`
+3. Run `python train_divpo_qwen_tinker.py --thinking-mode non_reasoning`
+4. Run `python train_divpo_qwen_tinker.py --thinking-mode reasoning`
+5. Re-run generation on prompts `28..33` using the trained Tinker checkpoint
+6. Re-run:
+   - `python pipeline.py analyze-embeddings`
+   - `python pipeline.py analyze-baseline-deviation`
+   - `python run_accuracy_batched.py ...`
+7. Compare post-trained metrics against the baseline metrics.
 
 ## Useful Commands
 
