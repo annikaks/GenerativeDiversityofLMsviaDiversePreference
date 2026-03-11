@@ -645,9 +645,15 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
     ANALYSIS_DIR.mkdir(parents=True, exist_ok=True)
     EMBED_DIR.mkdir(parents=True, exist_ok=True)
 
-    model_files = sorted(GEN_DIR.glob("*.json"))
+    if getattr(args, "generation_files", None):
+        model_files = [Path(p) for p in args.generation_files]
+    else:
+        model_files = sorted(GEN_DIR.glob("*.json"))
     if not model_files:
         raise RuntimeError("No generation files found under outputs/generations")
+    print("[embed] generation files to analyze:")
+    for model_file in model_files:
+        print(f"[embed]   {model_file}")
 
     index_summary: Dict[str, Any] = {
         "created_at_utc": utc_now(),
@@ -813,9 +819,15 @@ def analyze_baseline_deviation(args: argparse.Namespace) -> None:
     ANALYSIS_DIR.mkdir(parents=True, exist_ok=True)
     EMBED_DIR.mkdir(parents=True, exist_ok=True)
 
-    model_files = sorted(GEN_DIR.glob("*.json"))
+    if getattr(args, "generation_files", None):
+        model_files = [Path(p) for p in args.generation_files]
+    else:
+        model_files = sorted(GEN_DIR.glob("*.json"))
     if not model_files:
         raise RuntimeError("No generation files found under outputs/generations")
+    print("[baseline] generation files to analyze:")
+    for model_file in model_files:
+        print(f"[baseline]   {model_file}")
 
     index_doc: Dict[str, Any] = {
         "created_at_utc": utc_now(),
@@ -1349,6 +1361,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_embed = sub.add_parser("analyze-embeddings", help="Compute embedding-space diversity metrics")
     p_embed.add_argument("--embedding-model", type=str, default="intfloat/e5-large")
+    p_embed.add_argument("--generation-files", nargs="*", default=None)
     p_embed.set_defaults(func=analyze_embeddings)
 
     p_dev = sub.add_parser(
@@ -1356,6 +1369,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Compute baseline deviation metrics (cosine distance to centroid) with per-model details",
     )
     p_dev.add_argument("--embedding-model", type=str, default="intfloat/e5-large")
+    p_dev.add_argument("--generation-files", nargs="*", default=None)
     p_dev.set_defaults(func=analyze_baseline_deviation)
 
     p_acc = sub.add_parser(

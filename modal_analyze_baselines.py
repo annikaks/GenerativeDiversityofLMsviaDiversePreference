@@ -67,11 +67,17 @@ def run_analysis(
     batch_size: int = 4,
     rpm: int = 5,
     generation_glob: str = "*.json",
+    generation_files_csv: str = "",
 ) -> str:
     repo_root = sync_private_repo_if_configured()
+    generation_files = [p for p in generation_files_csv.split(",") if p]
     print(f"[modal-analysis] repo_root={repo_root}")
     print(f"[modal-analysis] outputs_path={OUTPUTS_PATH}")
     print(f"[modal-analysis] task={task}")
+    if generation_files:
+        print("[modal-analysis] generation files to analyze:")
+        for path in generation_files:
+            print(f"[modal-analysis]   {path}")
 
     if task not in {"diversity", "accuracy", "both"}:
         raise ValueError("task must be one of: diversity, accuracy, both")
@@ -81,29 +87,35 @@ def run_analysis(
 
     if task in {"diversity", "both"}:
         print(f"[modal-analysis] running analyze-embeddings model={embedding_model}")
+        embed_cmd = [
+            "python",
+            "-u",
+            "pipeline.py",
+            "analyze-embeddings",
+            "--embedding-model",
+            embedding_model,
+        ]
+        if generation_files:
+            embed_cmd.extend(["--generation-files", *generation_files])
         subprocess.run(
-            [
-                "python",
-                "-u",
-                "pipeline.py",
-                "analyze-embeddings",
-                "--embedding-model",
-                embedding_model,
-            ],
+            embed_cmd,
             cwd=str(repo_root),
             env=env,
             check=True,
         )
         print(f"[modal-analysis] running analyze-baseline-deviation model={embedding_model}")
+        dev_cmd = [
+            "python",
+            "-u",
+            "pipeline.py",
+            "analyze-baseline-deviation",
+            "--embedding-model",
+            embedding_model,
+        ]
+        if generation_files:
+            dev_cmd.extend(["--generation-files", *generation_files])
         subprocess.run(
-            [
-                "python",
-                "-u",
-                "pipeline.py",
-                "analyze-baseline-deviation",
-                "--embedding-model",
-                embedding_model,
-            ],
+            dev_cmd,
             cwd=str(repo_root),
             env=env,
             check=True,
@@ -150,6 +162,7 @@ def main(
     batch_size: int = 4,
     rpm: int = 5,
     generation_glob: str = "*.json",
+    generation_files_csv: str = "",
 ) -> None:
     outputs_path = run_analysis.remote(
         task=task,
@@ -159,5 +172,6 @@ def main(
         batch_size=batch_size,
         rpm=rpm,
         generation_glob=generation_glob,
+        generation_files_csv=generation_files_csv,
     )
     print(f"[modal-analysis] finished outputs_path={outputs_path}")
