@@ -76,31 +76,36 @@ def run_analysis(
     if task not in {"diversity", "accuracy", "both"}:
         raise ValueError("task must be one of: diversity, accuracy, both")
 
+    env = os.environ.copy()
+    env["PYTHONUNBUFFERED"] = "1"
+
     if task in {"diversity", "both"}:
         print(f"[modal-analysis] running analyze-embeddings model={embedding_model}")
         subprocess.run(
             [
                 "python",
+                "-u",
                 "pipeline.py",
                 "analyze-embeddings",
                 "--embedding-model",
                 embedding_model,
             ],
             cwd=str(repo_root),
-            env=os.environ.copy(),
+            env=env,
             check=True,
         )
         print(f"[modal-analysis] running analyze-baseline-deviation model={embedding_model}")
         subprocess.run(
             [
                 "python",
+                "-u",
                 "pipeline.py",
                 "analyze-baseline-deviation",
                 "--embedding-model",
                 embedding_model,
             ],
             cwd=str(repo_root),
-            env=os.environ.copy(),
+            env=env,
             check=True,
         )
         outputs_volume.commit()
@@ -113,6 +118,7 @@ def run_analysis(
         subprocess.run(
             [
                 "python",
+                "-u",
                 "run_accuracy_batched.py",
                 "--judge-provider",
                 judge_provider,
@@ -126,7 +132,7 @@ def run_analysis(
                 generation_glob,
             ],
             cwd=str(repo_root),
-            env=os.environ.copy(),
+            env=env,
             check=True,
         )
         outputs_volume.commit()

@@ -657,6 +657,7 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
     }
 
     for model_file in model_files:
+        print(f"[embed] loading model file: {model_file}")
         with model_file.open("r", encoding="utf-8") as f:
             doc = json.load(f)
 
@@ -689,8 +690,11 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
         }
         avg_to_center_values: List[float] = []
         max_pair_values: List[float] = []
+        group_items = sorted(grouped.items(), key=lambda x: x[0])
+        total_groups = len(group_items)
+        print(f"[embed] model={model_name} groups={total_groups}")
 
-        for key, records in grouped.items():
+        for idx, (key, records) in enumerate(group_items, start=1):
             if len(records) < 2:
                 continue
 
@@ -713,6 +717,10 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
                     pending_texts.append(txt)
 
             if pending_texts:
+                print(
+                    f"[embed] model={model_name} group={idx}/{total_groups} "
+                    f"fetch_embeddings={len(pending_texts)}"
+                )
                 new_vectors = fetch_embeddings(pending_texts, args.embedding_model)
                 for rid, txt, vec in zip(pending_record_ids, pending_texts, new_vectors):
                     vectors_by_record[rid] = vec
@@ -760,6 +768,13 @@ def analyze_embeddings(args: argparse.Namespace) -> None:
                     "sample_record_ids": [r["record_id"] for r in records],
                 }
             )
+            prompt_id, modifier_idx = key.split("::")
+            print(
+                f"[embed] model={model_name} group={idx}/{total_groups} "
+                f"prompt={prompt_id} mod={modifier_idx} "
+                f"ok avg_to_centroid={avg_dist_to_center:.4f} max_pair={max_pair_distance:.4f}"
+            )
+            save_json(metrics_path, model_report)
 
         model_report["summary"] = {
             "model_name": model_name,
