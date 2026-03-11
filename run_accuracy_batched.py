@@ -317,9 +317,9 @@ def key_sort_tuple(key: str) -> Tuple[int, int]:
     return int(p), int(m)
 
 
-def load_contexts() -> List[Dict[str, Any]]:
+def load_contexts(generation_glob: str) -> List[Dict[str, Any]]:
     contexts: List[Dict[str, Any]] = []
-    for model_file in sorted(GEN_DIR.glob("*.json")):
+    for model_file in sorted(GEN_DIR.glob(generation_glob)):
         try:
             with model_file.open("r", encoding="utf-8") as f:
                 gen_doc = json.load(f)
@@ -362,13 +362,14 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=4)
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--retries", type=int, default=4)
+    parser.add_argument("--generation-glob", type=str, default="*.json")
     parser.add_argument("--estimate-only", action="store_true")
     args = parser.parse_args()
 
     load_dotenv()
     ACCURACY_DIR.mkdir(parents=True, exist_ok=True)
 
-    contexts = load_contexts()
+    contexts = load_contexts(args.generation_glob)
     total_calls = estimate_total_calls(contexts, args.batch_size)
     est_minutes = total_calls / args.rpm if args.rpm > 0 else 0.0
     print(
