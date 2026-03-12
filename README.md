@@ -303,6 +303,9 @@ Control checkpoint frequency with:
 python train_divpo_qwen_tinker.py --thinking-mode reasoning --save-every-steps 25
 ```
 
+Current default:
+- save every `5` steps
+
 Outputs are written under:
 - `outputs/divpo/qwen3-8b-non-reasoning-divpo/`
 - `outputs/divpo/qwen3-8b-reasoning-divpo/`

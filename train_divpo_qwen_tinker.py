@@ -266,6 +266,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument("--pairs-path", type=Path, default=None)
+    parser.add_argument("--run-name", type=str, default=None)
     parser.add_argument("--max-length", type=int, default=2048)
     parser.add_argument("--batch-size-pairs", type=int, default=4)
     parser.add_argument("--num-steps", type=int, default=200)
@@ -284,10 +285,12 @@ def main() -> None:
 
     default_mode_dir = args.output_root / f"qwen3-8b-{args.thinking_mode}-divpo"
     pairs_path = args.pairs_path or (default_mode_dir / "preference_pairs.jsonl")
-    mode_dir = pairs_path.parent if args.pairs_path is not None else default_mode_dir
-    annotated_pairs_path = mode_dir / "preference_pairs_tinker_ready.json"
-    metrics_path = mode_dir / "tinker_training_metrics.json"
-    checkpoints_path = mode_dir / "tinker_checkpoints.json"
+    source_mode_dir = pairs_path.parent if args.pairs_path is not None else default_mode_dir
+    run_dir = source_mode_dir / args.run_name if args.run_name else source_mode_dir
+    run_dir.mkdir(parents=True, exist_ok=True)
+    annotated_pairs_path = source_mode_dir / "preference_pairs_tinker_ready.json"
+    metrics_path = run_dir / "tinker_training_metrics.json"
+    checkpoints_path = run_dir / "tinker_checkpoints.json"
 
     pair_rows = load_jsonl(pairs_path)
     if not pair_rows:
@@ -370,7 +373,8 @@ def main() -> None:
 
         if (step + 1) % args.save_every_steps == 0:
             checkpoint_name = make_safe_weights_label(
-                mode_dir.name,
+                source_mode_dir.name,
+                run_dir.name,
                 f"checkpoint-step-{step + 1:04d}",
             )
             checkpoint_path = training_client.save_state(checkpoint_name).result().path
@@ -404,15 +408,33 @@ def main() -> None:
                 },
             )
 
-    final_checkpoint_name = make_safe_weights_label(mode_dir.name, "final-state")
+    final_checkpoint_name = make_safe_weights_label(source_mode_dir.name, run_dir.name, "final-state")
     final_state = training_client.save_state(final_checkpoint_name).result().path
-    final_sampler = training_client.save_weights_and_get_sampling_client().result()
+    final_sampler_checkpoint_name = make_safe_weights_label(
+        source_mode_dir.name, run_dir.name, "final-sampler"
+    )
+    final_sampler_checkpoint_path = training_client.save_weights_for_sampler(
+        final_sampler_checkpoint_name
+    ).result().path
+    try:
+        final_sampler = training_client.save_weights_and_get_sampling_client()
+        final_sampler_repr = str(final_sampler)
+    except Exception as exc:
+        final_sampler_repr = f"ERROR: {exc}"
     checkpoints.append(
         {
             "step": args.num_steps,
             "checkpoint_name": final_checkpoint_name,
             "checkpoint_path": final_state,
             "kind": "final_state",
+        }
+    )
+    checkpoints.append(
+        {
+            "step": args.num_steps,
+            "checkpoint_name": final_sampler_checkpoint_name,
+            "checkpoint_path": final_sampler_checkpoint_path,
+            "kind": "final_sampler_state",
         }
     )
     save_json(
@@ -424,6 +446,8 @@ def main() -> None:
             "checkpoints": checkpoints,
             "final_checkpoint_name": final_checkpoint_name,
             "final_state_path": final_state,
+            "final_sampler_checkpoint_name": final_sampler_checkpoint_name,
+            "final_sampler_checkpoint_path": final_sampler_checkpoint_path,
         },
     )
     save_json(
@@ -432,12 +456,15 @@ def main() -> None:
             "created_at_utc": "generated-by-train_divpo_qwen_tinker",
             "final_checkpoint_name": final_checkpoint_name,
             "final_state_path": final_state,
-            "sampling_client": str(final_sampler),
+            "final_sampler_checkpoint_name": final_sampler_checkpoint_name,
+            "final_sampler_checkpoint_path": final_sampler_checkpoint_path,
+            "sampling_client": final_sampler_repr,
             "num_checkpoints_saved": len(checkpoints),
             "metrics": metrics,
         },
     )
     print(f"[tinker-divpo] final_state={final_state}")
+    print(f"[tinker-divpo] final_sampler_checkpoint={final_sampler_checkpoint_path}")
 
 
 if __name__ == "__main__":
