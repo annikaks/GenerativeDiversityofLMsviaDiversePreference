@@ -159,6 +159,11 @@ def main() -> None:
     parser.add_argument("--rpm", type=float, default=5.0)
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--retries", type=int, default=4)
+    parser.add_argument(
+        "--cache-only",
+        action="store_true",
+        help="Rebuild annotated output from existing response cache only; do not call the judge API",
+    )
     args = parser.parse_args()
 
     load_dotenv()
@@ -205,6 +210,10 @@ def main() -> None:
         if cached and cached.get("score") is not None:
             item["score"] = cached["score"]
             item["error"] = cached.get("error")
+            continue
+        if args.cache_only:
+            item["score"] = cached.get("score") if cached else None
+            item["error"] = cached.get("error") if cached else "missing_cache_entry"
             continue
 
         try:
