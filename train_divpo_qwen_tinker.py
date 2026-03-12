@@ -14,7 +14,9 @@ from __future__ import annotations
 import argparse
 import json
 import random
+import time
 from pathlib import Path
+import os
 from typing import Any, Dict, Iterable, List, Sequence, Tuple
 
 import torch
@@ -41,8 +43,10 @@ def load_jsonl(path: Path) -> List[Dict[str, Any]]:
 
 def save_json(path: Path, doc: Dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as f:
+    tmp_path = path.with_suffix(path.suffix + ".tmp")
+    with tmp_path.open("w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, path)
 
 
 def batched(items: Sequence[Any], batch_size: int) -> Iterable[Sequence[Any]]:
@@ -81,9 +85,7 @@ def compute_reference_logprob_sum(
     tokens: List[int],
     prompt_token_count: int,
 ) -> float:
-    response = sampler.compute_logprobs([types.ModelInput.from_ints(tokens)]).result()
-    item = response[0]
-    logprobs = item.logprobs
+    logprobs = sampler.compute_logprobs(types.ModelInput.from_ints(tokens)).result()
     values = [lp for lp in logprobs[prompt_token_count:] if lp is not None]
     return float(sum(values))
 
@@ -93,9 +95,21 @@ def annotate_pairs_with_reference(
     tokenizer: Any,
     sampler: Any,
     max_length: int,
+    checkpoint_path: Path,
+    checkpoint_every: int,
+    source_pairs_path: Path,
+    initial_rows: List[Dict[str, Any]] | None = None,
 ) -> List[Dict[str, Any]]:
-    annotated: List[Dict[str, Any]] = []
-    for row in rows:
+    annotated: List[Dict[str, Any]] = list(initial_rows or [])
+    start_time = time.time()
+    total = len(rows)
+    start_index = len(annotated)
+    if start_index > 0:
+        print(
+            f"[tinker-divpo] resuming annotated pairs from {checkpoint_path} "
+            f"completed={start_index}/{total}"
+        )
+    for idx, row in enumerate(rows[start_index:], start=start_index + 1):
         prompt = row["prompt"]
         chosen = row["chosen"]
         rejected = row["rejected"]
@@ -120,6 +134,31 @@ def annotate_pairs_with_reference(
                 "rejected_ref_logprob_sum": rejected_ref,
             }
         )
+        if idx % checkpoint_every == 0 or idx == total:
+            save_json(
+                checkpoint_path,
+                {
+                    "rows": annotated,
+                    "source_pairs_path": str(source_pairs_path),
+                    "total_rows": total,
+                    "completed_rows": len(annotated),
+                    "is_complete": len(annotated) == total,
+                    "created_at_utc": "generated-by-train_divpo_qwen_tinker",
+                },
+            )
+            print(
+                f"[tinker-divpo] annotation_checkpoint completed={len(annotated)}/{total} "
+                f"path={checkpoint_path}"
+            )
+        if idx == 1 or idx % 10 == 0 or idx == total:
+            elapsed_min = (time.time() - start_time) / 60.0
+            per_pair_sec = (time.time() - start_time) / max(idx - start_index, 1)
+            remaining = total - idx
+            eta_min = (remaining * per_pair_sec) / 60.0
+            print(
+                f"[tinker-divpo] annotated_pairs={idx}/{total} "
+                f"elapsed_min={elapsed_min:.1f} eta_min~{eta_min:.1f}"
+            )
     return annotated
 
 
@@ -210,7 +249,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--beta", type=float, default=0.1)
     parser.add_argument("--weight-decay", type=float, default=0.0)
     parser.add_argument("--rank", type=int, default=16)
-    parser.add_argument("--save-every-steps", type=int, default=50)
+    parser.add_argument("--save-every-steps", type=int, default=5)
+    parser.add_argument("--annotation-checkpoint-every", type=int, default=10)
     return parser.parse_args()
 
 
@@ -227,14 +267,25 @@ def main() -> None:
     pair_rows = load_jsonl(pairs_path)
     if not pair_rows:
         raise ValueError(f"No pair rows found in {pairs_path}")
+    print(f"[tinker-divpo] loaded_pairs={len(pair_rows)} from {pairs_path}")
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, trust_remote_code=True)
     service_client = tinker.ServiceClient()
-    reference_sampler = service_client.create_sampling_client(model=MODEL_ID)
+    reference_sampler = service_client.create_sampling_client(base_model=MODEL_ID)
+    print(f"[tinker-divpo] connected base_model={MODEL_ID} mode={args.thinking_mode}")
 
+    existing_annotated_rows: List[Dict[str, Any]] = []
+    annotated_doc: Dict[str, Any] | None = None
     if annotated_pairs_path.exists():
         with annotated_pairs_path.open("r", encoding="utf-8") as f:
-            annotated_rows = json.load(f)["rows"]
+            annotated_doc = json.load(f)
+        existing_annotated_rows = annotated_doc.get("rows", [])
+    if annotated_doc and annotated_doc.get("is_complete") and len(existing_annotated_rows) == len(pair_rows):
+        annotated_rows = existing_annotated_rows
+        print(
+            f"[tinker-divpo] reusing annotated pairs from {annotated_pairs_path} "
+            f"rows={len(annotated_rows)}"
+        )
     else:
         print(f"[tinker-divpo] annotating {len(pair_rows)} pairs with reference logprobs")
         annotated_rows = annotate_pairs_with_reference(
@@ -242,22 +293,28 @@ def main() -> None:
             tokenizer=tokenizer,
             sampler=reference_sampler,
             max_length=args.max_length,
+            checkpoint_path=annotated_pairs_path,
+            checkpoint_every=args.annotation_checkpoint_every,
+            source_pairs_path=pairs_path,
+            initial_rows=existing_annotated_rows,
         )
-        save_json(
-            annotated_pairs_path,
-            {"rows": annotated_rows, "created_at_utc": "generated-by-train_divpo_qwen_tinker"},
-        )
+        print(f"[tinker-divpo] saved annotated pairs to {annotated_pairs_path}")
 
     training_client = service_client.create_lora_training_client(
         base_model=MODEL_ID,
         rank=args.rank,
     )
     loss_fn = dpo_loss_factory(args.beta)
+    print(
+        f"[tinker-divpo] training_start num_steps={args.num_steps} "
+        f"batch_size_pairs={args.batch_size_pairs} save_every_steps={args.save_every_steps}"
+    )
 
     metrics: List[Dict[str, Any]] = []
     checkpoints: List[Dict[str, Any]] = []
     random.shuffle(annotated_rows)
     row_batches = list(batched(annotated_rows, args.batch_size_pairs))
+    started = time.time()
     for step in range(args.num_steps):
         rows = row_batches[step % len(row_batches)]
         data = make_dpo_batch(rows)
@@ -276,11 +333,15 @@ def main() -> None:
             "pairs_in_batch": int(loss_result.metrics.get("pairs_in_batch", 0)),
         }
         metrics.append(step_metrics)
-        if (step + 1) % 5 == 0:
-            print(
-                f"[tinker-divpo] step={step + 1}/{args.num_steps} "
-                f"loss={step_metrics['loss']:.4f} reward_margin={step_metrics['reward_margin']:.4f}"
-            )
+        elapsed_min = (time.time() - started) / 60.0
+        steps_done = step + 1
+        remaining_steps = args.num_steps - steps_done
+        eta_min = (elapsed_min / steps_done) * remaining_steps if steps_done > 0 else 0.0
+        print(
+            f"[tinker-divpo] step={step + 1}/{args.num_steps} "
+            f"loss={step_metrics['loss']:.4f} reward_margin={step_metrics['reward_margin']:.4f} "
+            f"elapsed_min={elapsed_min:.1f} eta_min~{eta_min:.1f}"
+        )
 
         if (step + 1) % args.save_every_steps == 0:
             checkpoint_path = training_client.save_state().result().path
