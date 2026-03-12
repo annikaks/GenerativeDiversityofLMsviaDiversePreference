@@ -1,0 +1,207 @@
+{
+  "created_at_utc": "generated-by-train_divpo_qwen_tinker",
+  "base_model": "Qwen/Qwen3-8B",
+  "thinking_mode": "non_reasoning",
+  "checkpoints": [
+    {
+      "step": 5,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0005",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0005"
+    },
+    {
+      "step": 10,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0010",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0010"
+    },
+    {
+      "step": 15,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0015",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0015"
+    },
+    {
+      "step": 20,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0020",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0020"
+    },
+    {
+      "step": 25,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0025",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0025"
+    },
+    {
+      "step": 30,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0030",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0030"
+    },
+    {
+      "step": 35,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0035",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0035"
+    },
+    {
+      "step": 40,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0040",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0040"
+    },
+    {
+      "step": 45,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0045",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0045"
+    },
+    {
+      "step": 50,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0050",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0050"
+    },
+    {
+      "step": 55,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0055",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0055"
+    },
+    {
+      "step": 60,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0060",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0060"
+    },
+    {
+      "step": 65,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0065",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0065"
+    },
+    {
+      "step": 70,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0070",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0070"
+    },
+    {
+      "step": 75,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0075",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0075"
+    },
+    {
+      "step": 80,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0080",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0080"
+    },
+    {
+      "step": 85,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0085",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0085"
+    },
+    {
+      "step": 90,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0090",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0090"
+    },
+    {
+      "step": 95,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0095",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0095"
+    },
+    {
+      "step": 100,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0100",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0100"
+    },
+    {
+      "step": 105,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0105",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0105"
+    },
+    {
+      "step": 110,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0110",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0110"
+    },
+    {
+      "step": 115,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0115",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0115"
+    },
+    {
+      "step": 120,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0120",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0120"
+    },
+    {
+      "step": 125,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0125",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0125"
+    },
+    {
+      "step": 130,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0130",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0130"
+    },
+    {
+      "step": 135,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0135",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0135"
+    },
+    {
+      "step": 140,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0140",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0140"
+    },
+    {
+      "step": 145,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0145",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0145"
+    },
+    {
+      "step": 150,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0150",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0150"
+    },
+    {
+      "step": 155,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0155",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0155"
+    },
+    {
+      "step": 160,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0160",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0160"
+    },
+    {
+      "step": 165,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0165",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0165"
+    },
+    {
+      "step": 170,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0170",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0170"
+    },
+    {
+      "step": 175,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0175",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0175"
+    },
+    {
+      "step": 180,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0180",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0180"
+    },
+    {
+      "step": 185,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0185",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0185"
+    },
+    {
+      "step": 190,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0190",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0190"
+    },
+    {
+      "step": 195,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0195",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0195"
+    },
+    {
+      "step": 200,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0200",
+      "checkpoint_path": "tinker://2b4a7791-1af7-534c-8c23-cfb1ebbf11d1:train:0/weights/qwen3-8b-non-reasoning-divpo-run_2-checkpoint-step-0200"
+    }
+  ]
+}
