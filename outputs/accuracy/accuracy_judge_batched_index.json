@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-03-12T08:59:47.540814+00:00",
+  "created_at_utc": "2026-03-12T09:40:11.411243+00:00",
   "judge_provider": "anthropic",
   "judge_model": "claude-opus-4-6",
   "score_range": [
@@ -11,14 +11,14 @@
   "rate_limit_rpm": 5.0,
   "per_model_files": [
     {
-      "model_name": "posttrain-qwen3-8b-non-reasoning-run2-best",
-      "source_generation_file": "outputs/generations/posttrain-qwen3-8b-non-reasoning-run2-best.json",
-      "accuracy_file": "outputs/accuracy/posttrain-qwen3-8b-non-reasoning-run2-best_accuracy_judge_batched.json",
+      "model_name": "posttrain-qwen3-8b-reasoning-run2-best",
+      "source_generation_file": "outputs/generations/posttrain-qwen3-8b-reasoning-run2-best.json",
+      "accuracy_file": "outputs/accuracy/posttrain-qwen3-8b-reasoning-run2-best_accuracy_judge_batched.json",
       "status": "ok",
       "num_groups": 66,
-      "num_group_errors": 0,
-      "total_scored_responses": 528,
-      "mean_score": 42.01704545454545
+      "num_group_errors": 1,
+      "total_scored_responses": 524,
+      "mean_score": 27.849236641221374
     }
   ]
 }

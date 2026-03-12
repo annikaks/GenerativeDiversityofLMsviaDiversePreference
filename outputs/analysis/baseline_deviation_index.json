@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-03-12T08:55:03.566734+00:00",
+  "created_at_utc": "2026-03-12T09:39:34.956503+00:00",
   "embedding_model": "intfloat/e5-large",
   "metric_definition": {
     "average_deviation": "mean cosine distance from each sample embedding to group centroid",
@@ -7,11 +7,11 @@
   },
   "per_model_files": [
     {
-      "model_name": "posttrain-qwen3-8b-non-reasoning-run2-best",
-      "source_generation_file": "outputs/generations/posttrain-qwen3-8b-non-reasoning-run2-best.json",
-      "metrics_file": "outputs/analysis/posttrain-qwen3-8b-non-reasoning-run2-best_baseline_deviation_metrics.json",
-      "details_file": "outputs/analysis/posttrain-qwen3-8b-non-reasoning-run2-best_baseline_deviation_details.json",
-      "embedding_cache_file": "outputs/embeddings/posttrain-qwen3-8b-non-reasoning-run2-best_embeddings.json",
+      "model_name": "posttrain-qwen3-8b-reasoning-run2-best",
+      "source_generation_file": "outputs/generations/posttrain-qwen3-8b-reasoning-run2-best.json",
+      "metrics_file": "outputs/analysis/posttrain-qwen3-8b-reasoning-run2-best_baseline_deviation_metrics.json",
+      "details_file": "outputs/analysis/posttrain-qwen3-8b-reasoning-run2-best_baseline_deviation_details.json",
+      "embedding_cache_file": "outputs/embeddings/posttrain-qwen3-8b-reasoning-run2-best_embeddings.json",
       "status": "ok",
       "num_groups": 66,
       "num_group_errors": 0
