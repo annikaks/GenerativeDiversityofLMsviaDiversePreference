@@ -1,69 +1,19 @@
 {
-  "created_at_utc": "2026-02-27T08:20:13.967227+00:00",
-  "embedding_model": "text-embedding-3-large",
+  "created_at_utc": "2026-03-12T08:55:03.566734+00:00",
+  "embedding_model": "intfloat/e5-large",
   "metric_definition": {
     "average_deviation": "mean cosine distance from each sample embedding to group centroid",
     "max_deviation": "max cosine distance from any sample embedding to group centroid"
   },
   "per_model_files": [
     {
-      "model_name": "claude-opus-4-6 (thinking disabled)",
-      "source_generation_file": "outputs/generations/claude-opus-4-6-thinking-disabled.json",
-      "metrics_file": "outputs/analysis/claude-opus-4-6-thinking-disabled_baseline_deviation_metrics.json",
-      "details_file": "outputs/analysis/claude-opus-4-6-thinking-disabled_baseline_deviation_details.json",
-      "embedding_cache_file": "outputs/embeddings/claude-opus-4-6-thinking-disabled_embeddings.json",
+      "model_name": "posttrain-qwen3-8b-non-reasoning-run2-best",
+      "source_generation_file": "outputs/generations/posttrain-qwen3-8b-non-reasoning-run2-best.json",
+      "metrics_file": "outputs/analysis/posttrain-qwen3-8b-non-reasoning-run2-best_baseline_deviation_metrics.json",
+      "details_file": "outputs/analysis/posttrain-qwen3-8b-non-reasoning-run2-best_baseline_deviation_details.json",
+      "embedding_cache_file": "outputs/embeddings/posttrain-qwen3-8b-non-reasoning-run2-best_embeddings.json",
       "status": "ok",
-      "num_groups": 44,
-      "num_group_errors": 0
-    },
-    {
-      "model_name": "claude-opus-4-6 (thinking enabled)",
-      "source_generation_file": "outputs/generations/claude-opus-4-6-thinking-enabled.json",
-      "metrics_file": "outputs/analysis/claude-opus-4-6-thinking-enabled_baseline_deviation_metrics.json",
-      "details_file": "outputs/analysis/claude-opus-4-6-thinking-enabled_baseline_deviation_details.json",
-      "embedding_cache_file": "outputs/embeddings/claude-opus-4-6-thinking-enabled_embeddings.json",
-      "status": "ok",
-      "num_groups": 55,
-      "num_group_errors": 0
-    },
-    {
-      "model_name": "GPT-5.2 pro (reasoning high)",
-      "source_generation_file": "outputs/generations/gpt-5-2-pro-reasoning-high.json",
-      "metrics_file": "outputs/analysis/gpt-5-2-pro-reasoning-high_baseline_deviation_metrics.json",
-      "details_file": "outputs/analysis/gpt-5-2-pro-reasoning-high_baseline_deviation_details.json",
-      "embedding_cache_file": "outputs/embeddings/gpt-5-2-pro-reasoning-high_embeddings.json",
-      "status": "ok",
-      "num_groups": 60,
-      "num_group_errors": 0
-    },
-    {
-      "model_name": "GPT-5.2 pro (reasoning low)",
-      "source_generation_file": "outputs/generations/gpt-5-2-pro-reasoning-low.json",
-      "metrics_file": "outputs/analysis/gpt-5-2-pro-reasoning-low_baseline_deviation_metrics.json",
-      "details_file": "outputs/analysis/gpt-5-2-pro-reasoning-low_baseline_deviation_details.json",
-      "embedding_cache_file": "outputs/embeddings/gpt-5-2-pro-reasoning-low_embeddings.json",
-      "status": "ok",
-      "num_groups": 60,
-      "num_group_errors": 0
-    },
-    {
-      "model_name": "grok-4-1-fast-non-reasoning",
-      "source_generation_file": "outputs/generations/grok-4-1-fast-non-reasoning.json",
-      "metrics_file": "outputs/analysis/grok-4-1-fast-non-reasoning_baseline_deviation_metrics.json",
-      "details_file": "outputs/analysis/grok-4-1-fast-non-reasoning_baseline_deviation_details.json",
-      "embedding_cache_file": "outputs/embeddings/grok-4-1-fast-non-reasoning_embeddings.json",
-      "status": "ok",
-      "num_groups": 60,
-      "num_group_errors": 0
-    },
-    {
-      "model_name": "grok-4-1-fast-reasoning",
-      "source_generation_file": "outputs/generations/grok-4-1-fast-reasoning.json",
-      "metrics_file": "outputs/analysis/grok-4-1-fast-reasoning_baseline_deviation_metrics.json",
-      "details_file": "outputs/analysis/grok-4-1-fast-reasoning_baseline_deviation_details.json",
-      "embedding_cache_file": "outputs/embeddings/grok-4-1-fast-reasoning_embeddings.json",
-      "status": "ok",
-      "num_groups": 60,
+      "num_groups": 66,
       "num_group_errors": 0
     }
   ]
