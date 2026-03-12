@@ -1,0 +1,1276 @@
+{
+  "created_at_utc": "2026-03-12T08:55:03.689845+00:00",
+  "source_generation_file": "outputs/generations/posttrain-qwen3-8b-non-reasoning-run2-best.json",
+  "embedding_cache_file": "outputs/embeddings/posttrain-qwen3-8b-non-reasoning-run2-best_embeddings.json",
+  "embedding_model": "intfloat/e5-large",
+  "model": {
+    "display_name": "posttrain-qwen3-8b-non-reasoning-run2-best",
+    "provider": "tinker",
+    "api_model": "Qwen/Qwen3-8B",
+    "thinking": "non_reasoning"
+  },
+  "groups": [
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": -1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03494919584174619,
+      "max_cosine_deviation_to_centroid": 0.06060968627759111,
+      "max_deviation_record_id": "3c22e6b1-30b2-4c39-8698-7ca53dc2efc5",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "7ca29d7c-a86a-4e02-9d4c-046e8169a476",
+        "3c22e6b1-30b2-4c39-8698-7ca53dc2efc5",
+        "021d0b13-9fec-4870-aa31-6ed48197877e",
+        "f868faf2-73a6-4310-8987-d290f3885a43",
+        "41478b83-4963-460c-813d-365aacb5b98c",
+        "704149ce-5327-4fa9-a38d-5226148e9dae",
+        "42046c87-331b-4dd7-9bd4-d42446b00fc5",
+        "e8098ebe-6d26-4874-a948-201522faa147"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.033142280254547865,
+      "max_cosine_deviation_to_centroid": 0.040581303523278045,
+      "max_deviation_record_id": "3a515ec3-fb08-4254-a8ac-82b8d1dc96ee",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "a9359d9e-e27a-43ab-8ff7-2f9a3d8dec81",
+        "65139b97-182a-4c16-904e-984a8e9c1761",
+        "1ce4c488-e796-4ad1-96f5-516ca2152f84",
+        "3a515ec3-fb08-4254-a8ac-82b8d1dc96ee",
+        "656bc384-8cd0-47ab-8a29-8a4ccb179532",
+        "14b9ca3c-0dce-4ae5-84b7-0d5a86e885eb",
+        "0830e5ff-1e49-4d1f-b702-129bd6f3ac3c",
+        "a08ef4f6-5501-46ea-a52c-035e754434ca"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02994891348540206,
+      "max_cosine_deviation_to_centroid": 0.04348044513822624,
+      "max_deviation_record_id": "6bdda8ec-3e2c-47a1-9b0a-b37e7597bcf4",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "703540f3-87bb-4388-92ad-7c64765fa85e",
+        "6bdda8ec-3e2c-47a1-9b0a-b37e7597bcf4",
+        "bab4fa14-3662-42f3-93b9-c3083cb0ed44",
+        "ddfd9335-212c-4494-99a0-3f63a32391b4",
+        "f2191ebc-5053-4805-ba08-cf1804ca174a",
+        "675ce5a3-f540-4477-9d13-48fa8b8cd419",
+        "f6c5c3ad-342b-42cc-b1fe-4c27a232da7f",
+        "d851253a-5abf-47fa-b06d-8033cbb0bd4e"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03379285191543842,
+      "max_cosine_deviation_to_centroid": 0.038024121502538866,
+      "max_deviation_record_id": "7108624a-c371-4f99-94d9-d424cd160bb1",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "f76ccaa9-180b-4945-9c90-c13a87ce48f8",
+        "ad9f48ba-f229-4e8c-a28c-c9321544a7fb",
+        "c0ecb6b2-946c-477a-81ce-e5d7100bebc7",
+        "7108624a-c371-4f99-94d9-d424cd160bb1",
+        "763197ec-f273-4163-8863-1e64919227c4",
+        "7f174bdc-2714-4f34-a3c1-f2296d97b51c",
+        "0aca2ada-a69a-4e82-8107-b5e744162352",
+        "496d9bb1-2739-4d84-b112-bbfc1a1d23e6"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02948334862402066,
+      "max_cosine_deviation_to_centroid": 0.0372489384354302,
+      "max_deviation_record_id": "a92db3ff-9a7d-4adf-baa3-976acb5c998b",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "500bde77-94f5-459f-b7d6-33cc0f656f16",
+        "025964aa-43de-479a-bff0-c289f1009b37",
+        "e8a15fce-25b8-423d-b5eb-4dba1055ad8b",
+        "1a1f287a-5c1b-480f-9c06-14b8db09f73d",
+        "3d69ce50-7c38-4630-adc8-d305fa46192a",
+        "29805f90-609c-4717-be93-ef494a679a69",
+        "52df1741-d5f8-46bd-9859-17f74915ebd0",
+        "a92db3ff-9a7d-4adf-baa3-976acb5c998b"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03147177651563615,
+      "max_cosine_deviation_to_centroid": 0.036498086259310836,
+      "max_deviation_record_id": "bcea503c-1089-4a57-b8a7-fbb1aa5f3f84",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "7f3a506d-e6c0-4be4-a912-35c37e35b779",
+        "633f3c0e-e34b-4527-8ec6-3009d71d1132",
+        "e18e3302-7bbb-44ce-9700-e215b6345804",
+        "79cab5be-dd08-4ebf-ab01-56d095c6c8f5",
+        "f528b0ed-64a4-41af-901b-94ab56ae2bb7",
+        "a01a291f-6638-469f-a298-6deefff62074",
+        "18c88980-4ddf-4fb5-86ee-482f7b9f290f",
+        "bcea503c-1089-4a57-b8a7-fbb1aa5f3f84"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.032879857568746465,
+      "max_cosine_deviation_to_centroid": 0.03558698289786333,
+      "max_deviation_record_id": "e65262d6-996d-46f2-8bca-ca99a85c291b",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "ce4d5a44-67bf-4fdc-97f4-0c10114aa883",
+        "f560d959-654d-4767-94a2-9e739145aa05",
+        "65335407-a534-4683-8406-50f125ab28bd",
+        "e65262d6-996d-46f2-8bca-ca99a85c291b",
+        "4ac800ce-7e7b-426b-9840-427e5639b9a6",
+        "e18b3748-c44a-4069-982d-77dd88fedd25",
+        "2dd09334-dfe9-4670-9edb-0196ee570383",
+        "7b62065d-8df3-4a5f-b67a-0ceea8c0efdc"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03325875639194757,
+      "max_cosine_deviation_to_centroid": 0.042736796068418625,
+      "max_deviation_record_id": "077d69bf-99d3-4c33-b3bc-7d68fa629418",
+      "max_deviation_sample_index": 6,
+      "sample_record_ids": [
+        "4e55f0d3-55bd-4a4d-b4be-81783217f31b",
+        "55b0aa02-94f6-41b9-974f-1b76e953f418",
+        "4eb48934-22d4-4c68-b936-2e72015e0ba1",
+        "c651e167-7265-4b3a-831e-5ac8f82e5d9d",
+        "07e40f2a-17df-40df-857b-47a1d86a7e87",
+        "115b60ad-d9e0-46a3-8efe-a7097db719db",
+        "077d69bf-99d3-4c33-b3bc-7d68fa629418",
+        "05d3f9ce-4641-4ed0-8937-62bc8686635c"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.031848028511135607,
+      "max_cosine_deviation_to_centroid": 0.03905943444336446,
+      "max_deviation_record_id": "c45c4e40-22d6-4da1-a3d4-e18e2e17f15a",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "241d4fda-fec6-4bc2-9a78-a312b225e380",
+        "d783027c-f3d3-4043-bfaa-f3c89d0f7c8c",
+        "049c64a7-f956-43a8-95e9-0e66f9c2ce8d",
+        "c45c4e40-22d6-4da1-a3d4-e18e2e17f15a",
+        "0f4be727-7df2-4b5f-983a-e5fe2070ce83",
+        "b6994e83-57a7-4716-8ff0-a16b6810982d",
+        "e95a744b-76d7-4322-a346-fe247fbff66b",
+        "998c8597-9d79-4718-bfca-21b5436300db"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03182020650106772,
+      "max_cosine_deviation_to_centroid": 0.035786984540918665,
+      "max_deviation_record_id": "a6db5d68-f810-4b47-8300-da12fcc2971b",
+      "max_deviation_sample_index": 6,
+      "sample_record_ids": [
+        "a9997738-708c-4252-b36c-fee0d59f6360",
+        "d4a9487d-7bee-4df4-a792-79f817c4dd7d",
+        "a1a88e3c-36ac-423e-92c2-6e263f49e92b",
+        "d5b6297d-101e-4051-9e55-ecaaa68626be",
+        "0b482db8-1e41-4f6e-b033-91f6d4488f20",
+        "4cee237a-8b0e-4009-b6f6-e225f62fde5c",
+        "a6db5d68-f810-4b47-8300-da12fcc2971b",
+        "31b3d9e5-aa3f-41fa-b18c-9824a3c0c065"
+      ]
+    },
+    {
+      "prompt_id": 28,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.030573113408809846,
+      "max_cosine_deviation_to_centroid": 0.03738328035359939,
+      "max_deviation_record_id": "8d1d1b96-c6be-4124-b3d5-747ee3491f88",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "37e05668-5d0f-4b91-b499-b17ee400d5fe",
+        "9cb99792-4a6e-4784-abb9-389770e170b9",
+        "8d1d1b96-c6be-4124-b3d5-747ee3491f88",
+        "51096865-e8f2-4cd0-b310-40c7227bcf39",
+        "fd19d7e2-748d-441d-b46d-6fd649bbc34e",
+        "9af721fb-5cbf-4c4c-8eb5-c9bdfecd05ed",
+        "13ac64dd-4fb2-4cc7-8eb0-a72bd9691b4a",
+        "2bad98b5-776d-4c90-a72d-3041b063dbbc"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": -1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.028681033583255328,
+      "max_cosine_deviation_to_centroid": 0.039103491540515845,
+      "max_deviation_record_id": "fc978bd8-1d62-496d-a195-68f24955cfcc",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "e7620a63-005f-4b71-9421-f5f8b18823c1",
+        "d54166f3-fb05-47fd-b871-e2bcdac89039",
+        "4e1d7c7e-fbea-463c-a7db-16482c9b81bb",
+        "fc978bd8-1d62-496d-a195-68f24955cfcc",
+        "5726f996-0b1c-4278-9200-1bf4c2d928ac",
+        "fdb69898-2f3b-435d-b052-d88e247140a1",
+        "5d491611-06cb-4a12-beb2-390eda28da04",
+        "92b1fdc1-9b24-4bea-9ad0-51fc44cedd11"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02561092826517833,
+      "max_cosine_deviation_to_centroid": 0.029576139144763314,
+      "max_deviation_record_id": "9413bb08-af75-440b-b60a-9175f8e18979",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "81574cd9-064f-43e0-9e13-77364104b24d",
+        "efd1a523-5fe3-4452-9025-fcf6bfa97a13",
+        "9413bb08-af75-440b-b60a-9175f8e18979",
+        "73318f57-579e-442d-84fd-742a2f66b29d",
+        "773da3bb-213a-445b-8e6c-b7f10bc84269",
+        "7802fe67-b436-4a2d-be9e-4644e8a398c8",
+        "95fc125b-2b23-4172-800b-1fbd6dc873f2",
+        "8f5fdf5c-fead-4f23-8a4c-c9abd740eb78"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.026876502173410102,
+      "max_cosine_deviation_to_centroid": 0.03264874003837903,
+      "max_deviation_record_id": "03bbe949-c271-4b8b-8865-cf015a9e7da4",
+      "max_deviation_sample_index": 0,
+      "sample_record_ids": [
+        "03bbe949-c271-4b8b-8865-cf015a9e7da4",
+        "6ef988f7-f9e0-422f-b8eb-70780e50577f",
+        "01e0ee06-34e8-408b-b639-c5ae912f9f97",
+        "b8c29345-6712-4a4a-ac90-e28609bb2943",
+        "3c660cfc-51ea-4f55-b9eb-1f874afefacb",
+        "9a4fa71e-8b61-4afe-85e8-09fe51e5eebf",
+        "d6358cd1-1756-41be-a34c-f48173231828",
+        "d7bfbd69-1bce-4f2e-a07e-951248c5a5c9"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.026467215104718528,
+      "max_cosine_deviation_to_centroid": 0.03582606497411256,
+      "max_deviation_record_id": "ce03f48c-09ee-43e8-a1af-cdc2a4ac0223",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "a296a3c1-1b84-4d42-9d44-6f9ca8b6d760",
+        "40b9a6f2-33f6-4df1-b5b8-e2729e650dc3",
+        "58054631-a20d-4a19-a2a0-835f305f77bb",
+        "eb8dfd5d-7cf8-45cc-a803-d73efa069190",
+        "ce03f48c-09ee-43e8-a1af-cdc2a4ac0223",
+        "ae32bbe5-2705-456e-8a86-a524f34fb887",
+        "dc5222eb-4ca7-4cc3-9f31-96b6d4baa817",
+        "701a7c64-5014-46ee-bf4a-28cac1831f1c"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.027927291706994692,
+      "max_cosine_deviation_to_centroid": 0.03477624201537188,
+      "max_deviation_record_id": "448f3903-352b-4ff1-bbe1-344f334e89b1",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "86d58883-b293-41f1-912c-757e568ecc7e",
+        "ff8d2653-1bfb-40be-bb03-2f7c7038ff6d",
+        "6940be48-3401-477d-b264-78dcad09f98d",
+        "448f3903-352b-4ff1-bbe1-344f334e89b1",
+        "ab3a0749-596c-4e0e-a8fa-d6266ad80e09",
+        "ae5a4ad4-b77b-4eac-9d92-737118120bc9",
+        "e2d81d1a-770c-4487-95fe-39d8a825c5d8",
+        "1b431a69-1294-441b-852b-626e33e987f2"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.023584058720450857,
+      "max_cosine_deviation_to_centroid": 0.03644497776683264,
+      "max_deviation_record_id": "b19e1bf5-f43d-4c4b-aa92-cefdeac6d8c1",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "059277ed-393f-41b8-afeb-6bbd060631d5",
+        "9b39841b-3ae3-4bda-8799-b3c2f43f804e",
+        "78d58458-bc2a-4cf0-866c-6acd51c3653f",
+        "258f2a2a-7811-47dc-9fdd-e355fedd5b1f",
+        "b19e1bf5-f43d-4c4b-aa92-cefdeac6d8c1",
+        "99a83624-29dc-4033-86b3-34792c7fc76c",
+        "1ea93e80-e6ca-4d6c-addd-e2fc449946af",
+        "3d844412-105a-4fdd-ace3-48f84df4d989"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02397580441910141,
+      "max_cosine_deviation_to_centroid": 0.03243587892008948,
+      "max_deviation_record_id": "874b92a0-ad12-4726-ae7b-d987d410b9ef",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "edb16eb4-e604-495e-bfe2-a19590063235",
+        "75d143fd-afa9-4718-b54e-bad9b94ee386",
+        "4cae293c-f30e-479e-83c6-5b089e195204",
+        "874b92a0-ad12-4726-ae7b-d987d410b9ef",
+        "21145268-933b-4cf9-b983-bcc2f3653427",
+        "ab2766a0-8bbd-4af3-b1d2-72b58c2c8c5a",
+        "b5d57781-d969-4d5a-983c-3db34f9b5505",
+        "ce5ba6d0-d9ef-4b79-abaf-92c00d6b6b0d"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.025664461318486306,
+      "max_cosine_deviation_to_centroid": 0.02882720049078591,
+      "max_deviation_record_id": "6591e6d2-7c9f-4be4-b5b0-1ecbf5e067c3",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "0ec0baae-a466-43a9-bbf1-6d30d959675b",
+        "118ca4a2-f3dc-4afb-adc8-bfec0efc52ec",
+        "6591e6d2-7c9f-4be4-b5b0-1ecbf5e067c3",
+        "7daa7229-b320-4356-9bc0-1ed434251b57",
+        "73b2eddb-a74e-453e-9510-b34c8a4ed460",
+        "23fd255b-40b4-4b7b-838f-801a3a2cefc9",
+        "7f44031e-cbac-4dd1-bf87-5ef16387ff7c",
+        "1f63a9a0-edb7-40ad-99ac-113784f00f28"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.025765306085212394,
+      "max_cosine_deviation_to_centroid": 0.02762334649672238,
+      "max_deviation_record_id": "e15be15c-131b-4758-af0f-bfa1f8a961ec",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "c66e54f9-ae6c-4518-9407-c9194911a74e",
+        "e15be15c-131b-4758-af0f-bfa1f8a961ec",
+        "ad514956-7a6e-47b2-a5ef-cde3eb69f744",
+        "6d56cc81-ea23-4350-a8af-8a65bf8b62e6",
+        "0ae5f4d4-e649-4f89-8acb-77243cc522a2",
+        "8ce8c174-036d-4521-8901-4eafa783fc74",
+        "233110f4-95f5-4c1a-a029-5bcff92df9d4",
+        "7caa137a-4ef7-4837-b61c-3dbf5d4d76f9"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02565436472126037,
+      "max_cosine_deviation_to_centroid": 0.03061162016023755,
+      "max_deviation_record_id": "1abe0ce1-fbf7-4f34-bb3c-740f8915e5b2",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "ff0212cd-71c9-4dc2-898d-0e9b0069c9fd",
+        "1abe0ce1-fbf7-4f34-bb3c-740f8915e5b2",
+        "c0117c50-40c9-4e2e-b915-f0c7bf17ab3f",
+        "f7148d11-e931-4ad4-943f-a9053164273f",
+        "88d539b6-4187-41ff-b0c0-5e322adec6c1",
+        "d0fadaf6-4d0d-43f2-b73a-f9c3c839434e",
+        "05ac808f-ec44-41da-b215-f074ab336afb",
+        "483400da-a0b6-4fdc-b6c2-fec65a040ea5"
+      ]
+    },
+    {
+      "prompt_id": 29,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.022563113428584705,
+      "max_cosine_deviation_to_centroid": 0.028561637606278056,
+      "max_deviation_record_id": "233a79d2-843b-4939-b4a3-146b40a54cea",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "69478030-430b-4d7a-99ca-b0aea7a71647",
+        "233a79d2-843b-4939-b4a3-146b40a54cea",
+        "835e3c88-abb1-435f-b6dd-23532394e5cb",
+        "257778de-d4e9-42d5-9335-d2acfcdfb497",
+        "7b081121-f695-474b-9886-6d68b0cb68ae",
+        "13df20c2-cde4-4e14-93ee-d2316b6d0173",
+        "cdf699e8-8c5a-44d3-8925-afb3e6197d0f",
+        "2d6ed6bf-2fb2-4e28-96ab-e2609189da9c"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": -1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.01906911095784823,
+      "max_cosine_deviation_to_centroid": 0.02336979327508726,
+      "max_deviation_record_id": "bc872423-10d2-4c51-bdb1-93259e94312b",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "2a455d8a-a752-42f2-a5b1-3703c12368ff",
+        "93cd0e45-d668-4c7c-a8b8-2cfab571cdcd",
+        "34853d4d-bc6d-48e9-964d-e548a7c815c8",
+        "73484bc4-6d42-4a28-8ce0-75b58644ae3f",
+        "be147cbf-4a23-409a-9eda-33c59a645aac",
+        "8e7f26b8-33e9-439a-978b-e8726f38921c",
+        "65f78747-5631-49a5-87c1-5b34c97c0d31",
+        "bc872423-10d2-4c51-bdb1-93259e94312b"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.016931219935794453,
+      "max_cosine_deviation_to_centroid": 0.023431666502868764,
+      "max_deviation_record_id": "910b697c-a1a3-43e0-a4bc-2e9e9e71800e",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "15b643fe-3d34-46f0-b9ff-4dc437efb6d8",
+        "910b697c-a1a3-43e0-a4bc-2e9e9e71800e",
+        "bbe45e98-1c8a-4817-82a5-2894856d4b15",
+        "a6296095-2f19-4f5f-9794-f262b53aba7c",
+        "6740760c-bc6b-4892-a89c-031a70f46147",
+        "3b466ee6-3fa5-483b-ba8d-b22f3144411e",
+        "06bf1039-674c-4523-8479-6fa672a849d4",
+        "e24c9e80-e4f3-43d1-8ace-9ba44d026b43"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.018015257554252137,
+      "max_cosine_deviation_to_centroid": 0.024033737606691807,
+      "max_deviation_record_id": "fd27ec52-f361-417c-b1ca-74b6b2e922d2",
+      "max_deviation_sample_index": 6,
+      "sample_record_ids": [
+        "718b1260-0ce5-48c2-8f83-e06952c800c7",
+        "f52cabb2-cf2f-4ab3-9489-11c2bf48c986",
+        "59e41e53-0a84-423f-bf73-13b4aabd5676",
+        "89e0c5e5-8744-4b4e-9139-59635a8966ef",
+        "cf0b9e10-4c9f-4962-ae04-86ca3d204a10",
+        "eaf8449c-0257-41d6-a623-6058d27a9951",
+        "fd27ec52-f361-417c-b1ca-74b6b2e922d2",
+        "6978657d-e2ec-4444-b852-244ff97cd6dc"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.021630487573538026,
+      "max_cosine_deviation_to_centroid": 0.026559908729153925,
+      "max_deviation_record_id": "1360e4ce-cf9f-48e5-a9db-28dc6d87c46f",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "9e631639-756a-4823-a9ae-119fbda864d8",
+        "5c3e31f7-b024-4a39-abb0-66e67dbd6d47",
+        "84c4d3c8-c9f7-485c-bb3e-3794a459ace1",
+        "36ed7d32-a532-4ca0-9eda-07264f5755d9",
+        "e10ebd80-cde8-4669-b2c3-1631a8169a48",
+        "a425cd3c-df2c-49fb-bb75-879d58ff9c55",
+        "4b4c095a-0d39-425d-a106-3b36969f8371",
+        "1360e4ce-cf9f-48e5-a9db-28dc6d87c46f"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.023941692309573895,
+      "max_cosine_deviation_to_centroid": 0.029328001835713602,
+      "max_deviation_record_id": "f4dbf88b-cf3a-4f5b-8efb-441731dfd74b",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "3f0eb2c6-a1ce-4f3f-a300-db24872c1c71",
+        "97e3e78e-f086-43a7-8c2e-af00cb217f5d",
+        "dfc2c6c3-b395-4744-b222-f137dbe47154",
+        "a636773d-21f4-4460-9856-7dd5ce29f1ad",
+        "05d2b6bb-0129-4165-88c4-13f85747c50d",
+        "c537acec-dc4a-43c1-8838-46c5938d37ee",
+        "76c11543-743e-41ad-ade1-5cb6566127ee",
+        "f4dbf88b-cf3a-4f5b-8efb-441731dfd74b"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.01960194636049087,
+      "max_cosine_deviation_to_centroid": 0.027224950252188407,
+      "max_deviation_record_id": "84ee4eb9-6648-4634-9395-6b7132962e74",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "377e1bb3-90e4-40ed-b87f-07df5be04b66",
+        "28b7cd14-e19d-493c-8f70-9ab044cb98d8",
+        "c4838ba2-b058-4fce-9eaa-6c19d863e4f7",
+        "84ee4eb9-6648-4634-9395-6b7132962e74",
+        "90f3d27e-36b7-426a-820f-540a2b9ba068",
+        "7f4187f3-607f-4eea-96b2-c84f5dd1cfc8",
+        "8b6b19ac-2cd9-4bd9-88dc-e7b6b0053576",
+        "88b26a4b-ef1d-4b2a-adb6-b32a6a9b3a7d"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.0231315093546392,
+      "max_cosine_deviation_to_centroid": 0.027188216269637744,
+      "max_deviation_record_id": "d2452733-5fad-46c3-a9f0-8552e4d1c0fe",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "3e4911c3-0620-477d-88c2-92d62824ebc6",
+        "0852909f-86f1-494f-9f5e-7bf9bc27cb83",
+        "014f8a9c-40c9-4c85-a0f5-c6e6f595c693",
+        "222c1a27-f423-407c-a1bb-a125fac0d03e",
+        "d2452733-5fad-46c3-a9f0-8552e4d1c0fe",
+        "38155ef3-b617-4a7a-ad13-9686648390f6",
+        "7e9d3029-bd0d-49db-9076-c1327b358ecb",
+        "59c01547-b927-4ca0-a5e1-c0628568d525"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02115395141568599,
+      "max_cosine_deviation_to_centroid": 0.02772985241241721,
+      "max_deviation_record_id": "1b55526c-7031-44ed-9198-1b64b7d1e43c",
+      "max_deviation_sample_index": 0,
+      "sample_record_ids": [
+        "1b55526c-7031-44ed-9198-1b64b7d1e43c",
+        "ae810e6c-0f59-41d3-95c8-d8b459142c0c",
+        "797fa729-31d7-420e-b555-1080a5314351",
+        "fcae3d4c-db0b-4ebf-9e65-d68eb652f494",
+        "f825cf08-d9d7-4d0d-a597-ab62983fafe0",
+        "6df61785-be01-4cb3-8f3e-4c12e5e9d85c",
+        "01c10418-976b-4ebf-9be4-6128ea352634",
+        "09065165-b105-4997-9492-e09e9e158117"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.022976066879116117,
+      "max_cosine_deviation_to_centroid": 0.03243455328330902,
+      "max_deviation_record_id": "5cd2f05a-f258-4928-ac76-cfa2a39528b4",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "403d1332-de9b-4407-ba33-98b9f53d53f2",
+        "5cd2f05a-f258-4928-ac76-cfa2a39528b4",
+        "fe1fdef7-eb81-4bf7-ab99-4be32642b90c",
+        "5f612346-73c0-454c-b6f0-87ed89052cd6",
+        "5517ccf0-7cb0-4617-a0c7-07658e291c58",
+        "ad2a6c2c-44a0-494c-9b05-f5acc537d028",
+        "4a7d4c2d-0af6-477a-8416-68a605c0bdf4",
+        "d001b798-94b7-4f0a-b09f-d0c830b2e7d6"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.022742124193231003,
+      "max_cosine_deviation_to_centroid": 0.032302195751691354,
+      "max_deviation_record_id": "eac82b4a-9d6a-474f-9195-5b065890398c",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "b14c08d7-74aa-4b35-9a7d-67edfef84f99",
+        "770f0ea5-fab7-4b5a-a723-6b2720a03ebb",
+        "a138f053-61b1-4d05-8cb3-cfb88d4b7b57",
+        "c81371e3-4d2a-403d-8655-778cc7b94365",
+        "eac82b4a-9d6a-474f-9195-5b065890398c",
+        "b7a0224f-ed6d-42ed-bd25-2b138bb7fd1b",
+        "9d2b3eb3-e820-4ad2-a26d-68b0e0b22145",
+        "c5a5dbdc-e00e-4312-9765-bad309232411"
+      ]
+    },
+    {
+      "prompt_id": 30,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02109063947029502,
+      "max_cosine_deviation_to_centroid": 0.027807916406711763,
+      "max_deviation_record_id": "80130d00-0713-4e13-9bf9-3c2c38eeb256",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "b40e909d-d66e-4856-9ac8-3fcbbb270080",
+        "321524d6-38bb-408d-9b78-5bedc806d5f7",
+        "80130d00-0713-4e13-9bf9-3c2c38eeb256",
+        "3d7739bb-b81a-4b82-85eb-57fb495c6fed",
+        "7ccd05fe-5dba-4794-9e90-e414649802ef",
+        "b8e8ea91-6cc6-4f3e-bfac-30075ba5a8d8",
+        "706eff69-793b-40d9-a3bb-1f1b43011dc2",
+        "5cc15658-d56e-4b3e-9af0-9f7ecdacec5d"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": -1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.04110527127611972,
+      "max_cosine_deviation_to_centroid": 0.04945444126176046,
+      "max_deviation_record_id": "de82590a-a4d4-48bd-838f-23a709a028c1",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "9b6868a0-7bce-4288-aee9-c15ce7b0a219",
+        "62c95569-ebae-4123-99a2-aa0e31586d7f",
+        "1fcaba52-60d7-4c66-aadd-5b8e0ef60a2e",
+        "823f361c-054c-49aa-9a99-0bb20d778809",
+        "de82590a-a4d4-48bd-838f-23a709a028c1",
+        "bee4aa9e-0470-4272-b2ff-195a9249cbee",
+        "166ab450-2993-4d71-aa52-34f3bce5a491",
+        "bd69111e-7d99-41e5-9d82-93f8683eabf0"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.029384511396287102,
+      "max_cosine_deviation_to_centroid": 0.04898761628310222,
+      "max_deviation_record_id": "94193d55-c036-4e62-87ed-92d49a650e32",
+      "max_deviation_sample_index": 5,
+      "sample_record_ids": [
+        "a179d67a-e92f-4d3d-9463-411223ac5b5a",
+        "0b0443eb-3e6d-403b-90b5-0ee8afd9881a",
+        "169841e5-93c6-421e-9792-2ee511f6705c",
+        "9da952a8-24c1-4083-bf8a-b33271445e1c",
+        "ec6ff1ad-71db-4965-a8a5-9f5159a12f49",
+        "94193d55-c036-4e62-87ed-92d49a650e32",
+        "aba28f9b-698e-4a60-af96-4a84fe538c14",
+        "b924122e-c983-492e-b7ce-33ac43dbb9ad"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03630029777367841,
+      "max_cosine_deviation_to_centroid": 0.05023359679979811,
+      "max_deviation_record_id": "0f238f07-c1fe-4545-986f-802f04d6a5ef",
+      "max_deviation_sample_index": 5,
+      "sample_record_ids": [
+        "5746e5c5-9426-4e67-b8a6-f0047d6cfdb5",
+        "9dbc363b-8349-4f04-8986-470237947e3b",
+        "8f30f8a3-1f02-472f-af4b-ebc832f70414",
+        "cc449913-9d65-45ce-b125-8f9f02887d58",
+        "02a81c9e-b338-4d71-b49b-e539e114c72c",
+        "0f238f07-c1fe-4545-986f-802f04d6a5ef",
+        "dad102e9-c0bf-4a04-8546-5f0dbf1c2549",
+        "8381e5b4-e9c8-4df8-b708-0c259e310473"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03565821743944875,
+      "max_cosine_deviation_to_centroid": 0.04230683012519554,
+      "max_deviation_record_id": "b0beb251-1d84-4d7f-8924-0acdc7d7f25b",
+      "max_deviation_sample_index": 6,
+      "sample_record_ids": [
+        "4cbda8b5-a3f0-430d-bb9b-19f99e0370a1",
+        "0dc7624d-9299-49ff-9937-c7e9eb772b0a",
+        "b28fb529-1809-4741-93c6-d7d0006a94ce",
+        "280a381c-1f35-4243-a6b5-ad83609dfb33",
+        "4d107f76-10e9-4267-8454-1f4b58ab1307",
+        "42c3ac7e-a4d3-4cf2-a257-3e7e7946981b",
+        "b0beb251-1d84-4d7f-8924-0acdc7d7f25b",
+        "252bbc11-96f0-4bf6-b096-6584ea115947"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.028368165379495353,
+      "max_cosine_deviation_to_centroid": 0.040515097953514156,
+      "max_deviation_record_id": "ee01743c-a423-43eb-ae10-cdf7bda13a01",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "2d67e3ac-316d-4e9e-a7ae-0e12600a253e",
+        "f91f8382-fef0-4918-8d9d-bdeb2ca7f130",
+        "b830c59a-6e47-4a7d-bb9f-5ba0f9c9ae90",
+        "ee01743c-a423-43eb-ae10-cdf7bda13a01",
+        "02f29726-53f7-408c-8462-061bab093c7e",
+        "f8a8d0b0-4a00-4e4e-9c5a-782f948c4f30",
+        "054c2154-0f76-4379-a000-c5f3215d8097",
+        "4cadb89b-87de-4dc7-9ff5-eb32e44ba723"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.030642874933882805,
+      "max_cosine_deviation_to_centroid": 0.0365356329475256,
+      "max_deviation_record_id": "81d4bf2d-347a-4653-b4dd-dc9794af22b6",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "746ecbd0-d9f8-49c8-a7e8-8c63b4c375f0",
+        "c4dd6c09-47d2-41bd-9e90-e7a08dfa130d",
+        "f22d1be6-ae8c-47a1-a869-14302a5f730d",
+        "8dd606f1-df1b-4578-8c5c-06ac4edf44cc",
+        "81d4bf2d-347a-4653-b4dd-dc9794af22b6",
+        "bdc42833-9414-4c39-90c2-ba5b4cb53230",
+        "733795ba-b2bf-48d4-b5a3-a4fcd6d652dd",
+        "8befe385-8b30-430a-99ac-5e2a3f3b79d8"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03338751432801332,
+      "max_cosine_deviation_to_centroid": 0.03781073727402762,
+      "max_deviation_record_id": "0f81fc15-2b3e-4028-adfb-e74a52377c80",
+      "max_deviation_sample_index": 5,
+      "sample_record_ids": [
+        "a89ddbd2-b5e4-4b18-88b1-e842bf90cafc",
+        "27656e12-bae1-4e5d-9b23-c81a96e8a0ca",
+        "75d3cccd-f69f-406c-9142-51b50512fd02",
+        "883a2abf-63e8-49e1-99de-521430f6fb43",
+        "06140166-60d2-4d83-ba1a-a24b05a71d2a",
+        "0f81fc15-2b3e-4028-adfb-e74a52377c80",
+        "2633e15e-68c5-423b-a3b1-029fb82a5a8e",
+        "5fc1b24c-ec0c-48ee-81f2-4c867bac4210"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03251023692012141,
+      "max_cosine_deviation_to_centroid": 0.039840416441089266,
+      "max_deviation_record_id": "4e9e6ec5-a997-457f-aa19-43b1f29a7876",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "abd0dc2e-bd17-49c1-8a30-3d675eb00f52",
+        "f57ee2d7-8079-485c-ae9f-2bf6c20134a3",
+        "8aaf070f-e5f0-481a-8c53-9c65b48e0969",
+        "63c8d2d7-75a3-468d-9849-428aec84908c",
+        "4e9e6ec5-a997-457f-aa19-43b1f29a7876",
+        "4c977631-ba5e-4242-bc9e-a4a636a1de4e",
+        "ce13880f-8317-4792-8d7d-e48d25163cbf",
+        "c72685eb-0b98-4dd7-938e-022718e2c54d"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03387601551879195,
+      "max_cosine_deviation_to_centroid": 0.041530681649693535,
+      "max_deviation_record_id": "c15b83a2-8521-4b03-8c48-79359dc6141e",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "1533fc0d-e9e7-4f4d-b89b-6101593853b7",
+        "50c33caf-f846-41bf-b0c5-7a1d169c5672",
+        "c15b83a2-8521-4b03-8c48-79359dc6141e",
+        "9df3060d-2ac8-408b-95aa-9d099796a41a",
+        "fcbb3f32-fd38-4712-8397-51d51ded5693",
+        "ff73e1b5-5227-433c-97f1-ce3e404de96c",
+        "eefc3271-222e-4852-81aa-b4825c992ebd",
+        "ca3cc9a9-ab5d-4236-b6c7-16f34309eb90"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03179386107814955,
+      "max_cosine_deviation_to_centroid": 0.03519373070109166,
+      "max_deviation_record_id": "9168dfd5-4a09-4e1f-9f38-a1733ad2565f",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "53d21326-7947-4d96-a5da-d6b14f7752ae",
+        "14730874-02dd-488c-ab8c-c7cc3253105a",
+        "9168dfd5-4a09-4e1f-9f38-a1733ad2565f",
+        "6972ebe8-0f03-4923-94da-17554a982905",
+        "c126c2a8-50b6-414b-bcad-62d8108b307e",
+        "c6a6bac4-5c87-49ae-b164-d4e99a8ff70e",
+        "2692c23a-70a3-42fd-b003-b5f4499d5670",
+        "0671e3db-3cf4-488c-826d-0c72de125661"
+      ]
+    },
+    {
+      "prompt_id": 31,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.03205744946159397,
+      "max_cosine_deviation_to_centroid": 0.03770533733128201,
+      "max_deviation_record_id": "34fa8ce9-51b1-4059-97b0-22f4e294b656",
+      "max_deviation_sample_index": 5,
+      "sample_record_ids": [
+        "0879a764-29f5-4a34-a8f8-c8c31c60eecf",
+        "4319c050-2c3e-4d69-99bb-4862f0aacb56",
+        "a6907c02-21bc-4c8f-8288-fb309e06637e",
+        "674ee19a-8d36-4fc0-95c2-7628b955bd32",
+        "e1c7e3b4-939f-46be-96a3-1480f91e3ac5",
+        "34fa8ce9-51b1-4059-97b0-22f4e294b656",
+        "c336eec6-1f5c-4092-bb63-0951b70b2a4c",
+        "e3e83665-2866-4967-8198-bfd79e772fe4"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": -1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.015702866843945965,
+      "max_cosine_deviation_to_centroid": 0.01826490286826199,
+      "max_deviation_record_id": "74fd4619-8fdc-4628-b0e7-48131820323e",
+      "max_deviation_sample_index": 6,
+      "sample_record_ids": [
+        "cc8c7a84-03a0-4cc0-8348-74798590ed37",
+        "85eea8b7-746c-4ff6-8012-910513c4f9a5",
+        "ff0c6c05-d9d3-4b6a-b51d-1736ac4967be",
+        "3d7e26b0-d83a-4e9f-8cdf-c55dd73dda56",
+        "d09ef2ab-56cd-4bc2-a031-3344ae8d7666",
+        "3f15c0f4-7355-4cb7-bfc3-4e67af126a82",
+        "74fd4619-8fdc-4628-b0e7-48131820323e",
+        "0f74f222-66da-42eb-b1fc-91433aa94ae8"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.01874517681758775,
+      "max_cosine_deviation_to_centroid": 0.0233442350887737,
+      "max_deviation_record_id": "303b44e3-e4d4-45cd-b34a-5ddc93690f46",
+      "max_deviation_sample_index": 6,
+      "sample_record_ids": [
+        "9ebe61a7-4752-43a5-836c-02b06eef8c22",
+        "8e095013-90bc-4d77-97bc-d7c62a8b560c",
+        "3a0a4776-7851-4600-8bf7-1b9f4bfb65f9",
+        "fa497f3b-1750-4171-8953-f543aca48c4e",
+        "03e3661a-826a-4dc0-a67c-190c2d8f183d",
+        "2b1ddf36-4cb4-48ff-81a1-262b34a6a11b",
+        "303b44e3-e4d4-45cd-b34a-5ddc93690f46",
+        "52649bb8-c4d9-4474-9b97-b371840ef1d4"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.017850575248819972,
+      "max_cosine_deviation_to_centroid": 0.02426736804878238,
+      "max_deviation_record_id": "0a65fe0d-f887-4472-8132-f3d3a17d3c10",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "7c04a009-6681-4dbd-8317-587263ccca16",
+        "0a65fe0d-f887-4472-8132-f3d3a17d3c10",
+        "1468b770-8e0d-412d-8246-cc66f00565cb",
+        "6d55a904-b95e-4b07-b1f3-60995180b849",
+        "82b3766b-d835-47cc-b396-ec864bd85b00",
+        "ca26be45-d9df-4990-b40f-4306c4835c1a",
+        "90f0ee47-12f8-4733-bf85-c1c7b4e26ed4",
+        "73d16ae5-cb70-48f4-b55d-7a93cc6ef61a"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.018428213181444664,
+      "max_cosine_deviation_to_centroid": 0.0240450896986919,
+      "max_deviation_record_id": "d201ae2c-b32c-4974-b9a0-228835cd34dd",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "440bd6ac-a896-4393-bef2-5b53cc0255c9",
+        "d201ae2c-b32c-4974-b9a0-228835cd34dd",
+        "b95e4b22-2d71-4c1b-9997-3855fb786e82",
+        "c3de22d5-284a-4527-a96e-155fc56930a3",
+        "71c70496-d650-40c7-9729-e93714f1c721",
+        "b54fdf1d-0065-48d1-ab9d-7f9d0df271a1",
+        "8cb96a62-acfd-42d1-964f-cec7ef3b7d1e",
+        "8201b394-2405-464e-ae1a-f6d6492c2956"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.019745690308516695,
+      "max_cosine_deviation_to_centroid": 0.02605426861445459,
+      "max_deviation_record_id": "8cccbc27-d39a-483b-ba27-0b19d2d89461",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "49a11c5a-0d7a-4e7d-a4bb-5f4b1233a186",
+        "ca25bcaa-6d11-441b-8c2b-a6332aef218a",
+        "8cccbc27-d39a-483b-ba27-0b19d2d89461",
+        "aace3824-2676-40a7-8a89-aa32418258b5",
+        "5d27fb87-7923-4cda-a95a-481c8ef7115c",
+        "1213823f-d425-4c31-8a09-4ed33915a506",
+        "bf33be44-a644-4946-af20-be7aaa37c3e9",
+        "7ae1b945-f6bc-48d7-afc7-40a00d98dcf5"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.01820340930342075,
+      "max_cosine_deviation_to_centroid": 0.02348724452507367,
+      "max_deviation_record_id": "35dd9dcc-2e5f-4fd4-8ca6-0a6fc43b6ff5",
+      "max_deviation_sample_index": 3,
+      "sample_record_ids": [
+        "2fc2d38a-ebf5-4e32-9f68-53a9653d4731",
+        "ce4f11b1-c738-4e9d-999c-3c6f1d511433",
+        "3a7c6a5c-e929-4441-aadf-d5fa43683991",
+        "35dd9dcc-2e5f-4fd4-8ca6-0a6fc43b6ff5",
+        "84ccb212-f16c-43cf-8d96-bdafbfadffa3",
+        "fe2d0250-f13b-4659-8754-bcb8de3cf31a",
+        "6c50c1e3-6366-4aab-a488-5e21ee5d5b09",
+        "30dc3eb1-1716-4908-b2a8-6d643f80caf8"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.0177008768061791,
+      "max_cosine_deviation_to_centroid": 0.021774244136820275,
+      "max_deviation_record_id": "63e8502a-9df1-4760-a612-8ac8a26be0d9",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "c20f4f18-4b09-4d00-b6c0-8cc1e3365a5f",
+        "63e8502a-9df1-4760-a612-8ac8a26be0d9",
+        "5840607c-b88a-4ee8-a9c2-d57e8949abf9",
+        "b0c15d2d-71d7-435b-85c5-b5428df7b956",
+        "da307215-3997-43aa-94a3-70ad246d4e94",
+        "dfa13b7f-1cc3-4a05-93b3-a14229ee4444",
+        "28a04c4d-3cf4-4f58-936b-29e85787a9ee",
+        "47b64b85-58ca-4a10-bac7-5f01cf150ff1"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.019293139493458164,
+      "max_cosine_deviation_to_centroid": 0.02518161555987175,
+      "max_deviation_record_id": "fb035a28-ae97-4a46-b431-20d4102efe5c",
+      "max_deviation_sample_index": 5,
+      "sample_record_ids": [
+        "05b45810-2b18-4cc7-b43e-143d7496e858",
+        "b6fdc6da-3720-41a5-a57f-210cf9e52492",
+        "5844cf28-4c8e-43fa-a7ff-99076ec0c9b4",
+        "2b75d8ed-2729-4cfd-bff3-b738c2e31cd6",
+        "ce634aca-0732-4050-a248-6fe2e7d96a22",
+        "fb035a28-ae97-4a46-b431-20d4102efe5c",
+        "3ecb75f2-1ae0-4a47-81c9-c8fda1da87c3",
+        "d2ab17f7-6db7-4eda-b499-eefe3d09d4bd"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.0194422922152286,
+      "max_cosine_deviation_to_centroid": 0.024068540438673902,
+      "max_deviation_record_id": "541f6617-cca6-4f9e-b24c-a2b46fe9b3d9",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "9683a8dd-4742-4cb6-981a-bdaeea09fb8d",
+        "858120f9-bc0e-4987-bc0d-95d5748b92f5",
+        "c34d705a-2e62-427e-a544-2b21dcf034ca",
+        "cc36641f-2a83-45f1-86a2-ef97f1caf207",
+        "541f6617-cca6-4f9e-b24c-a2b46fe9b3d9",
+        "bffff589-bcef-4221-b1b0-8f9816f43731",
+        "0a7b166c-b8ea-44f4-8237-7901bd2c108b",
+        "fe85ceb0-ef8a-4dca-b554-d10def382e2c"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.021131463806906434,
+      "max_cosine_deviation_to_centroid": 0.026297423498347072,
+      "max_deviation_record_id": "0e970e6b-aa47-465e-88f4-0ebfaefdcda9",
+      "max_deviation_sample_index": 4,
+      "sample_record_ids": [
+        "b3a0ab2b-03ab-4b5f-953d-83a1e083589e",
+        "00c817e1-4bb2-429d-89cc-633102e7a959",
+        "aaad7f56-8903-4f45-bb5c-dc22d16948ad",
+        "4dc55206-5995-4e76-841f-42daa8c69efd",
+        "0e970e6b-aa47-465e-88f4-0ebfaefdcda9",
+        "5e041205-784e-446b-95a1-53159b7afc4d",
+        "e78f2e9d-e8d6-4988-b977-78fee8dc4dbf",
+        "61c777e7-0324-4869-985f-7e20113ddb23"
+      ]
+    },
+    {
+      "prompt_id": 32,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.018894438047567658,
+      "max_cosine_deviation_to_centroid": 0.02443246608712213,
+      "max_deviation_record_id": "928e2d42-e091-483a-9f16-27c27fbbe30e",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "912275ac-3f4a-481c-9086-ffc9a71fa771",
+        "928e2d42-e091-483a-9f16-27c27fbbe30e",
+        "66c7c54c-9a47-4dac-ab5b-7bb84ba6d975",
+        "0a28373e-b99f-4e69-91ea-fb3721fa7736",
+        "fad3ff5d-c8f3-4909-8b97-dc2b06ebca3a",
+        "df87d428-1d5c-490e-9305-d9ca9dfaa804",
+        "9f8ad8f3-9c22-4df2-a55b-5729a3957e8f",
+        "7b543694-2fc4-4457-a31b-e1a6bf0b6467"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": -1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.026211332104611254,
+      "max_cosine_deviation_to_centroid": 0.029078407354110825,
+      "max_deviation_record_id": "5a635cf0-2cd9-4625-a7a1-97f598b37631",
+      "max_deviation_sample_index": 0,
+      "sample_record_ids": [
+        "5a635cf0-2cd9-4625-a7a1-97f598b37631",
+        "82ca2ef6-6207-4709-924b-a7b1d9063a4a",
+        "89bc9183-f5eb-4dc9-9293-4923d1569cb1",
+        "8fab54ee-1050-4f12-885c-4c7641d6aa6d",
+        "e655db4b-e445-4e74-a4e4-8c4fcf1757a3",
+        "d1576752-7f3d-4ec5-af76-c68320206674",
+        "e5af1a5b-d1e9-498d-878c-ac02f5a94682",
+        "a1d46f9c-c5dd-45d2-801c-f9a932113e16"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 0,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02457939434434013,
+      "max_cosine_deviation_to_centroid": 0.032490800522918195,
+      "max_deviation_record_id": "9c376b13-9c24-4f17-a814-0a35363557db",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "cc4b01c9-b49d-415f-ab40-536892503443",
+        "12293152-c0ac-4d8e-bfd3-f689b14b8642",
+        "9c376b13-9c24-4f17-a814-0a35363557db",
+        "e1228cd1-d7ab-4eea-b654-4c6d04a38769",
+        "661b7bd5-30e1-4f7f-9d4d-0df837327205",
+        "aa40b4ed-8be7-4e25-a809-16a1c8f882c1",
+        "39b1e8cc-9373-411f-970d-96d46abd1990",
+        "ca54f812-2173-4996-9b14-4b0c8d070944"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 1,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.0229165483456098,
+      "max_cosine_deviation_to_centroid": 0.027260526088282,
+      "max_deviation_record_id": "8e2f96be-6ec8-4705-85be-d710d7f05355",
+      "max_deviation_sample_index": 0,
+      "sample_record_ids": [
+        "8e2f96be-6ec8-4705-85be-d710d7f05355",
+        "9fc33a57-2b53-4d40-8dbf-317f247223e6",
+        "1228cb9b-1393-414a-93f8-9d963cbbe4ef",
+        "b16dd638-bc7c-465e-be1f-c12aa840fa89",
+        "3dde91ed-4fcd-4aa8-9916-e7ed449a8e2a",
+        "719ce001-3b47-457d-8304-069478b93286",
+        "7e7fbf4a-f913-43e1-8acb-f23d91dcbb20",
+        "422c41ef-6646-4faa-bda1-f14819fe303c"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 2,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02483266919450003,
+      "max_cosine_deviation_to_centroid": 0.03343371556493768,
+      "max_deviation_record_id": "0db732a8-ddd2-4658-be41-26816cafc61e",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "c3f20ac7-b2eb-434c-a83f-4724eff8a5b6",
+        "80ede5f5-9ea3-4446-86bc-c9fe1b49132e",
+        "50b02d0a-bc09-4d86-a90b-abb731c00332",
+        "fb3678ce-6205-4f00-9c5c-6da01aabc1c7",
+        "b22199d5-90a4-4fc9-80e8-ecb875a01ec3",
+        "49203ead-3724-4ef1-9b93-fbc542475b3f",
+        "2ff883cb-ce25-4b82-82b2-c5c885e7040a",
+        "0db732a8-ddd2-4658-be41-26816cafc61e"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 3,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.029401761921488162,
+      "max_cosine_deviation_to_centroid": 0.04356074701245183,
+      "max_deviation_record_id": "83b83ec9-1c92-49d3-9aaf-7a789dd2b5ec",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "4a7f0ae9-277e-430c-a0be-86186eef2076",
+        "7e8692a5-56c5-4fa7-9e50-63995c2f85a7",
+        "29057feb-9fbc-426e-8590-7953d74d328e",
+        "2e1ff201-8c95-4ad2-915d-8f162d7f79d1",
+        "fd5a59de-395f-4e21-b648-100ac67cb816",
+        "d362eca4-cf33-4c7e-a5ce-f344cefc134f",
+        "d79ba77a-7e43-4c70-8072-fb1dc47e603d",
+        "83b83ec9-1c92-49d3-9aaf-7a789dd2b5ec"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 4,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.027024248971354095,
+      "max_cosine_deviation_to_centroid": 0.03804045129426881,
+      "max_deviation_record_id": "df12e64e-beb4-4329-a52c-bb5c15047d0a",
+      "max_deviation_sample_index": 2,
+      "sample_record_ids": [
+        "ef3718c2-d43b-4050-8c82-6aa208b28444",
+        "e8f151b4-9970-4315-adc3-3df26699472d",
+        "df12e64e-beb4-4329-a52c-bb5c15047d0a",
+        "04f3ee3d-ceeb-4402-b7f3-7dd27af54fe3",
+        "8e9051b8-5244-4df0-afdb-7b3a33fa236e",
+        "e3c7f69a-1c8a-4153-b756-54c737302ba5",
+        "9242754a-5e11-497c-9a5d-d64def85ce30",
+        "9f2180b3-47bc-454d-b680-8c8c1d6d890c"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 5,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.0264675297079644,
+      "max_cosine_deviation_to_centroid": 0.03182257177596293,
+      "max_deviation_record_id": "6e0d9066-82ef-4ae8-bd04-e28f3b7a65c8",
+      "max_deviation_sample_index": 0,
+      "sample_record_ids": [
+        "6e0d9066-82ef-4ae8-bd04-e28f3b7a65c8",
+        "0e0b90b9-407e-4140-9023-3efb02a91a0f",
+        "581a52e4-56f6-4b7f-ba3d-970b7e625f05",
+        "b0ce63db-8a04-48dc-ac74-10eb0b8085f6",
+        "7e1f57be-20eb-4125-ac1a-ab2e5dda0f6a",
+        "6aabc35f-95f2-4819-94a7-a645a039ae82",
+        "3156d7a2-1dda-4f1c-b5e6-a959d22e5a5f",
+        "d9bedec8-3fd4-458c-af23-ff70df196f9f"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 6,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.027796710203814842,
+      "max_cosine_deviation_to_centroid": 0.031728390806135987,
+      "max_deviation_record_id": "1930b7df-4f94-45f6-bf65-e42e03cf1e81",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "28937d6b-1be9-40aa-8e59-eeda6387362e",
+        "1930b7df-4f94-45f6-bf65-e42e03cf1e81",
+        "7cd8f624-d4e7-4f59-995e-84f66d8d96f9",
+        "3c8dfef0-5dc5-4cc0-9e89-6eb0f06f69e2",
+        "567c5cce-c9d3-406d-be6e-87105fd695d8",
+        "a845dd0f-60f8-4cf3-9f9e-32b707fb9916",
+        "2c7803e3-bc8c-42e1-9de6-1933b6b8c6a7",
+        "f090b907-be12-4150-9aa1-5be08890be3d"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 7,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.029372527939022383,
+      "max_cosine_deviation_to_centroid": 0.03720669469219928,
+      "max_deviation_record_id": "49df12b0-ca93-4fcc-bf49-11d96912fc85",
+      "max_deviation_sample_index": 1,
+      "sample_record_ids": [
+        "5f039874-e465-4b09-a662-4d2674970244",
+        "49df12b0-ca93-4fcc-bf49-11d96912fc85",
+        "3871b8d7-8761-4cc3-9764-9b65a9c7a5f1",
+        "4c77893f-59a7-4f8e-888f-8fbeb96106c6",
+        "ef2abbe0-ee5c-480e-8708-485abed12131",
+        "509cf308-bc57-4687-b040-f8f23d8c8802",
+        "98218a5c-f296-43ef-ab6e-b9d00687bda9",
+        "589c65eb-a0d9-43c1-acee-acbafb7aaf86"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 8,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.023629102303184546,
+      "max_cosine_deviation_to_centroid": 0.03439091355294088,
+      "max_deviation_record_id": "8effd1a1-86da-4da8-9f34-6eb34768e213",
+      "max_deviation_sample_index": 6,
+      "sample_record_ids": [
+        "8a8e9818-63ef-49b3-94d7-40ec50c59918",
+        "ac24e715-65a4-4589-a0e8-c944af2a8a84",
+        "b3ccf596-eead-47a8-9331-c784f396bc53",
+        "5c99f81d-5383-4138-aa2a-b97104805689",
+        "f6cf8880-7498-4c23-8526-8a67793ef491",
+        "c003006b-d18d-4bf7-9a8f-ed1a21a4d4f0",
+        "8effd1a1-86da-4da8-9f34-6eb34768e213",
+        "36bd0e90-910c-47f1-b703-1f312ab8afbd"
+      ]
+    },
+    {
+      "prompt_id": 33,
+      "seed_modifier_index": 9,
+      "num_samples": 8,
+      "average_cosine_deviation_to_centroid": 0.02655973471507385,
+      "max_cosine_deviation_to_centroid": 0.029009359729188056,
+      "max_deviation_record_id": "3f689dc6-a3bb-482e-a84d-7d3387eb61b7",
+      "max_deviation_sample_index": 7,
+      "sample_record_ids": [
+        "402ccdc3-e053-472b-9de4-e310bfe7f758",
+        "d702144e-58e8-4dc9-a793-c5fa01239d4c",
+        "cea92f37-c71b-4856-ac17-7911dd79deb0",
+        "3becf1a4-65da-4fda-87ed-7b1ffb8f50ae",
+        "236b901e-2cbe-40f5-9683-32c9b3c8cb06",
+        "8a65d9d0-bc05-42b9-8b25-f20cead1c4f5",
+        "789d30ed-37d3-4c5c-ae4b-70887fb6b9d2",
+        "3f689dc6-a3bb-482e-a84d-7d3387eb61b7"
+      ]
+    }
+  ],
+  "group_errors": [],
+  "summary": {
+    "model_name": "posttrain-qwen3-8b-non-reasoning-run2-best",
+    "num_groups": 66,
+    "num_group_errors": 0,
+    "mean_average_cosine_deviation_to_centroid": 0.026139947452715726,
+    "mean_max_cosine_deviation_to_centroid": 0.03324539828252196
+  }
+}
