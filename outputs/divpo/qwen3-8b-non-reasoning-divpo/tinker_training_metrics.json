@@ -1,0 +1,1088 @@
+{
+  "created_at_utc": "generated-by-train_divpo_qwen_tinker",
+  "last_checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0180",
+  "last_checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0180",
+  "num_checkpoints_saved": 36,
+  "metrics": [
+    {
+      "step": 1,
+      "loss": 0.7091635465621948,
+      "reward_margin": -0.02749786339700222,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 2,
+      "loss": 0.6904801726341248,
+      "reward_margin": 0.01566924713551998,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 3,
+      "loss": 0.7112698554992676,
+      "reward_margin": -0.032656099647283554,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 4,
+      "loss": 0.7753980159759521,
+      "reward_margin": -0.1506294310092926,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 5,
+      "loss": 0.7247959971427917,
+      "reward_margin": -0.05731811746954918,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 6,
+      "loss": 0.840019166469574,
+      "reward_margin": -0.26085129380226135,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 7,
+      "loss": 0.7076801061630249,
+      "reward_margin": -0.019203945994377136,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 8,
+      "loss": 0.7224320769309998,
+      "reward_margin": -0.057190705090761185,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 9,
+      "loss": 0.6943873763084412,
+      "reward_margin": 0.002407073974609375,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 10,
+      "loss": 0.6794607639312744,
+      "reward_margin": 0.030928809195756912,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 11,
+      "loss": 0.6717336177825928,
+      "reward_margin": 0.05586548149585724,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 12,
+      "loss": 0.6120228171348572,
+      "reward_margin": 0.19408418238162994,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 13,
+      "loss": 0.641250729560852,
+      "reward_margin": 0.11319427937269211,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 14,
+      "loss": 0.6854439377784729,
+      "reward_margin": 0.022063449025154114,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 15,
+      "loss": 0.7155457139015198,
+      "reward_margin": -0.027411647140979767,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 16,
+      "loss": 0.7861234545707703,
+      "reward_margin": -0.17704620957374573,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 17,
+      "loss": 0.7112810015678406,
+      "reward_margin": 0.05074693262577057,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 18,
+      "loss": 0.8848991394042969,
+      "reward_margin": -0.3075348138809204,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 19,
+      "loss": 0.6348649263381958,
+      "reward_margin": 0.13272246718406677,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 20,
+      "loss": 0.6923595666885376,
+      "reward_margin": 0.017108917236328125,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 21,
+      "loss": 0.6133040189743042,
+      "reward_margin": 0.230274960398674,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 22,
+      "loss": 0.5832786560058594,
+      "reward_margin": 0.2753585875034332,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 23,
+      "loss": 0.7792184948921204,
+      "reward_margin": -0.08923035115003586,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 24,
+      "loss": 0.7036246061325073,
+      "reward_margin": 0.009922035038471222,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 25,
+      "loss": 0.7048085331916809,
+      "reward_margin": -0.007761381566524506,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 26,
+      "loss": 0.6085605621337891,
+      "reward_margin": 0.2007034420967102,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 27,
+      "loss": 0.4309723675251007,
+      "reward_margin": 0.7425628900527954,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 28,
+      "loss": 0.7005220651626587,
+      "reward_margin": -0.008330535143613815,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 29,
+      "loss": 0.7822068929672241,
+      "reward_margin": 0.17118225991725922,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 30,
+      "loss": 0.5991530418395996,
+      "reward_margin": 0.20114974677562714,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 31,
+      "loss": 0.4961740970611572,
+      "reward_margin": 0.5293815732002258,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 32,
+      "loss": 0.8266260623931885,
+      "reward_margin": -0.16550293564796448,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 33,
+      "loss": 0.5760302543640137,
+      "reward_margin": 0.2669876217842102,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 34,
+      "loss": 0.5482938289642334,
+      "reward_margin": 0.4526329040527344,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 35,
+      "loss": 0.514972984790802,
+      "reward_margin": 0.4533790349960327,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 36,
+      "loss": 0.7779941558837891,
+      "reward_margin": 0.047107718884944916,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 37,
+      "loss": 0.6436083316802979,
+      "reward_margin": 0.18456806242465973,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 38,
+      "loss": 0.8563597798347473,
+      "reward_margin": 0.010466009378433228,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 39,
+      "loss": 0.4430837333202362,
+      "reward_margin": 0.7226928472518921,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 40,
+      "loss": 0.6093620657920837,
+      "reward_margin": 0.49141615629196167,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 41,
+      "loss": 0.497526615858078,
+      "reward_margin": 0.5035278797149658,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 42,
+      "loss": 0.5415554046630859,
+      "reward_margin": 0.46651455760002136,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 43,
+      "loss": 0.6192456483840942,
+      "reward_margin": 0.20450440049171448,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 44,
+      "loss": 0.602392315864563,
+      "reward_margin": 0.2181694060564041,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 45,
+      "loss": 0.6265453696250916,
+      "reward_margin": 0.15355300903320312,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 46,
+      "loss": 0.522746205329895,
+      "reward_margin": 1.0667320489883423,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 47,
+      "loss": 0.5378845930099487,
+      "reward_margin": 0.4008720815181732,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 48,
+      "loss": 0.6484873294830322,
+      "reward_margin": 0.11468125134706497,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 49,
+      "loss": 0.758163571357727,
+      "reward_margin": -0.10767136514186859,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 50,
+      "loss": 0.5967669486999512,
+      "reward_margin": 0.2369132936000824,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 51,
+      "loss": 0.6790866851806641,
+      "reward_margin": 0.0736137330532074,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 52,
+      "loss": 0.4976043701171875,
+      "reward_margin": 0.7376084327697754,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 53,
+      "loss": 0.7344276905059814,
+      "reward_margin": 0.15080945193767548,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 54,
+      "loss": 0.7576126456260681,
+      "reward_margin": 0.350289911031723,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 55,
+      "loss": 0.7380239367485046,
+      "reward_margin": 0.23776018619537354,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 56,
+      "loss": 0.6694802641868591,
+      "reward_margin": 0.23792725801467896,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 57,
+      "loss": 0.6081370711326599,
+      "reward_margin": 0.8432846665382385,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 58,
+      "loss": 0.28884196281433105,
+      "reward_margin": 1.2886406183242798,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 59,
+      "loss": 0.4617694616317749,
+      "reward_margin": 0.7595688104629517,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 60,
+      "loss": 0.3563067317008972,
+      "reward_margin": 1.1266028881072998,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 61,
+      "loss": 0.6600719690322876,
+      "reward_margin": 0.39524388313293457,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 62,
+      "loss": 0.4773193895816803,
+      "reward_margin": 0.9755226373672485,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 63,
+      "loss": 0.34956079721450806,
+      "reward_margin": 1.397849202156067,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 64,
+      "loss": 0.4573163092136383,
+      "reward_margin": 0.9061317443847656,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 65,
+      "loss": 0.4504222571849823,
+      "reward_margin": 0.631085991859436,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 66,
+      "loss": 0.7039452195167542,
+      "reward_margin": 0.12866514921188354,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 67,
+      "loss": 0.33250439167022705,
+      "reward_margin": 1.0320252180099487,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 68,
+      "loss": 0.6639052033424377,
+      "reward_margin": 0.25859910249710083,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 69,
+      "loss": 0.7870410680770874,
+      "reward_margin": -0.1371055692434311,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 70,
+      "loss": 0.6116747856140137,
+      "reward_margin": 0.2707870602607727,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 71,
+      "loss": 0.5105968117713928,
+      "reward_margin": 0.9475936889648438,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 72,
+      "loss": 0.4056367576122284,
+      "reward_margin": 1.1395981311798096,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 73,
+      "loss": 0.8618386387825012,
+      "reward_margin": 0.2530632019042969,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 74,
+      "loss": 0.3959503769874573,
+      "reward_margin": 0.9553390741348267,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 75,
+      "loss": 0.801443874835968,
+      "reward_margin": 0.02781982719898224,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 76,
+      "loss": 0.8455119729042053,
+      "reward_margin": -0.0005187839269638062,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 77,
+      "loss": 0.5344762802124023,
+      "reward_margin": 0.49972760677337646,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 78,
+      "loss": 0.39272284507751465,
+      "reward_margin": 1.063938856124878,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 79,
+      "loss": 0.5484192371368408,
+      "reward_margin": 0.6570281982421875,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 80,
+      "loss": 0.3759743869304657,
+      "reward_margin": 1.460889458656311,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 81,
+      "loss": 0.8252646327018738,
+      "reward_margin": 0.13121876120567322,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 82,
+      "loss": 1.056620717048645,
+      "reward_margin": -0.511186957359314,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 83,
+      "loss": 0.4394848942756653,
+      "reward_margin": 1.1352684497833252,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 84,
+      "loss": 0.8301688432693481,
+      "reward_margin": -0.19139406085014343,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 85,
+      "loss": 0.3341878056526184,
+      "reward_margin": 1.317073106765747,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 86,
+      "loss": 0.5896058082580566,
+      "reward_margin": 1.083215355873108,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 87,
+      "loss": 0.36239296197891235,
+      "reward_margin": 1.057044267654419,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 88,
+      "loss": 0.30697035789489746,
+      "reward_margin": 1.6723244190216064,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 89,
+      "loss": 0.47793182730674744,
+      "reward_margin": 0.8601059317588806,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 90,
+      "loss": 0.2923920750617981,
+      "reward_margin": 1.2337226867675781,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 91,
+      "loss": 0.5839619040489197,
+      "reward_margin": 1.478257656097412,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 92,
+      "loss": 0.4976540803909302,
+      "reward_margin": 0.9556877017021179,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 93,
+      "loss": 0.2310592234134674,
+      "reward_margin": 1.6819299459457397,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 94,
+      "loss": 1.1522495746612549,
+      "reward_margin": -0.34008026123046875,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 95,
+      "loss": 0.7830370664596558,
+      "reward_margin": 0.3550819754600525,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 96,
+      "loss": 0.8880928754806519,
+      "reward_margin": -0.18034666776657104,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 97,
+      "loss": 0.5746015906333923,
+      "reward_margin": 0.95382159948349,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 98,
+      "loss": 0.6645503044128418,
+      "reward_margin": 0.48225095868110657,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 99,
+      "loss": 1.6516269445419312,
+      "reward_margin": -1.0892319679260254,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 100,
+      "loss": 0.306336909532547,
+      "reward_margin": 1.3604164123535156,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 101,
+      "loss": 0.5756701231002808,
+      "reward_margin": 0.40951311588287354,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 102,
+      "loss": 0.3589259386062622,
+      "reward_margin": 1.0223884582519531,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 103,
+      "loss": 1.0495736598968506,
+      "reward_margin": -0.0758315920829773,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 104,
+      "loss": 0.6479755640029907,
+      "reward_margin": 0.19183579087257385,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 105,
+      "loss": 0.7210649251937866,
+      "reward_margin": 0.290933221578598,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 106,
+      "loss": 0.4907505512237549,
+      "reward_margin": 0.5812088251113892,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 107,
+      "loss": 0.513451337814331,
+      "reward_margin": 1.2536286115646362,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 108,
+      "loss": 0.49647819995880127,
+      "reward_margin": 0.6216689944267273,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 109,
+      "loss": 0.43325960636138916,
+      "reward_margin": 0.7498413324356079,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 110,
+      "loss": 1.0370155572891235,
+      "reward_margin": -0.45271456241607666,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 111,
+      "loss": 0.4647183418273926,
+      "reward_margin": 0.8464417457580566,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 112,
+      "loss": 0.9858614802360535,
+      "reward_margin": -0.4407806098461151,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 113,
+      "loss": 0.15612167119979858,
+      "reward_margin": 2.366929531097412,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 114,
+      "loss": 0.5448508262634277,
+      "reward_margin": 1.5899879932403564,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 115,
+      "loss": 0.5538854598999023,
+      "reward_margin": 0.384979248046875,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 116,
+      "loss": 0.4919937551021576,
+      "reward_margin": 0.5368973016738892,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 117,
+      "loss": 1.0243231058120728,
+      "reward_margin": -0.4635963439941406,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 118,
+      "loss": 0.6478522419929504,
+      "reward_margin": 0.14596252143383026,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 119,
+      "loss": 0.4156607985496521,
+      "reward_margin": 1.0726311206817627,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 120,
+      "loss": 0.4457324147224426,
+      "reward_margin": 1.308351993560791,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 121,
+      "loss": 0.6919745802879333,
+      "reward_margin": 0.1594650149345398,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 122,
+      "loss": 0.80400550365448,
+      "reward_margin": 0.24095001816749573,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 123,
+      "loss": 0.3185378611087799,
+      "reward_margin": 1.3324387073516846,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 124,
+      "loss": 0.36842501163482666,
+      "reward_margin": 1.179418921470642,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 125,
+      "loss": 0.6360129714012146,
+      "reward_margin": 0.44048088788986206,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 126,
+      "loss": 0.21406307816505432,
+      "reward_margin": 2.056577205657959,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 127,
+      "loss": 0.5346326231956482,
+      "reward_margin": 0.3977806270122528,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 128,
+      "loss": 0.3374021649360657,
+      "reward_margin": 1.621090054512024,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 129,
+      "loss": 0.23904429376125336,
+      "reward_margin": 2.3636748790740967,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 130,
+      "loss": 0.2146618366241455,
+      "reward_margin": 1.9430947303771973,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 131,
+      "loss": 0.4115872383117676,
+      "reward_margin": 1.2938827276229858,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 132,
+      "loss": 0.8051455616950989,
+      "reward_margin": 0.17748570442199707,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 133,
+      "loss": 0.6668400764465332,
+      "reward_margin": 0.0645088255405426,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 134,
+      "loss": 0.17308393120765686,
+      "reward_margin": 2.462573289871216,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 135,
+      "loss": 0.17281007766723633,
+      "reward_margin": 2.7788896560668945,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 136,
+      "loss": 0.5981365442276001,
+      "reward_margin": 0.3319816589355469,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 137,
+      "loss": 0.37970098853111267,
+      "reward_margin": 1.1376372575759888,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 138,
+      "loss": 0.5838117599487305,
+      "reward_margin": 0.9861137270927429,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 139,
+      "loss": 0.9627189636230469,
+      "reward_margin": -0.3846893608570099,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 140,
+      "loss": 0.41131532192230225,
+      "reward_margin": 1.7595053911209106,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 141,
+      "loss": 0.5416950583457947,
+      "reward_margin": 0.5849098563194275,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 142,
+      "loss": 0.5401253700256348,
+      "reward_margin": 0.8749931454658508,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 143,
+      "loss": 0.42461326718330383,
+      "reward_margin": 0.7412047982215881,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 144,
+      "loss": 0.3855763077735901,
+      "reward_margin": 1.0423171520233154,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 145,
+      "loss": 0.6455798745155334,
+      "reward_margin": 0.5909209847450256,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 146,
+      "loss": 0.7713649272918701,
+      "reward_margin": 0.10301056504249573,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 147,
+      "loss": 0.7550375461578369,
+      "reward_margin": 0.033176422119140625,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 148,
+      "loss": 0.2863418161869049,
+      "reward_margin": 2.6663131713867188,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 149,
+      "loss": 0.45577120780944824,
+      "reward_margin": 0.6975570917129517,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 150,
+      "loss": 0.7410764694213867,
+      "reward_margin": 0.8068702220916748,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 151,
+      "loss": 0.9793088436126709,
+      "reward_margin": -0.3438430726528168,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 152,
+      "loss": 0.18578064441680908,
+      "reward_margin": 2.7577109336853027,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 153,
+      "loss": 0.6697880625724792,
+      "reward_margin": 0.4931938052177429,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 154,
+      "loss": 0.4261625409126282,
+      "reward_margin": 1.022626519203186,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 155,
+      "loss": 0.5337904095649719,
+      "reward_margin": 1.0861693620681763,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 156,
+      "loss": 0.8781997561454773,
+      "reward_margin": 0.535290539264679,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 157,
+      "loss": 1.2074143886566162,
+      "reward_margin": -0.18154899775981903,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 158,
+      "loss": 0.7061410546302795,
+      "reward_margin": 0.3029365837574005,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 159,
+      "loss": 0.6578725576400757,
+      "reward_margin": 0.4504959285259247,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 160,
+      "loss": 0.5401697158813477,
+      "reward_margin": 1.3610305786132812,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 161,
+      "loss": 0.4650154113769531,
+      "reward_margin": 1.8824806213378906,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 162,
+      "loss": 0.4909895956516266,
+      "reward_margin": 0.47826462984085083,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 163,
+      "loss": 0.8260067701339722,
+      "reward_margin": -0.000102996826171875,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 164,
+      "loss": 0.930224597454071,
+      "reward_margin": -0.3986877501010895,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 165,
+      "loss": 0.22424589097499847,
+      "reward_margin": 2.368894100189209,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 166,
+      "loss": 0.24144265055656433,
+      "reward_margin": 2.1133546829223633,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 167,
+      "loss": 0.17007194459438324,
+      "reward_margin": 1.7885773181915283,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 168,
+      "loss": 0.4454357624053955,
+      "reward_margin": 0.9871681332588196,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 169,
+      "loss": 0.6414786577224731,
+      "reward_margin": 1.2196067571640015,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 170,
+      "loss": 0.4330960512161255,
+      "reward_margin": 0.8647217154502869,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 171,
+      "loss": 0.15969280898571014,
+      "reward_margin": 2.1185708045959473,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 172,
+      "loss": 0.35358926653862,
+      "reward_margin": 1.3357055187225342,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 173,
+      "loss": 0.362842857837677,
+      "reward_margin": 1.8049629926681519,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 174,
+      "loss": 0.5421985387802124,
+      "reward_margin": 0.8708710074424744,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 175,
+      "loss": 0.33569222688674927,
+      "reward_margin": 1.864515781402588,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 176,
+      "loss": 0.2423192262649536,
+      "reward_margin": 2.0972657203674316,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 177,
+      "loss": 1.2296442985534668,
+      "reward_margin": -0.08942180871963501,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 178,
+      "loss": 0.8486201763153076,
+      "reward_margin": 0.2848403751850128,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 179,
+      "loss": 0.4978460669517517,
+      "reward_margin": 0.8883873224258423,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 180,
+      "loss": 0.4551487863063812,
+      "reward_margin": 0.9116508960723877,
+      "pairs_in_batch": 4
+    }
+  ]
+}
