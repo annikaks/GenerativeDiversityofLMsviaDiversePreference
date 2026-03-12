@@ -1,0 +1,10 @@
+{
+  "input_file": "/vol/outputs/divpo/qwen3-8b-reasoning-divpo/preference_pairs.jsonl",
+  "annotated_output": "/vol/outputs/divpo/qwen3-8b-reasoning-divpo/preference_pairs_with_llm_accuracy.jsonl",
+  "input_rows": 2002,
+  "annotated_rows": 2002,
+  "num_missing_scores": 0,
+  "num_unique_prompt_response_items": 1430,
+  "judge_provider": "anthropic",
+  "judge_model": "claude-opus-4-6"
+}
