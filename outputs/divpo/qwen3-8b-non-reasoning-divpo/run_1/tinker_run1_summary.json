@@ -1,0 +1,42 @@
+{
+  "run_name": "qwen3-8b-non-reasoning-divpo-run1",
+  "base_model": "Qwen/Qwen3-8B",
+  "thinking_mode": "non_reasoning",
+  "num_steps": 200,
+  "num_checkpoints": 40,
+  "first_step": {
+    "step": 1,
+    "loss": 0.7091635465621948,
+    "reward_margin": -0.02749786339700222,
+    "pairs_in_batch": 4
+  },
+  "last_step": {
+    "step": 200,
+    "loss": 0.4180678427219391,
+    "reward_margin": 1.3078010082244873,
+    "pairs_in_batch": 4
+  },
+  "loss": {
+    "mean": 0.5771060324087739,
+    "min": 0.07343999296426773,
+    "max": 1.6516269445419312,
+    "first20_mean": 0.714530599117279,
+    "last20_mean": 0.43844124116003513,
+    "slope_per_step": -0.0010637530328119578
+  },
+  "reward_margin": {
+    "mean": 0.7185986797697842,
+    "min": -1.0892319679260254,
+    "max": 2.7788896560668945,
+    "first20_mean": -0.0241274643689394,
+    "last20_mean": 1.5405430525541306,
+    "slope_per_step": 0.007129193952199954,
+    "positive_steps": 168,
+    "positive_fraction": 0.84
+  },
+  "last_checkpoint": {
+    "step": 200,
+    "checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0200",
+    "checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0200"
+  }
+}
