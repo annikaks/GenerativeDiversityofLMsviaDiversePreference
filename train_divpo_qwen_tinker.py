@@ -31,6 +31,17 @@ MODEL_ID = "Qwen/Qwen3-8B"
 DEFAULT_OUTPUT_ROOT = Path("outputs/divpo")
 
 
+def make_safe_weights_label(*parts: str) -> str:
+    raw = "-".join(parts)
+    safe = []
+    for ch in raw:
+        if ch.isalnum() or ch in "-_.":
+            safe.append(ch)
+        else:
+            safe.append("-")
+    return "".join(safe)
+
+
 def load_jsonl(path: Path) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     with path.open("r", encoding="utf-8") as f:
@@ -162,46 +173,59 @@ def annotate_pairs_with_reference(
     return annotated
 
 
-def make_dpo_batch(rows: Sequence[Dict[str, Any]]) -> List[tinker.Datum]:
+def make_dpo_batch(
+    rows: Sequence[Dict[str, Any]],
+) -> Tuple[List[tinker.Datum], List[Dict[str, Any]]]:
     batch: List[tinker.Datum] = []
+    datum_meta: List[Dict[str, Any]] = []
     for pair_index, row in enumerate(rows):
         batch.append(
             tinker.Datum(
                 model_input=types.ModelInput.from_ints(row["chosen_tokens"][:-1]),
-                target=torch.tensor(row["chosen_tokens"][1:], dtype=torch.int32),
                 loss_fn_inputs={
-                    "completion_mask": torch.tensor(row["chosen_mask"], dtype=torch.float32),
-                    "reference_logprob_sum": torch.tensor(row["chosen_ref_logprob_sum"], dtype=torch.float32),
-                    "pair_index": torch.tensor(pair_index, dtype=torch.int32),
-                    "is_chosen": torch.tensor(1, dtype=torch.int32),
+                    "target_tokens": row["chosen_tokens"][1:],
+                    "weights": [1.0] * (len(row["chosen_tokens"]) - 1),
                 },
             )
+        )
+        datum_meta.append(
+            {
+                "completion_mask": row["chosen_mask"],
+                "reference_logprob_sum": row["chosen_ref_logprob_sum"],
+                "pair_index": pair_index,
+                "is_chosen": 1,
+            }
         )
         batch.append(
             tinker.Datum(
                 model_input=types.ModelInput.from_ints(row["rejected_tokens"][:-1]),
-                target=torch.tensor(row["rejected_tokens"][1:], dtype=torch.int32),
                 loss_fn_inputs={
-                    "completion_mask": torch.tensor(row["rejected_mask"], dtype=torch.float32),
-                    "reference_logprob_sum": torch.tensor(row["rejected_ref_logprob_sum"], dtype=torch.float32),
-                    "pair_index": torch.tensor(pair_index, dtype=torch.int32),
-                    "is_chosen": torch.tensor(0, dtype=torch.int32),
+                    "target_tokens": row["rejected_tokens"][1:],
+                    "weights": [1.0] * (len(row["rejected_tokens"]) - 1),
                 },
             )
         )
-    return batch
+        datum_meta.append(
+            {
+                "completion_mask": row["rejected_mask"],
+                "reference_logprob_sum": row["rejected_ref_logprob_sum"],
+                "pair_index": pair_index,
+                "is_chosen": 0,
+            }
+        )
+    return batch, datum_meta
 
 
-def dpo_loss_factory(beta: float):
+def dpo_loss_factory(beta: float, datum_meta: Sequence[Dict[str, Any]]):
     def loss_fn(data: List[tinker.Datum], logprobs: List[torch.Tensor]):
         pair_state: Dict[int, Dict[str, torch.Tensor]] = {}
         device = logprobs[0].device
 
-        for datum, seq_logprobs in zip(data, logprobs):
-            mask = torch.as_tensor(datum.loss_fn_inputs["completion_mask"], device=device)
-            ref = torch.as_tensor(datum.loss_fn_inputs["reference_logprob_sum"], device=device)
-            pair_index = int(torch.as_tensor(datum.loss_fn_inputs["pair_index"]).item())
-            is_chosen = int(torch.as_tensor(datum.loss_fn_inputs["is_chosen"]).item())
+        for meta, seq_logprobs in zip(datum_meta, logprobs):
+            mask = torch.as_tensor(meta["completion_mask"], device=device)
+            ref = torch.as_tensor(meta["reference_logprob_sum"], device=device)
+            pair_index = int(meta["pair_index"])
+            is_chosen = int(meta["is_chosen"])
 
             current_sum = (seq_logprobs * mask).sum()
             state = pair_state.setdefault(pair_index, {})
@@ -258,8 +282,9 @@ def main() -> None:
     args = parse_args()
     load_dotenv()
 
-    mode_dir = args.output_root / f"qwen3-8b-{args.thinking_mode}-divpo"
-    pairs_path = args.pairs_path or (mode_dir / "preference_pairs.jsonl")
+    default_mode_dir = args.output_root / f"qwen3-8b-{args.thinking_mode}-divpo"
+    pairs_path = args.pairs_path or (default_mode_dir / "preference_pairs.jsonl")
+    mode_dir = pairs_path.parent if args.pairs_path is not None else default_mode_dir
     annotated_pairs_path = mode_dir / "preference_pairs_tinker_ready.json"
     metrics_path = mode_dir / "tinker_training_metrics.json"
     checkpoints_path = mode_dir / "tinker_checkpoints.json"
@@ -304,7 +329,6 @@ def main() -> None:
         base_model=MODEL_ID,
         rank=args.rank,
     )
-    loss_fn = dpo_loss_factory(args.beta)
     print(
         f"[tinker-divpo] training_start num_steps={args.num_steps} "
         f"batch_size_pairs={args.batch_size_pairs} save_every_steps={args.save_every_steps}"
@@ -317,7 +341,8 @@ def main() -> None:
     started = time.time()
     for step in range(args.num_steps):
         rows = row_batches[step % len(row_batches)]
-        data = make_dpo_batch(rows)
+        data, datum_meta = make_dpo_batch(rows)
+        loss_fn = dpo_loss_factory(args.beta, datum_meta)
         loss_result = training_client.forward_backward_custom(data, loss_fn).result()
         training_client.optim_step(
             types.AdamParams(
@@ -344,9 +369,14 @@ def main() -> None:
         )
 
         if (step + 1) % args.save_every_steps == 0:
-            checkpoint_path = training_client.save_state().result().path
+            checkpoint_name = make_safe_weights_label(
+                mode_dir.name,
+                f"checkpoint-step-{step + 1:04d}",
+            )
+            checkpoint_path = training_client.save_state(checkpoint_name).result().path
             checkpoint_obj = {
                 "step": step + 1,
+                "checkpoint_name": checkpoint_name,
                 "checkpoint_path": checkpoint_path,
             }
             checkpoints.append(checkpoint_obj)
@@ -368,16 +398,19 @@ def main() -> None:
                 {
                     "created_at_utc": "generated-by-train_divpo_qwen_tinker",
                     "last_checkpoint_path": checkpoint_path,
+                    "last_checkpoint_name": checkpoint_name,
                     "num_checkpoints_saved": len(checkpoints),
                     "metrics": metrics,
                 },
             )
 
-    final_state = training_client.save_state().result().path
+    final_checkpoint_name = make_safe_weights_label(mode_dir.name, "final-state")
+    final_state = training_client.save_state(final_checkpoint_name).result().path
     final_sampler = training_client.save_weights_and_get_sampling_client().result()
     checkpoints.append(
         {
             "step": args.num_steps,
+            "checkpoint_name": final_checkpoint_name,
             "checkpoint_path": final_state,
             "kind": "final_state",
         }
@@ -389,6 +422,7 @@ def main() -> None:
             "base_model": MODEL_ID,
             "thinking_mode": args.thinking_mode,
             "checkpoints": checkpoints,
+            "final_checkpoint_name": final_checkpoint_name,
             "final_state_path": final_state,
         },
     )
@@ -396,6 +430,7 @@ def main() -> None:
         metrics_path,
         {
             "created_at_utc": "generated-by-train_divpo_qwen_tinker",
+            "final_checkpoint_name": final_checkpoint_name,
             "final_state_path": final_state,
             "sampling_client": str(final_sampler),
             "num_checkpoints_saved": len(checkpoints),
