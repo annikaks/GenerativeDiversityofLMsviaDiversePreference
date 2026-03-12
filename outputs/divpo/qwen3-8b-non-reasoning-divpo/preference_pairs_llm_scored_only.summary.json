@@ -1,0 +1,9 @@
+{
+  "input_file": "outputs/divpo/qwen3-8b-non-reasoning-divpo/preference_pairs_with_llm_accuracy.jsonl",
+  "output_file": "outputs/divpo/qwen3-8b-non-reasoning-divpo/preference_pairs_llm_scored_only.jsonl",
+  "input_rows": 2002,
+  "output_rows": 1175,
+  "dropped_missing_llm_accuracy": 827,
+  "dropped_below_threshold": 0,
+  "min_llm_accuracy": null
+}
