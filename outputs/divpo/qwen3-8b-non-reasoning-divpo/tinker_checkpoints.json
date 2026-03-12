@@ -182,6 +182,26 @@
       "step": 180,
       "checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0180",
       "checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0180"
+    },
+    {
+      "step": 185,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0185",
+      "checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0185"
+    },
+    {
+      "step": 190,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0190",
+      "checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0190"
+    },
+    {
+      "step": 195,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0195",
+      "checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0195"
+    },
+    {
+      "step": 200,
+      "checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0200",
+      "checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0200"
     }
   ]
 }

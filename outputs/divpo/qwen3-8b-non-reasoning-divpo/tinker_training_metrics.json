@@ -1,8 +1,8 @@
 {
   "created_at_utc": "generated-by-train_divpo_qwen_tinker",
-  "last_checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0180",
-  "last_checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0180",
-  "num_checkpoints_saved": 36,
+  "last_checkpoint_path": "tinker://1ec26b36-479d-56a8-b98b-6c1252e613ad:train:0/weights/qwen3-8b-non-reasoning-divpo-checkpoint-step-0200",
+  "last_checkpoint_name": "qwen3-8b-non-reasoning-divpo-checkpoint-step-0200",
+  "num_checkpoints_saved": 40,
   "metrics": [
     {
       "step": 1,
@@ -1082,6 +1082,126 @@
       "step": 180,
       "loss": 0.4551487863063812,
       "reward_margin": 0.9116508960723877,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 181,
+      "loss": 0.8949922323226929,
+      "reward_margin": 0.788794755935669,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 182,
+      "loss": 0.3749968707561493,
+      "reward_margin": 1.332545518875122,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 183,
+      "loss": 0.3337436318397522,
+      "reward_margin": 1.1368682384490967,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 184,
+      "loss": 0.16460809111595154,
+      "reward_margin": 2.0331528186798096,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 185,
+      "loss": 0.2063930779695511,
+      "reward_margin": 2.432940721511841,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 186,
+      "loss": 0.12568429112434387,
+      "reward_margin": 2.3651657104492188,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 187,
+      "loss": 0.07343999296426773,
+      "reward_margin": 2.7320122718811035,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 188,
+      "loss": 0.6103141903877258,
+      "reward_margin": 0.9715797901153564,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 189,
+      "loss": 0.17101702094078064,
+      "reward_margin": 2.1336922645568848,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 190,
+      "loss": 0.1751384139060974,
+      "reward_margin": 1.665078043937683,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 191,
+      "loss": 0.621815025806427,
+      "reward_margin": 0.5883415341377258,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 192,
+      "loss": 0.8241069912910461,
+      "reward_margin": 0.8041405081748962,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 193,
+      "loss": 0.34289631247520447,
+      "reward_margin": 2.2966575622558594,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 194,
+      "loss": 1.1322882175445557,
+      "reward_margin": 0.17530131340026855,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 195,
+      "loss": 0.40431731939315796,
+      "reward_margin": 1.6038689613342285,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 196,
+      "loss": 1.0945096015930176,
+      "reward_margin": 0.2687233090400696,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 197,
+      "loss": 0.4621773958206177,
+      "reward_margin": 1.437201738357544,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 198,
+      "loss": 0.2181500792503357,
+      "reward_margin": 2.270250082015991,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 199,
+      "loss": 0.12016822397708893,
+      "reward_margin": 2.466744899749756,
+      "pairs_in_batch": 4
+    },
+    {
+      "step": 200,
+      "loss": 0.4180678427219391,
+      "reward_margin": 1.3078010082244873,
       "pairs_in_batch": 4
     }
   ]
