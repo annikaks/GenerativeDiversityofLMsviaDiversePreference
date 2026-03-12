@@ -1,0 +1,19 @@
+{
+  "created_at_utc": "2026-03-12T03:14:55Z",
+  "judge_config": {
+    "provider": "anthropic",
+    "model": "claude-opus-4-6",
+    "temperature": 0.0,
+    "rpm": 5.0
+  },
+  "entries": {
+    "e5ffe4ee57c67ca38f0b7b61231278068dea04642eead0cb149d402d4eba1c79": {
+      "score": null,
+      "error": "Could not parse JSON from judge output"
+    },
+    "f560ad6e83fddeadd79c911a59d6d4d5e338836f708a8580fe7da2f77e0f2197": {
+      "score": 82,
+      "error": null
+    }
+  }
+}
